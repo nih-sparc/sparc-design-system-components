@@ -1,6 +1,6 @@
 {
-  "name": "sparc-test-design-system-components",
-  "version": "0.3.4",
+  "name": "sparc-test2-design-system-components",
+  "version": "0.1.0",
   "private": false,
   "main": "./dist/sparc-test-design-system-components.common.js",
   "scripts": {
@@ -8,11 +8,17 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "build-bundle": "vue-cli-service build --target lib --name sparc-test-design-system-components ./src/components/index.js",
-    "ci": "build-bundle"
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "2.4.11",
+    "generate-changelog": "^1.8.0",
     "sass": "^1.26.9",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.11"
