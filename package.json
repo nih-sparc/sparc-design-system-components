@@ -1,6 +1,6 @@
 {
   "name": "sparc-test-design-system-components",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "private": false,
   "main": "./dist/sparc-test-design-system-components.common.js",
   "scripts": {
