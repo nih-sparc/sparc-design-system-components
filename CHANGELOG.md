@@ -1,3 +1,9 @@
+#### 0.4.2 (2020-06-26)
+
+##### Documentation Changes
+
+* **Readme:**  Add install and quickstart (aff5c6de)
+
 #### 0.4.1 (2020-06-26)
 
 ##### Documentation Changes
