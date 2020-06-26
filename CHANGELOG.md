@@ -1,3 +1,9 @@
+#### 0.4.4 (2020-06-26)
+
+##### Continuous Integration
+
+* **Packages:**  Make package public ([105ecbe5](https://github.com/nih-sparc/sparc-design-system-components/commit/105ecbe5a45e1c1d29ce12b7b6f333b20b2aaa7c))
+
 #### 0.4.3 (2020-06-26)
 
 ##### Continuous Integration
