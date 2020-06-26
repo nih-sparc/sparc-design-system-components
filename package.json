@@ -1,5 +1,5 @@
 {
-  "name": "sparc-test-design-system-components",
+  "name": "@nih-sparc/sparc-design-system-components",
   "version": "0.4.2",
   "private": false,
   "main": "./dist/sparc-design-system-components.common.js",
@@ -11,6 +11,10 @@
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
     "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nih-sparc/sparc-design-system-components.git"
   },
   "dependencies": {
     "core-js": "^3.6.5",
