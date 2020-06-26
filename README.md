@@ -13,8 +13,30 @@ Our intention is to create an online resource with the code for these components
 
 ## Components
 
-[Element UI](https://github.com/ElemeFE/element)
+- [Element UI](https://github.com/ElemeFE/element)
+- Tabs
 
+## Installation
+### With Yarn
+```
+yarn add sparc-test-design-system-components
+```
+
+### With NPM
+```
+npm install sparc-test-design-system-components
+```
+
+## Quick Start
+```
+import Vue from 'vue'
+
+import SparcComponentLibrary from 'sparc-test-design-system-components'
+
+Vue.use(SparcComponentLibrary)
+```
+
+# Development
 ## Project setup
 ```
 yarn install
