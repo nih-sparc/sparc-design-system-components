@@ -19,12 +19,12 @@ Our intention is to create an online resource with the code for these components
 ## Installation
 ### With Yarn
 ```
-yarn add sparc-test-design-system-components
+yarn add @nih-sparc/sparc-design-system-components
 ```
 
 ### With NPM
 ```
-npm install sparc-test-design-system-components
+npm install @nih-sparc/sparc-design-system-components
 ```
 
 ## Quick Start
