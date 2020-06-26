@@ -17,11 +17,19 @@
       </el-option>
     </el-select>
 
-    <tab-nav
-      :tabs="tabs"
-      :active-tab="activeTab"
-      @set-active-tab="activeTab = $event"
-    />
+    <div style="background: #292b66; padding: 2em;">
+      <tab-nav
+        class="style2"
+        :tabs="tabs"
+        :active-tab="activeTab"
+        @set-active-tab="activeTab = $event"
+      />
+    </div>
+      <tab-nav
+        :tabs="tabs"
+        :active-tab="activeTab"
+        @set-active-tab="activeTab = $event"
+      />
   </div>
 </template>
 
