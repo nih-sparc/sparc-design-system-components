@@ -16,6 +16,12 @@
         :value="item.value">
       </el-option>
     </el-select>
+
+    <tab-nav
+      :tabs="tabs"
+      :active-tab="activeTab"
+      @set-active-tab="activeTab = $event"
+    />
   </div>
 </template>
 
@@ -42,7 +48,18 @@ export default {
         value: 'Option5',
         label: 'Option5'
       }],
-      value: ''
+      value: '',
+      activeTab: 'upcoming',
+      tabs: [
+        {
+          label: 'Upcoming',
+          type: 'upcoming'
+        },
+        {
+          label: 'Past',
+          type: 'past'
+        }
+      ]
     }
   }
 }

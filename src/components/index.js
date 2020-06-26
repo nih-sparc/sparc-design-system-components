@@ -1,10 +1,21 @@
 import Vue from 'vue';
 import ElementUI from 'element-ui';
+
 import '@/assets/styles.scss';
-import enLang from 'element-ui/lib/locale/lang/en';
 
-Vue.use(ElementUI, {
-  locale: enLang
-});
+import TabNav from './TabNav'
 
-export default ElementUI;
+const Components = {
+  TabNav
+}
+
+Object.keys(Components).forEach(component => {
+  Vue.component(component, Components[component]);
+})
+
+ElementUI.install(Vue)
+
+export default {
+  ElementUI,
+  ...Components
+}
