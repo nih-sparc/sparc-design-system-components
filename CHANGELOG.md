@@ -1,3 +1,9 @@
+#### 0.4.5 (2020-06-26)
+
+##### Documentation Changes
+
+* **Readme:**  Update package url ([9602ab0e](https://github.com/nih-sparc/sparc-design-system-components/commit/9602ab0e59499a7521d1b090eba43f376e94f8eb))
+
 #### 0.4.4 (2020-06-26)
 
 ##### Continuous Integration
