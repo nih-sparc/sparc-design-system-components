@@ -1,3 +1,9 @@
+#### 0.4.1 (2020-06-26)
+
+##### Documentation Changes
+
+* **Readme:**  Update readme (22248cf2)
+
 ### 0.4.0 (2020-06-26)
 
 ##### New Features
