@@ -1,13 +1,6 @@
 {
-  "name": "@nih-sparc/sparc-design-system-components",
+  "name": "sparc-test-design-system-components",
   "version": "0.3.8",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nih-sparc/sparc-design-system-components"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/nih-sparc"
-  },
   "private": false,
   "main": "./dist/sparc-design-system-components.common.js",
   "scripts": {
