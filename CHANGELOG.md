@@ -1,3 +1,9 @@
+#### 0.4.6 (2020-06-26)
+
+##### Continuous Integration
+
+* **Packages:**  Add MIT license ([637bcd5a](https://github.com/nih-sparc/sparc-design-system-components/commit/637bcd5aecff12dc4124ce7b872bc2d3588d854a))
+
 #### 0.4.5 (2020-06-26)
 
 ##### Documentation Changes
