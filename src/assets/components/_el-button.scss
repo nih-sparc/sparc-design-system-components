@@ -4,6 +4,7 @@
   background: $app-primary-color;
   color: #fff;
   font-family: $font-family;
+  font-weight: 500;
   &:hover,
   &:active,
   &[disabled],
@@ -19,5 +20,18 @@
   }
   &.uppercase {
     text-transform: uppercase;
+  }
+
+  &.secondary,
+  &.secondary[disabled],
+  &.secondary[disabled]:hover {
+    background: #f9f2fc;
+    border: 1px solid $app-primary-color;
+    color: $app-primary-color;
+    &.alt {
+      background: #fff;
+      border-color: $mediumGray;
+      color: $mediumGray;
+    }
   }
 }

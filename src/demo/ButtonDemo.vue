@@ -11,10 +11,12 @@
     <h3>Secondary Button</h3>
     <p>This button is used for a non-primary call to action that still needs attention</p>
     <el-button class="secondary">Button</el-button>
+    <el-button class="secondary" disabled>Button</el-button>
 
-    <h3>Ghost Button</h3>
+    <h3>Secondary (alt) Button</h3>
     <p>This button is used for a non-primary call to action</p>
-    <el-button class="ghost">Button</el-button>
+    <el-button class="secondary alt">Button</el-button>
+    <el-button class="secondary alt" disabled>Button</el-button>
   </div>
 </template>
 
