@@ -6,9 +6,10 @@
   font-family: $font-family;
   font-weight: 500;
   &:hover,
-  &:active,
+  &:focus,
   &[disabled],
-  &[disabled]:hover {
+  &[disabled]:hover,
+  &[disabled]:focus {
     background: $app-primary-color;
     box-shadow: -3px 2px 4px 0px rgba(0, 0, 0, 0.25);
     color: #fff;
@@ -24,7 +25,8 @@
 
   &.secondary,
   &.secondary[disabled],
-  &.secondary[disabled]:hover {
+  &.secondary[disabled]:hover,
+  &.secondary[disabled]:focus {
     background: #f9f2fc;
     border: 1px solid $app-primary-color;
     color: $app-primary-color;
@@ -33,5 +35,13 @@
       border-color: $mediumGray;
       color: $mediumGray;
     }
+  }
+
+  &.danger,
+  &.danger[disabled],
+  &.danger[disabled]:hover,
+  &.danger[disabled]:focus {
+    background: $danger;
+    color: #fff;
   }
 }

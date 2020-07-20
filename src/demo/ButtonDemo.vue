@@ -17,6 +17,10 @@
     <p>This button is used for a non-primary call to action</p>
     <el-button class="secondary alt">Button</el-button>
     <el-button class="secondary alt" disabled>Button</el-button>
+
+    <h3>Danger</h3>
+    <el-button class="danger">Button</el-button>
+    <el-button class="danger" disabled>Button</el-button>
   </div>
 </template>
 
