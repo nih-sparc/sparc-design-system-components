@@ -1,0 +1,23 @@
+@import '../_variables.scss';
+
+.el-button {
+  background: $app-primary-color;
+  color: #fff;
+  font-family: $font-family;
+  &:hover,
+  &:active,
+  &[disabled],
+  &[disabled]:hover {
+    background: $app-primary-color;
+    box-shadow: -3px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #fff;
+  }
+  &[disabled],
+  &[disabled]:hover {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+  &.uppercase {
+    text-transform: uppercase;
+  }
+}

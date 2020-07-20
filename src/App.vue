@@ -25,18 +25,26 @@
         @set-active-tab="activeTab = $event"
       />
     </div>
-      <tab-nav
-        :tabs="tabs"
-        :active-tab="activeTab"
-        @set-active-tab="activeTab = $event"
-      />
+    <tab-nav
+      :tabs="tabs"
+      :active-tab="activeTab"
+      @set-active-tab="activeTab = $event"
+    />
+
+    <button-demo />
   </div>
 </template>
 
 <script>
+import ButtonDemo from '@/demo/ButtonDemo'
 
 export default {
   name: 'App',
+
+  components: {
+    ButtonDemo
+  },
+
   data() {
     return {
       value1: '',
