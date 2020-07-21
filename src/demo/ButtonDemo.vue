@@ -7,6 +7,8 @@
     <p>This button is used for a primary call to action</p>
     <el-button>Button</el-button>
     <el-button disabled>Button</el-button>
+    <el-button class="large">Large Button</el-button>
+    <el-button class="small">Small Button</el-button>
 
     <h3>Secondary Button</h3>
     <p>This button is used for a non-primary call to action that still needs attention</p>
