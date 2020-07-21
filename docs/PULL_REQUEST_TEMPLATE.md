@@ -24,4 +24,4 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have added unit tests that prove my fix is effective or that my feature works
-- [ ] I have pushed the final commit message using the [changelog format](https://github.com/nih-sparc/sparc-design-system-components/wiki/CHANGELOG)
+- [ ] I have pushed the final commit message using the [changelog format](https://github.com/nih-sparc/sparc-design-system-components/wiki/Generating-a-Changelog)
