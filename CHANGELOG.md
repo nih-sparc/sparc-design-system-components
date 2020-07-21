@@ -1,47 +1,6 @@
-#### 0.4.6 (2020-06-26)
-
-##### Continuous Integration
-
-* **Packages:**  Add MIT license ([637bcd5a](https://github.com/nih-sparc/sparc-design-system-components/commit/637bcd5aecff12dc4124ce7b872bc2d3588d854a))
-
-#### 0.4.5 (2020-06-26)
-
-##### Documentation Changes
-
-* **Readme:**  Update package url ([9602ab0e](https://github.com/nih-sparc/sparc-design-system-components/commit/9602ab0e59499a7521d1b090eba43f376e94f8eb))
-
-#### 0.4.4 (2020-06-26)
-
-##### Continuous Integration
-
-* **Packages:**  Make package public ([105ecbe5](https://github.com/nih-sparc/sparc-design-system-components/commit/105ecbe5a45e1c1d29ce12b7b6f333b20b2aaa7c))
-
-#### 0.4.3 (2020-06-26)
-
-##### Continuous Integration
-
-* **Packages:**  Add nih-sparc org ([1f6600ef](https://github.com/nih-sparc/sparc-design-system-components/commit/1f6600efde92e5cccfe926635d9b7d3aaa06ecbd))
-
-#### 0.4.2 (2020-06-26)
-
-##### Documentation Changes
-
-* **Readme:**  Add install and quickstart (aff5c6de)
-
-#### 0.4.1 (2020-06-26)
-
-##### Documentation Changes
-
-* **Readme:**  Update readme (22248cf2)
-
-### 0.4.0 (2020-06-26)
+### 0.5.0 (2020-07-21)
 
 ##### New Features
 
-* **Styles:**
-  *  Add Asap font (f21ddb03)
-  *  Typography (d6076375)
-* **Tabs:**
-  *  Two tab styles (aa656cc7)
-  *  Add tab component (9fc7fdcd)
+* **Button:**  Button component, Primary styles ([3b7f1a41](https://github.com/nih-sparc/sparc-design-system-components/commit/3b7f1a41aac4677d8151f255a5ebff1e374ca193))
 
