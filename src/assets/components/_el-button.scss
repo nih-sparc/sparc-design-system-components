@@ -1,0 +1,62 @@
+@import '../_variables.scss';
+
+.el-button {
+  background: $app-primary-color;
+  border: 1px solid $app-primary-color;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 0.875rem;
+  font-family: $font-family;
+  font-weight: 500;
+  padding: 0.625rem 1.1875rem;
+  &:hover,
+  &:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    background: $app-primary-color;
+    border: 1px solid $app-primary-color;
+    box-shadow: -3px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #fff;
+  }
+  &[disabled],
+  &[disabled]:hover {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  &.large {
+    padding: 0.75rem 1.1875rem;
+  }
+
+  &.small {
+    font-size: 0.75rem;
+    padding: 0.5625rem 0.875rem;
+  }
+
+  &.secondary,
+  &.secondary[disabled],
+  &.secondary[disabled]:hover,
+  &.secondary[disabled]:focus {
+    background: #f9f2fc;
+    border: 1px solid $app-primary-color;
+    color: $app-primary-color;
+    &.alt {
+      background: #fff;
+      border-color: $mediumGray;
+      color: $mediumGray;
+    }
+  }
+
+  &.danger,
+  &.danger[disabled],
+  &.danger[disabled]:hover,
+  &.danger[disabled]:focus {
+    background: $danger;
+    border-color: $danger;
+    color: #fff;
+  }
+}
