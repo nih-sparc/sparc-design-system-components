@@ -1,0 +1,28 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import * as stories from './button.stories.js';
+
+import ElButton from 'element-ui'
+
+<Meta title="Button" component={ElButton} />
+
+# Button
+
+## About Buttons
+Buttons are a vital element in creating a positive and productive user experience. At their most basic, UX buttons are styled links that grab the user’s attention and help drive them in a particular direction. Buttons can link us to other pages or complete an action like “Browse Datasets.” They are often used as calls to actions (CTA) we want our users to complete on our website.
+
+### Primary Button
+This button is used for a primary call to action
+
+<Story name='Primary' height='50px'>{stories.Primary()}</Story>
+
+### Secondary Button
+This button is used for a non-primary call to action that still needs attention
+<Story name='Secondary' height='50px'>{stories.Secondary()}</Story>
+
+### Secondary (alt) Button
+This button is used for a non-primary call to action
+
+<Story name='Secondary Alt' height='50px'>{stories.SecondaryAlt()}</Story>
+
+### Danger
+<Story name='Danger' height='50px'>{stories.Danger()}</Story>
