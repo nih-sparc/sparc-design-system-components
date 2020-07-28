@@ -12,16 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+        uses: actions/checkout@v2
+        uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      -name: Install and Build component library
-      - run: yarn install
-      - run: yarn build-bundle
-      - run: npm publish --access public
+      - name: Install and Build component library
+        run: yarn install
+        run: yarn build-bundle
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      -name: Install and Build Storybook
-      - run: yarn storybook:deploy
+      - name: Install and Build Storybook
+        run: yarn storybook:deploy
