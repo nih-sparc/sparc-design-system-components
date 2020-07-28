@@ -4,4 +4,9 @@
 name: Storybook deploy
 
 on: [push]
-  - run: yarn storybook:deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn storybook:deploy
