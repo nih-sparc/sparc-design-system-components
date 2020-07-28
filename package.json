@@ -12,7 +12,7 @@
     "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "storybook:deploy": "storybook-to-ghpages --ci --out=./storybook-static"
+    "storybook:deploy": "storybook-to-ghpages --ci --existing-output-dir=storybook-static"
   },
   "main": "./dist/sparc-design-system-components.common.js",
   "files": [
