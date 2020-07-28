@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import * as stories from './button.stories.js';
 
 import ElButton from 'element-ui'
@@ -13,16 +13,50 @@ Buttons are a vital element in creating a positive and productive user experienc
 ### Primary Button
 This button is used for a primary call to action
 
-<Story name='Primary' height='50px'>{stories.Primary()}</Story>
+<Story name='Primary' height='60px'>{stories.Primary()}</Story>
+
+#### Code
+
+```
+<el-button>Submit</el-button>
+<el-button disabled>Disabled Button</el-button>
+<el-button class="large">Large Button</el-button>
+<el-button>Normal Button</el-button>
+<el-button class="small">Small Button</el-button>
+```
+
+---
 
 ### Secondary Button
 This button is used for a non-primary call to action that still needs attention
 <Story name='Secondary' height='50px'>{stories.Secondary()}</Story>
+
+#### Code
+```
+<el-button class="secondary">Submit</el-button>
+<el-button class="secondary" disabled>Disabled Button</el-button>
+```
+
+---
 
 ### Secondary (alt) Button
 This button is used for a non-primary call to action
 
 <Story name='Secondary Alt' height='50px'>{stories.SecondaryAlt()}</Story>
 
+#### Code
+```
+<el-button class="secondary alt">Submit</el-button>
+<el-button class="secondary alt" disabled>Disabled Button</el-button>
+```
+
+---
+
 ### Danger
 <Story name='Danger' height='50px'>{stories.Danger()}</Story>
+
+#### Code
+```
+<el-button class="danger">Submit</el-button>
+<el-button class="danger" disabled>Disabled Button</el-button>
+```
