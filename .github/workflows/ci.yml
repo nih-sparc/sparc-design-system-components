@@ -9,4 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: yarn storybook:deploy
+      - run: |
+          yarn
+          yarn storybook:deploy
