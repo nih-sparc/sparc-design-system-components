@@ -2,7 +2,6 @@
   "name": "@nih-sparc/sparc-design-system-components",
   "version": "0.5.0",
   "private": false,
-  "main": "./dist/sparc-design-system-components.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -10,12 +9,20 @@
     "build-bundle": "vue-cli-service build --target lib --name sparc-design-system-components ./src/components/index.js",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
-    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'"
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
+    "storybook:build": "vue-cli-service storybook:build -c config/storybook",
+    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
+    "storybook:deploy": "storybook-to-ghpages --ci --existing-output-dir=storybook-static"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:nih-sparc/sparc-design-system-components.git"
-  },
+  "main": "./dist/sparc-design-system-components.common.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js",
+    "plugins/*"
+  ],
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "2.4.11",
@@ -25,15 +32,25 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@storybook/addon-actions": ">=5.3.0",
+    "@storybook/addon-docs": "^6.0.0-rc.15",
+    "@storybook/addon-knobs": ">=5.3.0",
+    "@storybook/addon-links": ">=5.3.0",
+    "@storybook/storybook-deployer": "^2.8.6",
+    "@storybook/theming": "^5.3.19",
+    "@storybook/vue": "^6.0.0-rc.15",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "react": "^16.13.1",
+    "react-is": "^16.13.1",
+    "vue-cli-plugin-storybook": "~1.3.0",
     "vue-template-compiler": "^2.6.11"
   },
-  "license": "MIT",
   "eslintConfig": {
     "root": true,
     "env": {
@@ -53,12 +70,9 @@
     "last 2 versions",
     "not dead"
   ],
-  "files": [
-    "dist/*",
-    "src/*",
-    "public/*",
-    "*.json",
-    "*.js",
-    "plugins/*"
-  ]
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nih-sparc/sparc-design-system-components.git"
+  }
 }
