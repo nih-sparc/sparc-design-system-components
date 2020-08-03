@@ -1,0 +1,12 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './ContentOverviewCard.stories.js';
+
+import ContentOverviewCard from './src/ContentOverviewCard'
+
+<Meta title="ContentOverviewCard" component={ContentOverviewCard} />
+
+# Content Overview Card
+
+Primarily used for overview pages for datasets, organs, projects, and simulations.
+
+<Story name='Primary' height='60px'>{stories.Primary()}</Story>
