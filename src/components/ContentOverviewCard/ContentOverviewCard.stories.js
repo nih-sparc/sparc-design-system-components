@@ -31,6 +31,11 @@ export const Primary = () => ({
         :description="description"
       >
         <img :src="image" alt="Image" slot="image" />
+        <div slot="meta">
+          <el-button>
+            View on NIH Reporter
+          </el-button>
+        </div>
       </content-overview-card>
     </div>
   `

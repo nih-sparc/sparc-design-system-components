@@ -20,7 +20,7 @@
         <p class="content_overview_card__container--content-description-mobile">
           {{ formatMobileDescription(description) }}
         </p>
-        <slot name="meta content" />
+        <slot name="meta" />
       </div>
     </div>
   </div>
