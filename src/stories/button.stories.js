@@ -10,7 +10,7 @@ const defaultProps = () => ({
 })
 
 export default {
-  title: 'Button',
+  title: 'Components/Button',
   decorators: [withKnobs],
   includeStories: []
 }
