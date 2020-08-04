@@ -11,14 +11,8 @@
         <h2 class="content_overview_card__container--content-title-default">
           {{ formatTitle(title) }}
         </h2>
-        <h2 class="content_overview_card__container--content-title-mobile">
-          {{ formatMobileTitle(title) }}
-        </h2>
         <p class="content_overview_card__container--content-description-default">
           {{ description }}
-        </p>
-        <p class="content_overview_card__container--content-description-mobile">
-          {{ formatMobileDescription(description) }}
         </p>
         <slot name="meta" />
       </div>
@@ -122,17 +116,11 @@ export default {
       font-size: 1.5rem;
       line-height: 2rem;
     }
-    &--content-title-mobile {
-      display: none;
-    }
     &--content-description-default {
       font-size: 0.875rem;
       font-weight: normal;
       line-height: 1.5rem;
       // margin-bottom: 5rem;
-    }
-    &--content-description-mobile {
-      display: none;
     }
     &--content-meta {
       display: flex;
@@ -189,18 +177,6 @@ export default {
     }
     &__container {
       flex-direction: column;
-      &--content-description-default {
-        display: none;
-      }
-      &--content-description-mobile {
-        display: block;
-      }
-      &--content-title-default {
-        display: none;
-      }
-      &--content-title-mobile {
-        display: block;
-      }
       &--content-meta {
         flex-direction: column;
       }

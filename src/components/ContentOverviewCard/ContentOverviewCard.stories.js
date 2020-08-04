@@ -16,7 +16,7 @@ const defaultProps = () => ({
 })
 
 export default {
-  title: 'ContentOverviewCard',
+  title: 'Components/Content Overview Card',
   decorators: [withKnobs],
   includeStories: []
 }
