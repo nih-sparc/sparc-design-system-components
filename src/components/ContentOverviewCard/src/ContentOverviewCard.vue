@@ -50,24 +50,6 @@ export default {
      */
     formatTitle: function(title) {
       return title.length > 150 ? title.substring(0, 150) + '...' : title
-    },
-
-    /**
-     * Formats title length for mobile viewports
-     * @param {String} title
-     */
-    formatMobileTitle: function(title) {
-      return title.length > 90 ? title.substring(0, 90) + '...' : title
-    },
-
-    /**
-     * Formats description based on length for mobile viewports
-     * @param {String}
-     */
-    formatMobileDescription: function(description) {
-      return description.length > 260
-        ? description.substring(0, 260) + '...'
-        : description
     }
   }
 }
