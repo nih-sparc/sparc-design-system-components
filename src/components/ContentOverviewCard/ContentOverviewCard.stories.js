@@ -40,3 +40,17 @@ export const Primary = () => ({
     </div>
   `
 })
+
+export const Minimal = () => ({
+  props: defaultProps(),
+  template: `
+    <div>
+      <content-overview-card
+        :title="title"
+        :description="description"
+      >
+        <img :src="image" alt="Image" slot="image" />
+      </content-overview-card>
+    </div>
+  `
+})
