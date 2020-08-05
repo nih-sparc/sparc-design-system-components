@@ -1,0 +1,17 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './ContentOverviewCard.stories.js';
+
+import ContentOverviewCard from './src/ContentOverviewCard'
+
+<Meta title="Components/Content Overview Card" component={ContentOverviewCard} />
+
+# Content Overview Card
+
+Primarily used for overview pages for datasets, organs, projects, and simulations.
+
+## With all properties and the meta slot
+<Story name='Primary'>{stories.Primary()}</Story>
+
+## Without subtitle and meta slot
+<Story name='Minimal'>{stories.Minimal()}</Story>
+

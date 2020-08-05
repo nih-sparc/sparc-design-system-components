@@ -3,9 +3,11 @@ import ElementUI from 'element-ui';
 
 import '@/assets/styles.scss';
 
+import ContentOverviewCard from './ContentOverviewCard'
 import TabNav from './TabNav'
 
 const Components = {
+  ContentOverviewCard,
   TabNav
 }
 

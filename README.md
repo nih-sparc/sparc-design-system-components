@@ -1,6 +1,6 @@
 # SPARC Design system components
 
-![Node.js Package](https://github.com/nih-sparc/sparc-design-system-components/workflows/Node.js%20Package/badge.svg)
+![Node.js Package](https://github.com/nih-sparc/sparc-design-system-components/workflows/Node.js%20Package/badge.svg) ![Tests](https://github.com/nih-sparc/sparc-design-system-components/workflows/Tests/badge.svg) ![Storybook deploy](https://github.com/nih-sparc/sparc-design-system-components/workflows/Storybook%20deploy/badge.svg)
 
 ## About
 
@@ -51,3 +51,22 @@ yarn serve
 ```
 yarn build-bundle
 ```
+
+# Tests
+
+## Unit tests
+
+Utlizes [Vue Test Utils](https://vue-test-utils.vuejs.org/) and [Jest](https://jestjs.io/).
+
+### Writing tests
+
+It is recommended to have tests live alongside of your component. For one off tests, the `./tests/unit` folder can be uses.
+
+### Running tests
+
+Can be manually run with:
+```
+yarn test:unit
+```
+
+Automatically run every push with [GitHub Actions](https://github.com/nih-sparc/sparc-design-system-components/actions?query=workflow%3ATests)
