@@ -1,0 +1,16 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './table.stories.js';
+
+import ElTable from 'element-ui'
+
+<Meta title="Components/Table" component={ElTable} />
+
+# Table
+
+Good data table designs allow users to scan, analyze, compare, filter, sort, and manipulate information to derive insights and clearly commit actions .
+
+As GazelleCX completes a broader content strategy and analysis, it is likely that these tables will be optimized to address the relevant linkages between connected content to provide a richer faceted browse experience.
+
+When the table content is too wide for the container, the information will scroll to the right.
+
+<Story name='Primary' height='60px'>{stories.Primary()}</Story>
