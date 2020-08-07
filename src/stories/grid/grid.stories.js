@@ -1,3 +1,10 @@
+import { addDecorator } from '@storybook/vue'
+
+import './grid-demo-styles.scss';
+
+var decoratorVueTemplate = () => ({ template: `<div class="grid-demo"><story/></div>` });
+addDecorator(decoratorVueTemplate);
+
 export default {
   title: 'Components/Grid'
 }
@@ -6,36 +13,180 @@ export const Primary = () => ({
   template: `
     <div class="bx--grid">
       <div class="bx--row">
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
-        <div class="bx--col">1</div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1
+            </div>
+          </div>
+        </div>
       </div>
       <div class="bx--row">
-        <div class="bx--col">1/4</div>
-        <div class="bx--col">1/4</div>
-        <div class="bx--col">1/4</div>
-        <div class="bx--col">1/4</div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1/4
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1/4
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1/4
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1/4
+            </div>
+          </div>
+        </div>
       </div>
       <div class="bx--row">
-        <div class="bx--col">1/2</div>
-        <div class="bx--col">1/2</div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1/2
+            </div>
+          </div>
+        </div>
+        <div class="bx--col">
+          <div class="outside">
+            <div class="inside">
+              1/2
+            </div>
+          </div>
+        </div>
       </div>
       <div class="bx--row">
-        <div class="bx--col-sm-12 bx--col-md-4">1/2</div>
-        <div class="bx--col-sm-4 bx--col-md-4">1/2</div>
+        <div class="bx--col-sm-12 bx--col-md-4">
+          <div class="outside">
+            <div class="inside">
+              1/2
+            </div>
+          </div>
+        </div>
+        <div class="bx--col-sm-4 bx--col-md-4">
+          <div class="outside">
+            <div class="inside">
+              1/2
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   `
