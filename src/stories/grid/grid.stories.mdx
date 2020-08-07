@@ -59,121 +59,158 @@ given breakpoint. For example, we could rewrite the above example to be:
 </div>
 ```
 
+---
 
 ## Basic layout
 
 <Story name='Basic' height='60px'>{stories.Basic()}</Story>
 
-### Code
+<details>
+  <summary>View Code</summary>
 
-```html
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-    <div class="bx--col">1</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--col">1/4</div>
-    <div class="bx--col">1/4</div>
-    <div class="bx--col">1/4</div>
-    <div class="bx--col">1/4</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--col">1/2</div>
-    <div class="bx--col">1/2</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--col-sm-12 bx--col-md-4">1/2</div>
-    <div class="bx--col-sm-4 bx--col-md-4">1/2</div>
-  </div>
-</div>
-```
+  ```html
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+      </div>
+      <div class="bx--row">
+        <div class="bx--col">1/4</div>
+        <div class="bx--col">1/4</div>
+        <div class="bx--col">1/4</div>
+        <div class="bx--col">1/4</div>
+      </div>
+      <div class="bx--row">
+        <div class="bx--col">1/2</div>
+        <div class="bx--col">1/2</div>
+      </div>
+      <div class="bx--row">
+        <div class="bx--col-sm-12 bx--col-md-4">1/2</div>
+        <div class="bx--col-sm-4 bx--col-md-4">1/2</div>
+      </div>
+    </div>
+  ```
+</details>
+
+---
 
 ## Responsive Breakpoints
 
-<Story name='ResponsiveBreakpoints' height='60px'>{stories.ResponsiveBreakpoints()}</Story>
+Use the column helpers to specify different column spans at different widths
 
-### Code
+<Story name='Responsive Breakpoints' height='60px'>{stories.ResponsiveBreakpoints()}</Story>
 
-```html
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-4">Content</div>
-    <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-6">Content</div>
-    <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-4">Content</div>
-    <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-2">Content</div>
+<details>
+  <summary>View Code</summary>
+
+  ```html
+  <div class="bx--grid">
+    <div class="bx--row">
+      <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-4">Content</div>
+      <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-6">Content</div>
+      <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-4">Content</div>
+      <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-2">Content</div>
+    </div>
   </div>
-</div>
-```
+  ```
+</details>
+
+---
 
 ## Offset
 
 <Story name='Offset' height='60px'>{stories.Offset()}</Story>
 
-### Code
-```html
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--offset-lg-15 bx--col-lg-1">1</div>
+<details>
+  <summary>View Code</summary>
+
+  ```html
+  <div class="bx--grid">
+    <div class="bx--row">
+      <div class="bx--offset-lg-15 bx--col-lg-1">1</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-14 bx--col-lg-2">2</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-13 bx--col-lg-3">3</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-12 bx--col-lg-4">4</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-11 bx--col-lg-5">5</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-10 bx--col-lg-6">6</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-9 bx--col-lg-7">7</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-8 bx--col-lg-8">8</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-7 bx--col-lg-9">9</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-6 bx--col-lg-10">10</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-5 bx--col-lg-11">11</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-4 bx--col-lg-12">12</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-3 bx--col-lg-13">13</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-2 bx--col-lg-14">14</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-1 bx--col-lg-15">15</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-0 bx--col-lg-16">16</div>
+    </div>
   </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-14 bx--col-lg-2">2</div>
+  ```
+</details>
+
+---
+
+## Hide Columns per breakpoint
+
+Use the column helpers to specify a column span of 0 at different widths
+
+<Story name='Hide Columns' height='60px'>{stories.HideColumns()}</Story>
+
+<details>
+  <summary>View Code</summary>
+
+  ```html
+  <div class="bx--grid">
+    <div class="bx--row">
+      <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-6">Never Hidden</div>
+      <div class="bx--col-sm-2 bx--col-md-0 bx--col-lg-6">Hidden on Medium Screens</div>
+      <div class="bx--col-sm-0 bx--col-md-3 bx--col-lg-4">Hidden on Small Screens</div>
+      <div class="bx--col-sm-1 bx--col-md-3 bx--col-lg-0">Hidden on Large Screens</div>
+    </div>
   </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-13 bx--col-lg-3">3</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-12 bx--col-lg-4">4</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-11 bx--col-lg-5">5</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-10 bx--col-lg-6">6</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-9 bx--col-lg-7">7</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-8 bx--col-lg-8">8</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-7 bx--col-lg-9">9</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-6 bx--col-lg-10">10</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-5 bx--col-lg-11">11</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-4 bx--col-lg-12">12</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-3 bx--col-lg-13">13</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-2 bx--col-lg-14">14</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-1 bx--col-lg-15">15</div>
-  </div>
-  <div class="bx--row">
-    <div class="bx--offset-lg-0 bx--col-lg-16">16</div>
-  </div>
-</div>
-```
+  ```
+</details>

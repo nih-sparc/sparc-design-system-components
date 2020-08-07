@@ -340,3 +340,32 @@ export const Offset = () => ({
     </div>
   `
 })
+
+export const HideColumns = () => ({
+  template: `
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-6">
+          <div class="outside">
+            <div class="inside">Never Hidden</div>
+          </div>
+        </div>
+        <div class="bx--col-sm-2 bx--col-md-0 bx--col-lg-6">
+          <div class="outside">
+            <div class="inside">Hidden on Medium Screens</div>
+          </div>
+        </div>
+        <div class="bx--col-sm-0 bx--col-md-3 bx--col-lg-4">
+          <div class="outside">
+            <div class="inside">Hidden on Small Screens</div>
+          </div>
+        </div>
+        <div class="bx--col-sm-1 bx--col-md-3 bx--col-lg-0">
+          <div class="outside">
+            <div class="inside">Hidden on Large Screens</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+})
