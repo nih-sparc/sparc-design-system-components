@@ -14,8 +14,8 @@ const viewports = {
   tablet: {
     name: 'Tablet',
     styles: {
-      height: '768px',
-      width: '1024px'
+      height: '1024px',
+      width: '768px'
     },
     type: 'tablet'
   },
