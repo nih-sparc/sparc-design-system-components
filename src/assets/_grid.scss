@@ -1,0 +1,38 @@
+@import './_variables.scss';
+
+*[class^="bx--"] {
+  box-sizing: border-box;
+}
+
+/**
+  * Adjust Carbon breakpoints to match the SPARC breakpoints
+  */
+$carbon--grid-breakpoints: (
+  sm: (
+    columns: 4,
+    margin: 0,
+    width: $viewport-sm,
+  ),
+  md: (
+    columns: 8,
+    margin: 1rem,
+    width: $viewport-md,
+  ),
+  lg: (
+    columns: 16,
+    margin: 1rem,
+    width: $viewport-lg,
+  ),
+  xlg: (
+    columns: 16,
+    margin: 1rem,
+    width: $viewport-xlg,
+  ),
+  max: (
+    columns: 16,
+    margin: 1.5rem,
+    width: $viewport-xlg,
+  ),
+) !default;
+
+@import '~@carbon/grid/scss/grid';

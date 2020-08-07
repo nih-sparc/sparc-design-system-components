@@ -25,6 +25,7 @@
     "plugins/*"
   ],
   "dependencies": {
+    "@carbon/grid": "^10.14.0",
     "core-js": "^3.6.5",
     "element-ui": "2.4.11",
     "generate-changelog": "^1.8.0",
