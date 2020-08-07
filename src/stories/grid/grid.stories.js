@@ -6,10 +6,11 @@ var decoratorVueTemplate = () => ({ template: `<div class="grid-demo"><story/></
 addDecorator(decoratorVueTemplate);
 
 export default {
-  title: 'Components/Grid'
+  title: 'Layout/Grid',
+  includeStories: []
 }
 
-export const Primary = () => ({
+export const Basic = () => ({
   template: `
     <div class="bx--grid">
       <div class="bx--row">
