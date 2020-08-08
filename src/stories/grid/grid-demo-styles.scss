@@ -1,0 +1,21 @@
+.grid-demo {
+  margin-bottom: 2rem;
+  .outside {
+    min-height: 80px;
+  }
+  .inside {
+    background-color: #edf4ff;
+    min-height: 80px;
+  }
+  [class*='--aspect-ratio--'] {
+    .inside,
+    .outside,
+    &.outside {
+      height: 100%;
+    }
+  }
+  [class*='col'] {
+    background-color: #dbeaff;
+    outline: 1px dashed #97c1ff;
+  }
+}

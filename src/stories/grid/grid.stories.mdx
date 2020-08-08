@@ -1,0 +1,216 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './grid.stories.js';
+
+<Meta title="Layout/Grid" />
+
+# Grid
+
+Based on the [Carbon Design System Grid](https://github.com/carbon-design-system/carbon/tree/master/packages/grid).
+
+## Viewports
+
+| Size | Variable | Width (minimum) | Total Columns |
+|:-|:-|:-|:-|
+| Mobile | `sm` | `20rem` | 4 |
+| Tablet | `md` | `47rem` | 8 |
+| Desktop | `lg` | `64rem` | 16 |
+| Large Display | `xlg` | `120rem` | 16 |
+
+## Usage
+The Grid has three primitive class types to use in order to structure your
+application. They include:
+
+- `bx--grid`, defines the overall grid context and sets some useful attributes
+  like width and margin
+- `bx--row`, defines a row of items in a grid
+- `bx--col`, used to define individual columns
+
+You can use a combination of these classes to build a layout. For example, if we
+wanted a 4 column layout for a small breakpoint we could use the following
+markup:
+
+```html
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col">1/4</div>
+    <div class="bx--col">1/4</div>
+    <div class="bx--col">1/4</div>
+    <div class="bx--col">1/4</div>
+  </div>
+</div>
+```
+
+While this layout can work for some grid usage scenarios, we probably will want
+more control over how many columns our layout will span at each given
+breakpoint.
+
+There are five breakpoints: `sm`, `md`, `lg`, `xlg`, and `max`. You can use each
+one in combination with a column to specify the number of columns to span at a
+given breakpoint. For example, we could rewrite the above example to be:
+
+```html
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-1">1/4</div>
+    <div class="bx--col-sm-1">1/4</div>
+    <div class="bx--col-sm-1">1/4</div>
+    <div class="bx--col-sm-1">1/4</div>
+  </div>
+</div>
+```
+
+---
+
+## Basic layout
+
+<Story name='Basic' height='60px'>{stories.Basic()}</Story>
+
+<details>
+  <summary>View Code</summary>
+
+  ```html
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+        <div class="bx--col">1</div>
+      </div>
+      <div class="bx--row">
+        <div class="bx--col">1/4</div>
+        <div class="bx--col">1/4</div>
+        <div class="bx--col">1/4</div>
+        <div class="bx--col">1/4</div>
+      </div>
+      <div class="bx--row">
+        <div class="bx--col">1/2</div>
+        <div class="bx--col">1/2</div>
+      </div>
+      <div class="bx--row">
+        <div class="bx--col-sm-12 bx--col-md-4">1/2</div>
+        <div class="bx--col-sm-4 bx--col-md-4">1/2</div>
+      </div>
+    </div>
+  ```
+</details>
+
+---
+
+## Responsive Breakpoints
+
+Use the column helpers to specify different column spans at different widths
+
+<Story name='Responsive Breakpoints' height='60px'>{stories.ResponsiveBreakpoints()}</Story>
+
+<details>
+  <summary>View Code</summary>
+
+  ```html
+  <div class="bx--grid">
+    <div class="bx--row">
+      <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-4">Content</div>
+      <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-6">Content</div>
+      <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-4">Content</div>
+      <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-2">Content</div>
+    </div>
+  </div>
+  ```
+</details>
+
+---
+
+## Offset
+
+<Story name='Offset' height='60px'>{stories.Offset()}</Story>
+
+<details>
+  <summary>View Code</summary>
+
+  ```html
+  <div class="bx--grid">
+    <div class="bx--row">
+      <div class="bx--offset-lg-15 bx--col-lg-1">1</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-14 bx--col-lg-2">2</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-13 bx--col-lg-3">3</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-12 bx--col-lg-4">4</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-11 bx--col-lg-5">5</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-10 bx--col-lg-6">6</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-9 bx--col-lg-7">7</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-8 bx--col-lg-8">8</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-7 bx--col-lg-9">9</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-6 bx--col-lg-10">10</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-5 bx--col-lg-11">11</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-4 bx--col-lg-12">12</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-3 bx--col-lg-13">13</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-2 bx--col-lg-14">14</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-1 bx--col-lg-15">15</div>
+    </div>
+    <div class="bx--row">
+      <div class="bx--offset-lg-0 bx--col-lg-16">16</div>
+    </div>
+  </div>
+  ```
+</details>
+
+---
+
+## Hide Columns per breakpoint
+
+Use the column helpers to specify a column span of 0 at different widths
+
+<Story name='Hide Columns' height='60px'>{stories.HideColumns()}</Story>
+
+<details>
+  <summary>View Code</summary>
+
+  ```html
+  <div class="bx--grid">
+    <div class="bx--row">
+      <div class="bx--col-sm-1 bx--col-md-2 bx--col-lg-6">Never Hidden</div>
+      <div class="bx--col-sm-2 bx--col-md-0 bx--col-lg-6">Hidden on Medium Screens</div>
+      <div class="bx--col-sm-0 bx--col-md-3 bx--col-lg-4">Hidden on Small Screens</div>
+      <div class="bx--col-sm-1 bx--col-md-3 bx--col-lg-0">Hidden on Large Screens</div>
+    </div>
+  </div>
+  ```
+</details>
