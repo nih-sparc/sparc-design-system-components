@@ -1,0 +1,14 @@
+@import '../../assets/_variables.scss';
+
+.spacing-demo-styles {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-around;
+  .wrapper {
+    background: $app-primary-color;
+    display: flex;
+  }
+  .target {
+    background: #ddd;
+  }
+}
