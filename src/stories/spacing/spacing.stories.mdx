@@ -1,0 +1,138 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import * as stories from './spacing.stories.js';
+import './demo-styles.scss';
+
+<Meta title="Layout/Spacing" />
+
+# Spacing
+
+Use the scale when building indivdual components. They should be intervals of 16.
+
+## Values
+
+<Story name='Spacing Values' height='60px'>{stories.SpacingValues()}</Story>
+
+## Spacing - Components
+
+When organizing components a minimum of 32px or 2 rem should be used in between the components.
+
+<Story name='Components' height='60px'>{stories.Components()}</Story>
+
+When organizing components within a column, or columns, additional space can be added to either the inside of a column. This spacing should not exceed 64px or 4 rem.
+
+In the example below, you can see that the component is spread across 4 columns with additional spacing of 64px on either end.
+
+<Story name='WithGrid' height='60px'>{stories.WithGrid()}</Story>
+
+## Code implementations
+
+Control the margin and padding on one side of an element using the classes following this pattern where the first variable is for margin/padding and the second is for the side:
+```
+  {m|p}{t|r|b|l|x|y}-{size}
+```
+
+| Variable | Definition |
+|:-|:-|
+m | margin
+p | padding
+t | top
+r | right
+l | left
+x | x-axis (horizontal)
+y | y-axis (vertical)
+
+---
+
+### Margin on a single side
+
+<Story name='Margin Single Side' height='60px'>{stories.MarginSingleSide()}</Story>
+
+#### Code
+
+```html
+<div>
+  <div class="mt-32">Target</div>
+  <div class="mr-32">Target</div>
+  <div class="mb-32">Target</div>
+  <div class="ml-32">Target</div>
+</div>
+```
+
+### Margin on all sides
+
+<Story name='Margin All Sides' height='60px'>{stories.MarginAllSides()}</Story>
+
+#### Code
+```html
+<div class="m-32">Target</div>
+```
+
+### Margin on vertical sides
+
+<Story name='Margin Vertical Sides' height='60px'>{stories.MarginVerticalSide()}</Story>
+
+#### Code
+```html
+<div class="my-32">Target</div>
+```
+
+### Margin on horizontal sides
+
+<Story name='Margin Horizontal Sides' height='60px'>{stories.MarginHorizontalSide()}</Story>
+
+#### Code
+```html
+<div class="mx-32">Target</div>
+```
+
+### Padding on a single side
+
+<Story name='Padding Single Sides' height='60px'>{stories.PaddingSingleSide()}</Story>
+
+#### Code
+
+```html
+<div>
+  <div class="pt-32">Target</div>
+  <div class="pr-32">Target</div>
+  <div class="pb-32">Target</div>
+  <div class="pl-32">Target</div>
+</div>
+```
+
+### Padding on all sides
+
+<Story name='Padding All Sides' height='60px'>{stories.PaddingAllSides()}</Story>
+
+#### Code
+```html
+<div class="p-32">Target</div>
+```
+
+### Padding on vertical sides
+
+<Story name='Padding Vertical Sides' height='60px'>{stories.PaddingVerticalSide()}</Story>
+
+#### Code
+```html
+<div class="py-32">Target</div>
+```
+
+### Padding on horizontal sides
+
+<Story name='Padding Horizontal Sides' height='60px'>{stories.PaddingHorizontalSide()}</Story>
+
+#### Code
+```html
+<div class="px-32">Target</div>
+```
+
+## CSS Classes and properties
+
+### Padding
+
+<Story name='Padding Properties' height='60px'>{stories.PaddingProperties()}</Story>
+
+### Margin
+
+<Story name='Margin Properties' height='60px'>{stories.MarginProperties()}</Story>
