@@ -1,0 +1,32 @@
+@import '../../assets/_variables.scss';
+
+.spacing-demo-styles {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-around;
+  &.spacing-table {
+    justify-content: left;
+  }
+  &.column {
+    flex-direction: column;
+  }
+  .wrapper {
+    background: $darkBlue;
+    display: flex;
+  }
+  .target {
+    background: #ddd;
+  }
+  .component {
+    align-items: center;
+    background: #979797;
+    color: #fff;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 600;
+    justify-content: center;
+    text-align: center;
+    height: 243px;
+    width: 425px;
+  }
+}

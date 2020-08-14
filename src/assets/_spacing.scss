@@ -1,0 +1,50 @@
+$spaces:
+  0,
+  2,
+  4,
+  8,
+  12,
+  16,
+  24,
+  32,
+  40,
+  48,
+  56,
+  64;
+
+$spaceTypes: (
+  'm': 'margin',
+  'p': 'padding'
+);
+
+@function toRem($base) {
+  @return $base / 16 * 1rem;
+};
+
+@each $space in $spaces {
+  @each $typeInitial, $type in $spaceTypes {
+    .#{$typeInitial}-#{$space} {
+      #{$type}: toRem($space);
+    }
+    .#{$typeInitial}y-#{$space} {
+      #{$type}-top: toRem($space);
+      #{$type}-bottom: toRem($space);
+    }
+    .#{$typeInitial}x-#{$space} {
+      #{$type}-left: toRem($space);
+      #{$type}-right: toRem($space);
+    }
+    .#{$typeInitial}b-#{$space} {
+      #{$type}-bottom: toRem($space);
+    }
+    .#{$typeInitial}t-#{$space} {
+      #{$type}-top: toRem($space);
+    }
+    .#{$typeInitial}l-#{$space} {
+      #{$type}-left: toRem($space);
+    }
+    .#{$typeInitial}r-#{$space} {
+      #{$type}-right: toRem($space);
+    }
+  }
+}
