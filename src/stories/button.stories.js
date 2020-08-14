@@ -22,7 +22,7 @@ export const Primary = () => ({
       <el-button>{{ text }}</el-button>
       <el-button :disabled="isDisabled">Disabled Button</el-button>
       <el-button class="large">Large Button</el-button>
-      <el-button>Normal Button</el-button>
+      <el-button>Medium Button</el-button>
       <el-button class="small">Small Button</el-button>
     </div>
   `
