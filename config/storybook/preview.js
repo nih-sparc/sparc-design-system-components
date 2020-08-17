@@ -45,6 +45,11 @@ addParameters({
   },
   viewport: {
     viewports
+  },
+  docs: {
+    components: {
+      table: null,
+    },
   }
 });
 
