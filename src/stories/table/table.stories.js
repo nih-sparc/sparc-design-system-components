@@ -49,6 +49,7 @@ export const Primary = () => ({
             />
           </template>
         </el-table-column>
+        <el-table-column width="60" />
         <el-table-column prop="description" label="Description" :width="400" sortable />
         <el-table-column prop="createdAt" label="Last Published" width="200" sortable>
           <template slot-scope="scope">
