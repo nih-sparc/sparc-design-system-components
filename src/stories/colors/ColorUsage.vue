@@ -32,6 +32,7 @@ export default {
   display: flex;
 }
 .color-square {
+  flex-shrink: 0;
   height: 20px;
   width: 20px;
 }
