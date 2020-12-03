@@ -42,6 +42,7 @@ export default {
 }
 .color-circle {
   border-radius: 50%;
+  flex-shrink: 0;
   height: 72px;
   width: 72px;
 }
