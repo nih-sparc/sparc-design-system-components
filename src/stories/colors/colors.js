@@ -39,6 +39,30 @@ export const secondary = [
   }
 ]
 
+export const status = [
+  {
+    name: 'Success',
+    hex: '#00e66b',
+    rbg: '0-230-107',
+    cmyk: '90, 0, 48, 10',
+    usage: 'Confirmation messages'
+  },
+  {
+    name: 'Warning',
+    hex: '#ff8400',
+    rbg: '221-117-51"',
+    cmyk: '0, 41, 67, 13',
+    usage: 'To warn users of potentially harmful situation'
+  },
+  {
+    name: 'Danger',
+    hex: '#b51d09',
+    rbg: '181-29-9"',
+    cmyk: '0, 60, 67, 29',
+    usage: 'Error messages and confirmation for deletion'
+  }
+]
+
 
 
 
