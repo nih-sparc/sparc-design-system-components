@@ -87,4 +87,31 @@ export const text = [
   }
 ]
 
+export const line = [
+  {
+    name: '',
+    hex: '#dcdfe6',
+    rbg: '220-223-230',
+    cmyk: '4, 3, 0, 10',
+    usage: 'For cards'
+  },
+  {
+    name: '',
+    hex: '#e4e7ed',
+    rbg: '228-231-237',
+    cmyk: '4, 2, 0, 7',
+    usage: 'For table/dividers/breadcrumb backgrounds'
+  }
+]
+
+export const background = [
+  {
+    name: '',
+    hex: '#f5f7fa',
+    rbg: '245, 247, 250',
+    cmyk: '2, 1, 0, 2',
+    usage: 'For page backgrounds'
+  }
+]
+
 

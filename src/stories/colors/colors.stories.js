@@ -2,7 +2,7 @@ import './colors-demo-styles.scss';
 import ColorDemo from './ColorDemo.vue'
 import ColorUsage from './ColorUsage.vue'
 
-import { primary, secondary, status, text } from './colors'
+import { primary, secondary, status, text, line, background } from './colors'
 
 const colorsTemplate = `
 <div>
@@ -10,7 +10,7 @@ const colorsTemplate = `
     <div class="bx--row mb-32">
       <color-demo
         v-for="color in colors"
-        :key="color.name"
+        :key="color.hex"
         class="bx--col"
         :name="color.name"
         :hex="color.hex"
@@ -23,7 +23,7 @@ const colorsTemplate = `
       <div class="bx--col">
         <color-usage
           v-for="color in colors"
-          :key="color.usage"
+          :key="color.usage+color.hex"
           class="mb-8"
           :name="color.name"
           :hex="color.hex"
@@ -75,12 +75,31 @@ export const Status = () => ({
   template: colorsTemplate
 })
 
-
 export const Text = () => ({
   components: defaultComponents,
   data() {
     return {
       colors: text
+    }
+  },
+  template: colorsTemplate
+})
+
+export const Line = () => ({
+  components: defaultComponents,
+  data() {
+    return {
+      colors: line
+    }
+  },
+  template: colorsTemplate
+})
+
+export const Background = () => ({
+  components: defaultComponents,
+  data() {
+    return {
+      colors: background
     }
   },
   template: colorsTemplate
