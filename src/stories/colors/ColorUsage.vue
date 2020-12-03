@@ -1,7 +1,7 @@
 <template>
   <div class="color-demo">
     <div class="color-square mr-16" :style="{ backgroundColor:  hex }" />
-    {{ name }} : {{ usage }}
+    <template v-if="name">{{ name }} : </template>{{ usage }}
   </div>
 </template>
 

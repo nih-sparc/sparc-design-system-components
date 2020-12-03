@@ -2,7 +2,7 @@ import './colors-demo-styles.scss';
 import ColorDemo from './ColorDemo.vue'
 import ColorUsage from './ColorUsage.vue'
 
-import { primary, secondary, status } from './colors'
+import { primary, secondary, status, text } from './colors'
 
 const colorsTemplate = `
 <div>
@@ -70,6 +70,17 @@ export const Status = () => ({
   data() {
     return {
       colors: status
+    }
+  },
+  template: colorsTemplate
+})
+
+
+export const Text = () => ({
+  components: defaultComponents,
+  data() {
+    return {
+      colors: text
     }
   },
   template: colorsTemplate
