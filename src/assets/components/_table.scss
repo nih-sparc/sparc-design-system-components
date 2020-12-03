@@ -1,7 +1,7 @@
 @import '../_variables.scss';
 
 .el-table {
-  color: $gray;
+  color: $grey;
   font-size: 1rem;
   &__fixed-body-wrapper {
     td:first-child .cell {
@@ -55,7 +55,7 @@ table:not([class^="el-table__"]) {
 
 thead {
   th {
-    color: $gray;
+    color: $grey;
     font-weight: 500;
   }
 }
