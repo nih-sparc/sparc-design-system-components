@@ -2,7 +2,43 @@ import './colors-demo-styles.scss';
 import ColorDemo from './ColorDemo.vue'
 import ColorUsage from './ColorUsage.vue'
 
-import { primary } from './colors'
+import { primary, secondary } from './colors'
+
+const colorsTemplate = `
+<div>
+  <div class="bx--grid">
+    <div class="bx--row mb-32">
+      <color-demo
+        v-for="color in colors"
+        :key="color.name"
+        class="bx--col"
+        :name="color.name"
+        :hex="color.hex"
+        :rbg="color.rbg"
+        :cmyk="color.cmyk"
+      />
+    </div>
+
+    <div class="bx--row">
+      <div class="bx--col">
+        <color-usage
+          v-for="color in colors"
+          :key="color.usage"
+          class="mb-8"
+          :name="color.name"
+          :hex="color.hex"
+          :usage="color.usage"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`
+
+const defaultComponents = {
+  ColorDemo,
+  ColorUsage
+}
 
 export default {
   title: 'Colors',
@@ -10,43 +46,21 @@ export default {
 }
 
 export const Basic = () => ({
-  components: {
-    ColorDemo,
-    ColorUsage
-  },
+  components: defaultComponents,
   data() {
     return {
       colors: primary
     }
   },
-  template: `
-    <div>
-      <div class="bx--grid">
-        <div class="bx--row mb-32">
-          <color-demo
-            v-for="color in colors"
-            :key="color.name"
-            class="bx--col"
-            :name="color.name"
-            :hex="color.hex"
-            :rbg="color.rbg"
-            :cmyk="color.cmyk"
-          />
-        </div>
+  template: colorsTemplate
+})
 
-        <div class="bx--row">
-          <div class="bx--col">
-            <color-usage
-              v-for="color in colors"
-              :key="color.usage"
-              class="mb-8"
-              :name="color.name"
-              :hex="color.hex"
-              :usage="color.usage"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  `
+export const Secondary = () => ({
+  components: defaultComponents,
+  data() {
+    return {
+      colors: secondary
+    }
+  },
+  template: colorsTemplate
 })

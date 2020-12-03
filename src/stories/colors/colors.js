@@ -22,6 +22,23 @@ export const primary = [
   }
 ]
 
+export const secondary = [
+  {
+    name: 'Light Purple',
+    hex: '#bc00fc',
+    rbg: '188-0-252',
+    cmyk: '25, 99, 0, 1',
+    usage: 'Decorative elements such as illustrations'
+  },
+  {
+    name: 'Blue',
+    hex: '#0026ff',
+    rbg: '0-38-255"',
+    cmyk: '25, 99, 0, 1',
+    usage: 'Decorative elements such as illustrations'
+  }
+]
+
 
 
 
