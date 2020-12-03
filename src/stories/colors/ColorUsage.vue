@@ -1,7 +1,7 @@
 <template>
   <div class="color-demo">
-    <div class="color-square mr-16" :style="{ backgroundColor:  hex }" />
-    <template v-if="name">{{ name }} : </template>{{ usage }}
+    <div class="color-square mr-16" :style="{ backgroundColor: color.hex }" />
+    <template v-if="color.name">{{ color.name }} : </template>{{ color.usage }}
   </div>
 </template>
 
@@ -10,17 +10,17 @@ export default {
   name: 'ColorUsage',
 
   props: {
-    name: {
-      type: String,
-      default: ''
-    },
-    hex: {
-      type: String,
-      default: ''
-    },
-    usage: {
-      type: String,
-      default: ''
+    color: {
+      type: Object,
+      default: () => {
+        return {
+          name: '',
+          hex: '',
+          rbg: '',
+          cmyk: '',
+          variable: ''
+        }
+      }
     }
   }
 }

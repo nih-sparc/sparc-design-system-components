@@ -1,11 +1,12 @@
 <template>
   <div class="color-demo">
-    <div class="color-circle mr-24" :style="{ backgroundColor:  hex }" />
+    <div class="color-circle mr-24" :style="{ backgroundColor: color.hex }" />
     <div class="color-info">
-      <h3>{{ name }}</h3>
-      <p class="mb-0"><em>Hex</em>: {{ hex }}</p>
-      <p class="mb-0"><em>RBG</em>: {{ rbg }}</p>
-      <p class="mb-0"><em>CMYK</em>: {{ cmyk }}</p>
+      <h3>{{ color.name }}</h3>
+      <p class="mb-0"><em>Hex</em>: {{ color.hex }}</p>
+      <p class="mb-0"><em>RBG</em>: {{ color.rbg }}</p>
+      <p class="mb-0"><em>CMYK</em>: {{ color.cmyk }}</p>
+      <p class="mb-0"><em>Sass Variable</em>: <span class="code">{{ color.variable }}</span></p>
     </div>
   </div>
 </template>
@@ -15,21 +16,17 @@ export default {
   name: 'ColorDemo',
 
   props: {
-    name: {
-      type: String,
-      default: ''
-    },
-    hex: {
-      type: String,
-      default: ''
-    },
-    rbg: {
-      type: String,
-      default: ''
-    },
-    cmyk: {
-      type: String,
-      default: ''
+    color: {
+      type: Object,
+      default: () => {
+        return {
+          name: '',
+          hex: '',
+          rbg: '',
+          cmyk: '',
+          variable: ''
+        }
+      }
     }
   }
 }
@@ -52,5 +49,8 @@ p {
 em {
   font-style: normal;
   text-transform: uppercase;
+}
+.code {
+  font-family: monospace;
 }
 </style>

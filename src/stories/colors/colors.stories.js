@@ -12,10 +12,7 @@ const colorsTemplate = `
         v-for="color in colors"
         :key="color.hex"
         class="bx--col"
-        :name="color.name"
-        :hex="color.hex"
-        :rbg="color.rbg"
-        :cmyk="color.cmyk"
+        :color="color"
       />
     </div>
 
@@ -25,9 +22,7 @@ const colorsTemplate = `
           v-for="color in colors"
           :key="color.usage+color.hex"
           class="mb-8"
-          :name="color.name"
-          :hex="color.hex"
-          :usage="color.usage"
+          :color="color"
         />
       </div>
     </div>
