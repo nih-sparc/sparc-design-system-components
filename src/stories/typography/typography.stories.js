@@ -41,3 +41,6 @@ export const Labels = () => createDemo(typography.labels)
 
 export const Tabs = () => createDemo(typography.tabs)
 
+export const LinksDefault = () => createDemo(typography.linksDefault)
+
+export const LinksHover = () => createDemo(typography.linksHover)

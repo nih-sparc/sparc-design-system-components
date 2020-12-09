@@ -6,6 +6,7 @@
       <p class="mb-0">font-size: {{ typography.fontSize }} / line-height: {{ typography.lineHeight }}</p>
       <p class="mb-0">weight: {{ typography.fontWeight }} / color: {{ typography.color }}</p>
       <p v-if="typography.showBackgroundColor" class="mb-0">background-color: {{ typography.backgroundColor }}</p>
+      <p v-if="typography.textDecoration" class="mb-0">decoration: {{ typography.textDecoration }}</p>
     </div>
     <div class="example">
       <span :style="typography">

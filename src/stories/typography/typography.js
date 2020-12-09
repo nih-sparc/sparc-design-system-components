@@ -184,3 +184,77 @@ export const tabs = [
     color: '#8300bf'
   }
 ]
+
+const link1 = {
+  name: 'Link 1',
+  fontSize: '16px',
+  lineHeight: '24px',
+  fontWeight: 'medium',
+  color: '#8300bf'
+}
+const link2 = {
+  name: 'Link 2',
+  fontSize: '16px',
+  lineHeight: '24px',
+  fontWeight: 'regular',
+  color: '#8300bf'
+}
+const link3 = {
+  name: 'Link 3',
+  fontSize: '16px',
+  lineHeight: '24px',
+  fontWeight: 'regular',
+  color: '#303133'
+}
+const link4 = {
+  name: 'Link 4',
+  usage: 'for body text in headers with dark backgrounds',
+  fontSize: '24px',
+  lineHeight: '32px',
+  fontWeight: 'regular',
+  color: '#ffffff',
+  textDecoration: 'underline',
+  ...demoBackground
+}
+export const linksDefault = [
+  { ...link1 },
+  {
+    ...link1,
+    name: 'Link 1 - Highlighted',
+    usage: 'ex. for  Search result keywords',
+    backgroundColor: '#979797',
+    showBackgroundColor: true
+  },
+  { ...link2 },
+  { ...link3 },
+  { ...link4 }
+]
+
+export const linksHover = [
+  {
+    ...link1,
+    textDecoration: 'underline'
+  },
+  {
+    ...link1,
+    name: 'Link 1 - Highlighted',
+    usage: 'ex. for  Search result keywords',
+    backgroundColor: '#979797',
+    showBackgroundColor: true,
+    textDecoration: 'underline'
+  },
+  {
+    ...link2,
+    textDecoration: 'underline'
+  },
+  {
+    ...link3,
+    textDecoration: 'underline'
+  },
+  {
+    ...link4,
+    color: '#dcdfe6',
+    usage: 'for Headers and Dark backgrounds',
+    textDecoration: 'underline'
+  }
+]
