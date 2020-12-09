@@ -8,8 +8,8 @@ body {
 }
 
 h1 {
-  font-size: 1.75em;
-  font-weight: 700;
+  font-size: 2em;
+  font-weight: 500;
   margin: 0;
   line-height: 2.75rem;
   padding: 0;
@@ -17,24 +17,16 @@ h1 {
 
 h2 {
   font-size: 1.5em;
-  font-weight: normal;
+  font-weight: 500;
   line-height: 2.25rem;
   margin: 0 0 1rem;
   padding: 0;
 }
 
-h3 {
-  font-size: 1.125em;
-  font-weight: normal;
+h3, h4 {
+  font-size: 1;
+  font-weight: 500;
   line-height: 1.875rem;
-  margin: 0 0 0.5rem;
-  padding: 0;
-}
-
-h4 {
-  font-size: 1.1em;
-  font-weight: normal;
-  line-height: 1.1rem;
   margin: 0 0 0.5rem;
   padding: 0;
 }
@@ -46,8 +38,6 @@ h5, h6 {
   margin: 0 0 0.5rem;
   padding: 0;
 }
-
-
 
 a {
   color: $app-primary-color;
