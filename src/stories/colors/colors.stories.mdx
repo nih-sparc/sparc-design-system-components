@@ -1,0 +1,40 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './colors.stories.js';
+
+<Meta title="Components/Colors" />
+
+# About Colors
+
+The SPARC website color palette is reflected throughout the entire site to make the site enjoyable, engaging to our researchers and memorable. Color also increases brand recognition by 80%.
+
+The following palette possesses complimentary colors, and works well throughout the site based on the message we are delivering.
+
+The colors and strong and evoke confidence (as researchers should have confidence in the integrity of the experiments conducted by  SPARC researchers.)
+
+The colors also evoke excitedment and innovation. The color gradations you see evoke forward-thinking movement and progress.
+
+## Primary Colors
+
+<Story name='Basic' height='60px'>{stories.Basic()}</Story>
+
+## Secondary Colors
+<Story name='Secondary' height='60px'>{stories.Secondary()}</Story>
+
+## Status Colors
+<Story name='Status' height='60px'>{stories.Status()}</Story>
+
+## Text Color
+<Story name='Text' height='60px'>{stories.Text()}</Story>
+
+## Line Color
+<Story name='Line' height='60px'>{stories.Line()}</Story>
+
+## Background Color
+<Story name='Background' height='60px'>{stories.Background()}</Story>
+
+## Note on Accessibility
+
+The colors meet the WCAG 2.0 AA accessibility guidelines and are compliant with Section 508 of the Rehabilitation Act.
+
+View the Color Contrast Checker to ensure that your use case meets guidelines:
+[https://webaim.org/resources/contrastchecker/](https://webaim.org/resources/contrastchecker/)
