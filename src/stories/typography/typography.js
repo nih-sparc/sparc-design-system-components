@@ -1,3 +1,8 @@
+const demoBackground = {
+  backgroundColor: '#24245B',
+  note: 'Background added to show text. Background color may vary and is specified on a per component basis.'
+}
+
 export const headings = [
   {
     name: 'Heading 1',
@@ -57,8 +62,7 @@ export const navigation = [
     lineHeight: '24px',
     fontWeight: 'regular',
     color: '#fff',
-    backgroundColor: '#24245B',
-    note: 'Background added to show text. Background color may vary and is specified on a per component basis.'
+    ...demoBackground
   },
   {
     name: 'Nav 6',
@@ -68,3 +72,39 @@ export const navigation = [
     color: '#24245b'
   }
 ]
+
+export const body = [
+  {
+    name: 'Body 1',
+    fontSize: '16px',
+    lineHeight: '24px',
+    fontWeight: 'regular',
+    color: '#303133'
+  },
+  {
+    name: 'Body 1 - Highlighted',
+    usage: 'ex. for Search result keywords',
+    fontSize: '16px',
+    lineHeight: '24px',
+    fontWeight: 'regular',
+    color: '#24245b',
+    backgroundColor: '#979797',
+    showBackgroundColor: true
+  },
+  {
+    name: 'Body 2',
+    fontSize: '16px',
+    lineHeight: '24px',
+    fontWeight: 'regular',
+    color: '#ffffff',
+    ...demoBackground
+  },
+  {
+    name: 'Body 4',
+    fontSize: '14px',
+    lineHeight: '20px',
+    fontWeight: 'regular',
+    color: '#909399'
+  }
+]
+

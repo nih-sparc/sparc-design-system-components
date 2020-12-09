@@ -2,13 +2,16 @@
   <div class="typography-demo">
     <div class="details">
       <div class="name">{{ typography.name }}</div>
+      <p v-if="typography.usage" class="mb-0"> ({{ typography.usage }})</p>
       <p class="mb-0">font-size: {{ typography.fontSize }} / line-height: {{ typography.lineHeight }}</p>
       <p class="mb-0">weight: {{ typography.fontWeight }} / color: {{ typography.color }}</p>
+      <p v-if="typography.showBackgroundColor" class="mb-0">background-color: {{ typography.backgroundColor }}</p>
     </div>
     <div class="example">
-      <p class="mb-0" :style="typography">
+      <span :style="typography">
         A quick brown fox jumps over a lazy dog.
-      </p>
+      </span>
+      <span v-if="typography.note" class="mt-8 note"> <em>Note</em>: {{ typography.note }}</span>
     </div>
   </div>
 </template>
@@ -38,13 +41,25 @@ export default {
   display: flex;
 }
 .details {
+  flex-basis: 250px;
   flex-shrink: 0;
   margin-right: 50px;
+}
+.example {
+  flex: 1;
+  span {
+    color: #3e3e3e;
+    display: inline-block;
+  }
 }
 .name {
   text-transform: uppercase;
 }
-p {
-  color: #3e3e3e;
+.note {
+  font-size: 0.85rem;
+  em  {
+    font-style: normal;
+    text-transform: uppercase;
+  }
 }
 </style>
