@@ -142,3 +142,45 @@ export const labels = [
     color: '#303133'
   }
 ]
+
+export const tabs = [
+  {
+    name: 'Tab 1',
+    fontSize: '18px',
+    lineHeight: '24px',
+    fontWeight: 'medium',
+    color: '#8300bf'
+  },
+  {
+    name: 'Tab 2',
+    fontSize: '18px',
+    lineHeight: '24px',
+    fontWeight: 'regular',
+    color: '#303133'
+  },
+  {
+    name: 'Tab 3',
+    fontSize: '18px',
+    lineHeight: '24px',
+    fontWeight: 'medium',
+    color: '#ffffff',
+    backgroundColor: '#24245b',
+    showBackgroundColor: true
+  },
+  {
+    name: 'Tab 4',
+    fontSize: '18px',
+    lineHeight: '24px',
+    fontWeight: 'regular',
+    color: '#ffffff',
+    backgroundColor: '#24245b',
+    showBackgroundColor: true
+  },
+  {
+    name: 'Tab 5',
+    fontSize: '16px',
+    lineHeight: '24px',
+    fontWeight: 'medium',
+    color: '#8300bf'
+  }
+]
