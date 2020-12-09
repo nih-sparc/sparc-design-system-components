@@ -2,6 +2,8 @@ import TypographyDemo from './TypographyDemo'
 
 import * as typography from './typography'
 
+import FontsDemo from './FontsDemo'
+
 export default {
   title: 'Components/Typography',
   decorators: [],
@@ -30,6 +32,16 @@ const createDemo = (typography) => {
     `
   }
 }
+export const Fonts = () => ({
+  components: {
+    FontsDemo
+  },
+  template: `
+    <div>
+      <fonts-demo />
+    </div>
+  `
+})
 
 export const Headings = () => createDemo(typography.headings)
 
