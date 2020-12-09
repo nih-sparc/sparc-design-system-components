@@ -5,8 +5,10 @@
       <p class="mb-0">font-size: {{ typography.fontSize }} / line-height: {{ typography.lineHeight }}</p>
       <p class="mb-0">weight: {{ typography.fontWeight }} / color: {{ typography.color }}</p>
     </div>
-    <div class="example" :style="typography">
-      A quick brown fox jumps over a lazy dog.
+    <div class="example">
+      <p class="mb-0" :style="typography">
+        A quick brown fox jumps over a lazy dog.
+      </p>
     </div>
   </div>
 </template>

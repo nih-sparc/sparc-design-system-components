@@ -1,6 +1,6 @@
 import TypographyDemo from './TypographyDemo'
 
-import { headings } from './typography'
+import { headings, navigation } from './typography'
 
 export default {
   title: 'Components/Typography',
@@ -8,17 +8,29 @@ export default {
   includeStories: []
 }
 
-export const Headings = () => ({
-  data: () => { return { headings } },
-  components: { TypographyDemo },
-  template: `
-    <div>
-      <typography-demo
-        v-for="item in headings"
-        :key="item.name"
-        class="mb-24"
-        :typography="item"
-      />
-    </div>
-  `
-})
+const createDemo = (typography) => {
+  return {
+    components: {
+      TypographyDemo
+    },
+    data() {
+      return {
+        typography
+      }
+    },
+    template: `
+      <div>
+        <typography-demo
+          v-for="item in typography"
+          :key="item.name"
+          class="mb-24"
+          :typography="item"
+        />
+      </div>
+    `
+  }
+}
+
+export const Headings = () => createDemo(headings)
+
+export const Navigation = () => createDemo(navigation)
