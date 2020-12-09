@@ -5,9 +5,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'FontsDemo'
-  }
+export default {
+  name: 'FontsDemo'
+}
 </script>
 
 <style lang="scss" scoped>
