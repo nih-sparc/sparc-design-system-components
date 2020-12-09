@@ -1,6 +1,6 @@
 import TypographyDemo from './TypographyDemo'
 
-import { headings, navigation, body } from './typography'
+import { headings, navigation, body, labels } from './typography'
 
 export default {
   title: 'Components/Typography',
@@ -36,4 +36,6 @@ export const Headings = () => createDemo(headings)
 export const Navigation = () => createDemo(navigation)
 
 export const Body = () => createDemo(body)
+
+export const Labels = () => createDemo(labels)
 

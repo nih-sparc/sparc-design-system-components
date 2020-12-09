@@ -108,3 +108,37 @@ export const body = [
   }
 ]
 
+export const labels = [
+  {
+    name: 'Label 1',
+    usage: 'ex. For Dropdown',
+    fontSize: '14px',
+    lineHeight: '24px',
+    fontWeight: 'regular',
+    color: '#303133'
+  },
+  {
+    name: 'Label 2',
+    usage: 'For Buttons and Table Headings',
+    fontSize: '14px',
+    lineHeight: '24px',
+    fontWeight: 'medium',
+    color: '#303133'
+  },
+  {
+    name: 'Label 3',
+    usage: 'For Tags and Categories',
+    fontSize: '14px',
+    lineHeight: '24px',
+    fontWeight: 'medium',
+    color: '#24245b'
+  },
+  {
+    name: 'Label 4',
+    usage: 'For Footer titles',
+    fontSize: '16px',
+    lineHeight: '24px',
+    fontWeight: 'bold',
+    color: '#303133'
+  }
+]
