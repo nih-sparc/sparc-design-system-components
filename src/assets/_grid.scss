@@ -10,7 +10,7 @@
 $carbon--grid-breakpoints: (
   sm: (
     columns: 4,
-    margin: 0,
+    margin: 0.5rem,
     width: $viewport-sm,
   ),
   md: (
@@ -20,19 +20,22 @@ $carbon--grid-breakpoints: (
   ),
   lg: (
     columns: 16,
-    margin: 1rem,
+    margin: 2rem,
     width: $viewport-lg,
   ),
   xlg: (
     columns: 16,
-    margin: 1rem,
+    margin: 3rem,
     width: $viewport-xlg,
   ),
   max: (
     columns: 16,
-    margin: 1.5rem,
+    margin: 3rem,
     width: $viewport-xlg,
   ),
 ) !default;
 
-@import '~@carbon/grid/scss/grid';
+$carbon--grid-gutter: 1rem !default;
+@import '@carbon/grid/scss/_inlined/_mixins';
+
+@include carbon--grid($carbon--grid-breakpoints, 1rem, 1px);
