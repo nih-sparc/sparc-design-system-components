@@ -1,12 +1,13 @@
-### 0.7.0 (2020-08-17)
+### 0.8.0 (2020-12-11)
 
 ##### New Features
 
-* **Table:**  Update table style and style HTML table ([5c13d82c](https://github.com/nih-sparc/sparc-design-system-components/commit/5c13d82c89569a06db3db42436a19e8d38b54f2c))
-* **Buttons:**  Update styles ([249594f7](https://github.com/nih-sparc/sparc-design-system-components/commit/249594f77c7419d86d979f2ccb4b7a76fe8b72eb))
-* **Spacing:**  Spacing system ([d9f9175a](https://github.com/nih-sparc/sparc-design-system-components/commit/d9f9175a3f1233a38d11cae33d7ff8b7a0f64cc4))
+* **Grid:**  Update grid gutter and buffers ([b8b23805](https://github.com/nih-sparc/sparc-design-system-components/commit/b8b23805aa6dca5b631fa9195dcbcb54843f2fb4))
+* **Typography:**  Documentation ([e199ab4b](https://github.com/nih-sparc/sparc-design-system-components/commit/e199ab4babf63ec6363ab6c8c47b05933092f800))
+* **Colors:**  Variables and documentation ([bc9ac064](https://github.com/nih-sparc/sparc-design-system-components/commit/bc9ac0648cb4383f877fbf9986177285d6f3e59e))
 
-##### Bug Fixes
+##### Other Changes
 
-* **Storybook:**  Fix issue with table docs ([f0a2f4c1](https://github.com/nih-sparc/sparc-design-system-components/commit/f0a2f4c1471f4903c5e15e5a672d06c1efffc8b8))
+* nih-sparc/sparc-design-system-components into feat-grid-cu-cuj6kw ([134652f0](https://github.com/nih-sparc/sparc-design-system-components/commit/134652f0f073f826952a80425cd78cc6ca041692))
+* nih-sparc/sparc-design-system-components into feat-colors-CU-guunm6 ([07591f63](https://github.com/nih-sparc/sparc-design-system-components/commit/07591f6339b3caea8098530bdc247537abbad509))
 
