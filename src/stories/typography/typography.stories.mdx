@@ -1,0 +1,44 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './typography.stories.js';
+
+<Meta title="Components/Typography" />
+
+# About Typography
+
+Typography maintains consistency throughout a website, giving it a professional aesthetic. Similarly, consistent typography can make the SPARC content more readable, contributing to a positive user experience. ASAP is the primary font used for all web properties. In the cases where ASAP is not available on Mac (Apple) devices, SF Pro can be used instead.
+
+## Primary Fonts
+
+<Story name='Fonts' height='60px'>{stories.Fonts()}</Story>
+
+## Header Styling
+
+<Story name='Headings' height='60px'>{stories.Headings()}</Story>
+
+All Headings hsould be in the primary "GREY". Unless they are also a link to another part of the website, in thisscenario they should be "PURPLE". Exceptions to this rule is where the comopnent uses a different background color. These exceptions are documented on a case by case basis.
+
+## Navigation Styling
+
+<Story name='Navigation' height='60px'>{stories.Navigation()}</Story>
+
+## Body Styling
+
+<Story name='Body' height='60px'>{stories.Body()}</Story>
+
+## Labels
+
+<Story name='Labels' height='60px'>{stories.Labels()}</Story>
+
+## Tabs
+
+<Story name='Tabs' height='60px'>{stories.Tabs()}</Story>
+
+## Link Styling
+
+### Default
+
+<Story name='LinksDefault' height='60px'>{stories.LinksDefault()}</Story>
+
+### Hover
+
+<Story name='LinksHover' height='60px'>{stories.LinksHover()}</Story>
