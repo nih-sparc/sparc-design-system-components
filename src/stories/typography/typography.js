@@ -61,7 +61,7 @@ export const navigation = [
     fontSize: '12px',
     lineHeight: '24px',
     fontWeight: 'regular',
-    color: '#fff',
+    color: '#ffffff',
     ...demoBackground
   },
   {
@@ -88,7 +88,7 @@ export const body = [
     lineHeight: '24px',
     fontWeight: 'regular',
     color: '#24245b',
-    backgroundColor: '#979797',
+    backgroundColor: '#D8D8D8',
     showBackgroundColor: true
   },
   {
@@ -222,7 +222,7 @@ export const linksDefault = [
     ...link1,
     name: 'Link 1 - Highlighted',
     usage: 'ex. for  Search result keywords',
-    backgroundColor: '#979797',
+    backgroundColor: '#D8D8D8',
     showBackgroundColor: true
   },
   { ...link2 },
@@ -239,7 +239,7 @@ export const linksHover = [
     ...link1,
     name: 'Link 1 - Highlighted',
     usage: 'ex. for  Search result keywords',
-    backgroundColor: '#979797',
+    backgroundColor: '#D8D8D8',
     showBackgroundColor: true,
     textDecoration: 'underline'
   },
