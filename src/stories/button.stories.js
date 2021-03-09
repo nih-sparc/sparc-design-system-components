@@ -61,3 +61,16 @@ export const Danger = () => ({
     </div>
   `
 })
+
+export const Icons = () => ({
+  props: defaultProps(),
+  template: `
+    <div>
+      <el-button icon="el-icon-edit" circle></el-button>
+      <el-button icon="el-icon-check" circle></el-button>
+      <el-button icon="el-icon-message" circle></el-button>
+      <el-button icon="el-icon-star-off" circle></el-button>
+      <el-button icon="el-icon-delete" circle></el-button>
+    </div>
+  `
+})

@@ -65,4 +65,8 @@
     border-color: $danger;
     color: #fff;
   }
+
+  &.is-circle {
+    padding: 0.25rem;
+  }
 }
