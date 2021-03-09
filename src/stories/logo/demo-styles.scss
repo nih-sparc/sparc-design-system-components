@@ -1,0 +1,17 @@
+.logo-demo-styles {
+  .logo-white,
+  .logo-black {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;;
+    height: 300px;
+    padding: 6.875rem 4.0625rem;
+    &.logo-white {
+      background: #000;
+    }
+    &.logo-black {
+      background: #f9f9f9;
+    }
+  }
+}
