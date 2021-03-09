@@ -21,9 +21,15 @@ export const Primary = () => ({
     <div>
       <el-button>{{ text }}</el-button>
       <el-button :disabled="isDisabled">Disabled Button</el-button>
-      <el-button class="large">Large Button</el-button>
-      <el-button>Medium Button</el-button>
-      <el-button class="small">Small Button</el-button>
+    </div>
+  `
+})
+
+export const ButtonSizes = (className, text) => ({
+  props: defaultProps(),
+  template: `
+    <div>
+      <el-button class="${className}">${text}</el-button>
     </div>
   `
 })
