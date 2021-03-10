@@ -12,12 +12,16 @@ export default {
     type: {
       type: String,
       default: 'primary'
+    },
+    secondary: {
+      type: Boolean,
+      default: false
     }
   },
 
   computed: {
     logoSrc: function() {
-      return require (`@/assets/img/logos/sparc-logo/sparc-logo-${this.type}.svg`)
+      return require (`@/assets/img/sparc-logo/sparc-${this.secondary ? 'alt-' : ''}logo-${this.type}.svg`)
     }
   }
 }
