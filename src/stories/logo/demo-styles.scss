@@ -1,0 +1,63 @@
+@import '../../assets/_variables.scss';
+.logo-demo-styles {
+  margin-top: 4rem;
+  .logo-primary {
+    padding: 0 6rem;
+  }
+  .logo-white,
+  .logo-black {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;;
+    height: 18.75rem;
+    padding: 6.875rem 4.0625rem;
+    &.logo-white {
+      background: #000;
+    }
+    &.logo-black {
+      background: $background;
+    }
+  }
+  .logo-usage-wrap  {
+    @media (min-width: 48em) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  .demo-logo-usage {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 17rem;
+    justify-content: center;
+    margin: 1rem 0;
+    padding: 2.5rem;
+    position: relative;
+    width: 17rem;
+    @media (min-width: 48em) {
+      margin: 1rem;
+    }
+    &.cross:before {
+      background: linear-gradient(45deg, transparent 49.8%, #979797 49.9%, #979797 50.1%, transparent 50.2%), linear-gradient(-45deg, transparent 49.8%, #979797 49.9%, #979797 50.1%, transparent 50.2%);
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: scale(1.05);
+      width: 100%;
+    }
+    &.logo-1 {
+      background: $purple;
+    }
+    &.logo-2 {
+      background: $darkBlue;
+    }
+    &.logo-3 {
+      background: $background;
+    }
+  }
+}
