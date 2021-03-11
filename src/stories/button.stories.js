@@ -21,9 +21,15 @@ export const Primary = () => ({
     <div>
       <el-button>{{ text }}</el-button>
       <el-button :disabled="isDisabled">Disabled Button</el-button>
-      <el-button class="large">Large Button</el-button>
-      <el-button>Medium Button</el-button>
-      <el-button class="small">Small Button</el-button>
+    </div>
+  `
+})
+
+export const ButtonSizes = (className, text) => ({
+  props: defaultProps(),
+  template: `
+    <div>
+      <el-button class="${className}">${text}</el-button>
     </div>
   `
 })
@@ -52,6 +58,19 @@ export const Danger = () => ({
     <div>
       <el-button class="danger">{{ text }}</el-button>
       <el-button class="danger" :disabled="isDisabled">Disabled Button</el-button>
+    </div>
+  `
+})
+
+export const Icons = () => ({
+  props: defaultProps(),
+  template: `
+    <div>
+      <el-button icon="el-icon-edit" circle></el-button>
+      <el-button icon="el-icon-check" circle></el-button>
+      <el-button icon="el-icon-message" circle></el-button>
+      <el-button icon="el-icon-star-off" circle></el-button>
+      <el-button icon="el-icon-delete" circle></el-button>
     </div>
   `
 })
