@@ -15,7 +15,7 @@
         &gt;
       </span>
     </div>
-    <span>{{ formatTitle(title) }}</span>
+    <span class="title">{{ formatTitle(title) }}</span>
   </div>
 </template>
 
