@@ -37,10 +37,10 @@ describe('ContentOverviewCard', () => {
     const title = wrapper.find('.title')
 
     /**
-     * 150 characters truncated + 3 characters for the `...`
+     * 32 characters truncated + 3 characters for the `...`
      * added in the computed proeprty
      */
-    expect(title.text().length).toBe(32)
+    expect(title.text().length).toBe(35)
   })
 
   it(`Truncates title, and doesn't truncate in the middle of a word`, async () => {
@@ -54,9 +54,9 @@ describe('ContentOverviewCard', () => {
     const title = wrapper.find('.title')
 
     /**
-     * 150 characters truncated + 3 characters for the `...`
+     * 39 characters truncated + 3 characters for the `...`
      * added in the computed proeprty
      */
-    expect(title.text().length).toBe(39)
+    expect(title.text().length).toBe(42)
   })
 })

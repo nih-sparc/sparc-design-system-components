@@ -47,7 +47,10 @@ export default {
      * @param {String} breadcrumb
      */
     formatTitle: function(title) {
-      return title.replace(/^(.{32}[^\s]*).*/, '$1');
+      const truncated = title.replace(/^(.{32}[^\s]*).*/, '$1')
+      return truncated.length === title.length
+        ? title
+        : `${truncated}...`
     }
   }
 }
