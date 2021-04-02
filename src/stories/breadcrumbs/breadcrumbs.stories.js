@@ -1,6 +1,5 @@
-import BreadcrumbTrail from '@/components/BreadcrumbTrail/BreadcrumbTrail.vue'
-
 import '../grid/grid-demo-styles.scss'
+
 export default {
   title: 'Components/Breadcrumbs',
   includeStories: []
@@ -24,9 +23,6 @@ const defaultData = () => {
 }
 
 export const Primary = () => ({
-  components: {
-    BreadcrumbTrail
-  },
   data: () => defaultData(),
   template: `
     <div>
@@ -36,9 +32,6 @@ export const Primary = () => ({
 })
 
 export const Layout = () => ({
-  components: {
-    BreadcrumbTrail
-  },
   data: () => defaultData(),
   template: `
     <div>

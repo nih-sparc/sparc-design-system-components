@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../assets/_variables.scss';
+@import '../../../assets/_variables.scss';
 .breadcrumb {
   align-items: flex-start;
   background: $lineColor2;
