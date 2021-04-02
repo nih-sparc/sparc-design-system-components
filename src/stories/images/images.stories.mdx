@@ -1,0 +1,91 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+import imagesSizeQuality1 from './images-size-quality-1.png'
+import imagesSizeQuality2 from './images-size-quality-2.png'
+import imagesSizeQuality3 from './images-size-quality-3.png'
+import imagesSizePositioning1 from './images-size-positioning-1.png'
+import imagesSizePositioning2 from './images-size-positioning-2.png'
+import imagesSizePositioning3 from './images-size-positioning-3.png'
+import imagesContrast1 from './images-contrast-1.png'
+import imagesContrast2 from './images-contrast-2.png'
+
+<Meta title="Components/Images" />
+
+## About Images
+Images can provide powerful visual information for users. However, an image can also cause accessibility issues when coupled with other components. It is therefore important to ensure that how and where a image is to be used on the site is considered when designing/selecting the image.
+
+### Square Images
+
+Square images are most commonly used in Cards and Tables. To handle large desktops and multiple column images, square images should be a minimum of 1200px by 1200px. This allows for an 8 column wide image on a 2400px display.
+
+### Rectangle Images
+
+{To be defined as usage is identified}
+
+## Image guidelines
+The following guidelines help in the creation of images for the portal.
+
+### Size and Quality
+
+- Images should be saved as 96dpi
+- Images must adhere to the sizes outlined for the respective shape
+
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col">
+      <img src={imagesSizeQuality1} alt="low quality example" />
+      <p>No pixellated (low-quality) images.</p>
+    </div>
+    <div class="bx--col">
+      <img src={imagesSizeQuality2} alt="bad proportion example" />
+      <p>No images that are out of proportion</p>
+    </div>
+    <div class="bx--col">
+      <img src={imagesSizeQuality3} alt="images sized differeently example" />
+      <p>No images that are sized differently than the shape</p>
+    </div>
+  </div>
+</div>
+
+### Size and Positioning
+
+- Images should contain less than 24 characters of overlaying text
+- Images should not contain key content in the upper right corner
+
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col">
+      <img src={imagesSizePositioning1} alt="Obscured image text example" />
+      <p>Images with content in the upper right is obscured by the label.</p>
+    </div>
+    <div class="bx--col">
+      <img src={imagesSizePositioning2} alt="Overlaying text example" />
+      <p>Over 24 characters of overlaying text makes it hard to read on certain device sizes and doesn’t scale.</p>
+    </div>
+  </div>
+  <div class="bx--row">
+    <div class="bx--col">
+      <img src={imagesSizePositioning3} alt="Image copy that is too long example" />
+    </div>
+  </div>
+</div>
+
+### Contrast
+- Images must not use a background color that could cause contrast issues with the button or label colors.
+- Images should not use a background color that could cause contrast issues with the image labels.
+
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col">
+      <img src={imagesContrast1} alt="Image with poor contrast with button or label colors example" />
+      <p>The dark purple conflicts with the label element and image text.</p>
+    </div>
+    <div class="bx--col">
+      <img src={imagesContrast2} alt="Image with poor contrast with image label example" />
+      <p>The title image is low contrast and hard to read the descriptions.</p>
+    </div>
+  </div>
+</div>
+
+### Accessibility
+ - Images must have appropriate ALT text    (Learn about best practices for alternative text: https://webaim.org/techniques/alttext/)
