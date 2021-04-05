@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+import Footer1 from './footer-1.png'
+import Footer2 from './footer-2.png'
+import Footer3 from './footer-3.png'
+
+<Meta title="Large Components/Footer" />
+
+# About Footer
+
+Footer is consistent across all pages.
+
+## Format
+
+<div>
+  <img src={Footer1} alt="Screenshot of the SPARC footer, with labels for different parts" />
+</div>
+
+External links open up in a new browser tab.  For example, NIH SPARC links to https://commonfund.nih.gov/Sparc/, which is outside of sparc.science and thus considered an external link.
+
+## Layout / Arrangement
+
+### Small and large desktop:
+<img src={Footer2} alt="Screenshot of the SPARC footer, with grid markers" />
+
+### Tablet and mobile:
+
+For Tablet and mobile the footer is displayed on top of each other rather than next to each other. With the order different from the desktop breakpoints. On desktop it is shown as Overview, Social Media and Legal on the left with Footer Links on the right. On tablet and mobile it is Overview,  Footer Links, Social Media and Legal in a single column.
+
+<img src={Footer3} alt="Screenshot of the SPARC footer on tablet/mobile" />
