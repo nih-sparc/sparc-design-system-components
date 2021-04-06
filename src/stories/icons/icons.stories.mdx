@@ -1,6 +1,10 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 import * as stories from './icons.stories.js';
 
+import iconsKeyshape_1 from './icons-keyshape-1.png';
+import iconsKeyshape_2 from './icons-keyshape-2.png';
+import iconsKeyshape_3 from './icons-keyshape-3.png';
+
 <Meta title="Components/Icons" />
 
 # Icons
@@ -80,6 +84,26 @@ Icons also visually break up the content, making it less intimidating. A well-fo
   color="#8300BF"
 />
 ```
+
+## Keyshapes
+
+To maintain consistent sizes for basic shapes and proportions across the icon set keyshapes are used for icons. This allows for a visual familarity and ease to view multiple icons together.
+
+<img src={iconsKeyshape_1} alt="screenshot of four icons and their keyshapes" />
+
+Icons should match the keyshape that best represents the icon’s metaphor
+
+<img width="600" src={iconsKeyshape_2} alt="screenshot of two icons and their keyshapes" />
+
+Icons should not be forced to be fully within the keyshape.
+
+<img width="600" src={iconsKeyshape_2} alt="screenshot of two icons and their keyshapes, which have not been forced" />
+
+## Accessibility
+
+Where possible icons should be paired with appropriate text to provide clarity.
+All icons should have aria-labels that explain what the icon does, and not what the icon looks like. i.e “Send mail” rather than “Envelope”
+
 
 ## Usage
 
