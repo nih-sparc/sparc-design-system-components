@@ -30,12 +30,13 @@ const social = [
   'social/twitter'
 ]
 
-const createDemo = (icons, colors) => {
+const createDemo = (icons, colors, isBackground) => {
   return {
     data() {
       return {
         icons,
-        colors
+        colors,
+        isBackground
       }
     },
     template: `
@@ -57,6 +58,7 @@ const createDemo = (icons, colors) => {
             <div class="bx--col">
               <svgicon
                 :name="icon"
+                :class="{ 'background': isBackground }"
                 width="36"
                 height="36"
                 :color="colors"
@@ -69,6 +71,6 @@ const createDemo = (icons, colors) => {
   }
 }
 
-export const Background = () => createDemo(icons, '#8300BF #fff')
-export const NoBackground = () => createDemo(icons, 'transparent black')
+export const Background = () => createDemo(icons, '', true)
+export const NoBackground = () => createDemo(icons, '#000', false)
 export const Social = () => createDemo(social, '#8300BF')
