@@ -1,0 +1,13 @@
+
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="zoomOut" fill-rule="nonzero">
+            <g id="Group-13-Copy">
+                <circle id="Oval-Copy-2" fill="#8300BF" cx="12" cy="12" r="12"></circle>
+                <g id="Group-12" transform="translate(4.000000, 3.000000)" fill="#FFFFFF">
+                    <path d="M6.5,0 C10.0898509,0 13,2.91014913 13,6.5 C13,7.93415657 12.5355323,9.25983089 11.7488141,10.3348056 L15.9975469,14.5833333 L14.5833333,15.9975469 L10.3348056,11.7488141 C9.25983089,12.5355323 7.93415657,13 6.5,13 C2.91014913,13 0,10.0898509 0,6.5 C0,2.91014913 2.91014913,0 6.5,0 Z M6.5,2 C4.01471863,2 2,4.01471863 2,6.5 C2,8.98528137 4.01471863,11 6.5,11 C8.98528137,11 11,8.98528137 11,6.5 C11,4.01471863 8.98528137,2 6.5,2 Z M9,5.5 L9,7.5 L4,7.5 L4,5.5 L9,5.5 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
