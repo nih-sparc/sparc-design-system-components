@@ -1,0 +1,24 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './breadcrumbs.stories.js';
+
+<Meta title="Components/Breadcrumbs" />
+
+# About Breadcrumbs
+
+A “breadcrumb” (or “breadcrumb trail”) is a type of secondary navigation which reveals the user’s location in a  Web application. Just like in the Hansel and Gretel tale, breadcrumbs in real-world applications offer users a way to trace the path back to their original landing point.
+
+## Format
+
+Breadcrumbs are the same on all breakpoints
+
+<Story name='Primary' height='60px'>{stories.Primary()}</Story>
+
+## Layout / Arrangement
+
+Breadcrumbs are the same on all breakpoints
+
+All breadcrumbs should use Title Case and have a character limit of 32 (with spaces). If the page is more than 32 characters then it is truncated and “…” is added.
+
+Truncation should occur at the end of a word and not part way through a word.
+
+<Story name='Layout' height='60px'>{stories.Layout()}</Story>

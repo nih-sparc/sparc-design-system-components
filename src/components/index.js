@@ -5,10 +5,12 @@ import '@/assets/styles.scss';
 
 import ContentOverviewCard from './ContentOverviewCard'
 import TabNav from './TabNav'
+import BreadcrumbTrail from './BreadcrumbTrail'
 
 const Components = {
   ContentOverviewCard,
-  TabNav
+  TabNav,
+  BreadcrumbTrail
 }
 
 Object.keys(Components).forEach(component => {
