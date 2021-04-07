@@ -1,0 +1,12 @@
+
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dock">
+            <circle id="Oval" fill="#8300BF" fill-rule="nonzero" cx="12" cy="12" r="12"></circle>
+            <g id="Group-5" stroke-linecap="square" transform="translate(4.851620, 3.830582)">
+                <path d="M5.65685425,8.42620385 L7.07106781,9.84041741 L3.353,13.558 L6.18198051,13.557932 L6.18198051,15.557932 L0.181980518,15.557932 L0.181726442,15.4371678 L0.0606601706,15.4366117 L0.06,14.143 L0,14.0830581 L0.06,14.023 L0.0606601706,9.43661169 L2.06066017,9.43661169 L2.06,12.023 L5.65685425,8.42620385 Z M14.3251572,0.999999997 L14.325,1.121 L14.4464775,1.12132034 L14.446,2.413 L14.5071374,2.47487374 L14.446,2.535 L14.4464775,7.12132034 L12.4464775,7.12132034 L12.446,4.535 L8.85028314,8.13172799 L7.43606958,6.71751442 L11.152,3 L8.32515717,3 L8.32515717,0.999999997 L14.3251572,0.999999997 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="Group" transform="translate(12.385817, 3.060660) rotate(45.000000) translate(-12.385817, -3.060660) translate(9.471604, 1.646447)"></g>
+            </g>
+        </g>
+    </g>
+</svg>

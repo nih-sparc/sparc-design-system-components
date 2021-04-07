@@ -62,15 +62,46 @@ export const Danger = () => ({
   `
 })
 
+const icons = [
+  '2horpanel',
+  '2vertpanel',
+  '3panel',
+  '4panel',
+  'changeBckgd',
+  'close',
+  'closeFullScreen',
+  'dock',
+  'fullScreen',
+  'pause',
+  'permalink',
+  'play',
+  'resetZoom',
+  'singlepanel',
+  'tooltips',
+  'undock',
+  'zoomIn',
+  'zoomOut'
+]
+
 export const Icons = () => ({
+  data() {
+    return {
+      icons
+    }
+  },
   props: defaultProps(),
   template: `
     <div>
-      <el-button icon="el-icon-edit" circle></el-button>
-      <el-button icon="el-icon-check" circle></el-button>
-      <el-button icon="el-icon-message" circle></el-button>
-      <el-button icon="el-icon-star-off" circle></el-button>
-      <el-button icon="el-icon-delete" circle></el-button>
+      <el-button
+        v-for="icon in icons"
+        :key="icon"
+        circle
+      >
+        <svgicon
+          :name="icon"
+          color="transparent #fff"
+        />
+      </el-button>
     </div>
   `
 })
