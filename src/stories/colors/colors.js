@@ -47,8 +47,8 @@ export const secondary = [
 export const status = [
   {
     name: 'Success',
-    hex: '#00e66b',
-    rbg: '0-230-107',
+    hex: '#5e9f69',
+    rbg: '94-159-105',
     cmyk: '90, 0, 48, 10',
     usage: 'Confirmation messages',
     variable: '$success'

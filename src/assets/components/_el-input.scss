@@ -1,0 +1,72 @@
+@import '../_variables.scss';
+
+.el-input {
+  &.secondary {
+    .el-input__inner {
+      border-color: #dcdfe6;
+    }
+  }
+  &__inner {
+    border-color: $lightGrey;
+    color: $grey;
+    font-size: 1rem;
+    padding: 0 0.938rem;
+    &:hover {
+      border-color: $lightGrey !important;
+    }
+    &:focus {
+      border-color: $app-primary-color !important;
+    }
+    &::placeholder {
+      color: $lightGrey
+    }
+  }
+  &__suffix {
+    display: flex;
+    right: 0.625rem;
+  }
+  &__suffix-inner {
+    align-items: center;
+    display: flex;
+  }
+  &.is-disabled {
+    .el-input__inner {
+      border-color: #dcdfe6;
+      color: $mediumGrey;
+      &:hover {
+        border-color: #dcdfe6 !important;
+      }
+    }
+  }
+}
+
+.el-input--small .el-input__inner {
+  border-radius: 3px;
+  font-size: 0.875rem;
+  padding: 0 0.75rem;
+}
+.el-input--suffix .el-input__inner {
+  padding-right: 2.25rem;
+}
+.el-form-item.is-error {
+  .el-input__inner,
+  .el-input__inner:focus,
+  .el-textarea__inner,
+  .el-textarea__inner:focus {
+    border-color: $danger;
+  }
+  .el-input__suffix-inner {
+    color: $danger;
+  }
+}
+.el-form-item.is-success {
+  .el-input__inner,
+  .el-input__inner:focus,
+  .el-textarea__inner,
+  .el-textarea__inner:focus {
+    border-color: $success;
+  }
+  .el-input__suffix-inner {
+    color: $success;
+  }
+}

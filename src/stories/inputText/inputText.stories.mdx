@@ -1,0 +1,49 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './inputText.stories.js';
+
+<Meta title="Components/Text Input" />
+
+# About Inputs
+Input boxes are an input that allows a user to write or edit text.
+
+
+## Format
+
+### Status
+<Story name='Primary' height='60px'>{stories.Primary()}</Story>
+
+#### Code
+
+```html
+<el-input v-model="value" />
+<el-input class="secondary" v-model="secondaryValue" />
+<el-input v-model="successValue">
+  <svgicon
+    slot="suffix"
+    class="background"
+    name="close"
+    height="16"
+    width="16"
+  />
+</el-input>
+<el-input v-model="errorValue">
+  <svgicon
+    slot="suffix"
+    class="background"
+    name="close"
+    height="16"
+    width="16"
+  />
+</el-input>
+<el-input v-model="disabledValue" :disabled="true" />
+```
+
+## Layout / Arrangement
+<Story name='Layout/Arrangement' height='60px'>{stories.Layout()}</Story>
+
+#### Code
+```html
+<el-input v-model="largeValue" />
+<el-input v-model="mediumValue" size="medium" />
+<el-input v-model="smallValue" size="small" />
+```
