@@ -1,0 +1,12 @@
+.input-demo {
+  .input-wrap {
+    align-items: center;
+    display: flex;
+  }
+  .label {
+    min-width: 5rem;
+  }
+  .el-input {
+    max-width: 15rem;
+  }
+}
