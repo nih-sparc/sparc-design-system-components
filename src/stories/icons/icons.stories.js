@@ -3,6 +3,8 @@ export default {
   includeStories: []
 }
 
+import './icon-demo-styles.scss'
+
 const icons = [
   '2horpanel',
   '2vertpanel',
@@ -40,7 +42,7 @@ const createDemo = (icons, colors, isBackground) => {
       }
     },
     template: `
-      <div class="logo-demo-styles">
+      <div class="icon-demo-styles">
         <div class="bx--grid">
           <div class="bx--row mb-32">
             <div class="bx--col">
