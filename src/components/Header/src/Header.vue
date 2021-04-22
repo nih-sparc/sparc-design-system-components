@@ -543,6 +543,15 @@ export default {
   }
   ::v-deep .el-input__inner {
     color: $mediumGrey;
+    font-size:14px;
+    &:hover{
+      outline:none;
+      border:none;
+    }
+    &:focus{
+      outline:none;
+      border:none;
+    }
   }
 }
 

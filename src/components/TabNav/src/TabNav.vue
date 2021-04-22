@@ -37,6 +37,7 @@ export default {
   display: flex;
   list-style: none;
   overflow: auto;
+  width: calc(100% - 2rem);
   margin: 0 -2rem 0 0;
   padding: 0 1rem;
   @media (min-width: 48em) {
