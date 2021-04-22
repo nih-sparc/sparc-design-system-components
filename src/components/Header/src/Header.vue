@@ -671,7 +671,7 @@ export default {
         margin-left: 0;
         margin-right: 1rem;
         width: 14rem;
-        overflow: scroll;
+        overflow: auto;
       }
     }
     ul {
