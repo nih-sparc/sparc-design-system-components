@@ -33,6 +33,7 @@
     "sass": "^1.26.9",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.11",
+    "vue-router": "^3.5.1",
     "vue-svgicon": "^3.2.9"
   },
   "devDependencies": {

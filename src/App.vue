@@ -1,35 +1,39 @@
 <template>
   <div id="app">
-    <el-button>hi</el-button>
 
-    <el-date-picker
-      v-model="value1"
-      type="date"
-      placeholder="Pick a day">
-    </el-date-picker>
+    <SparcHeader linkComponent="router-link" :currentPath="$route.name"/>
+    <div class="content-body">
+      <el-button>hi</el-button>
 
-    <el-select v-model="value" placeholder="Select">
-      <el-option
-        v-for="item in options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value">
-      </el-option>
-    </el-select>
+      <el-date-picker
+        v-model="value1"
+        type="date"
+        placeholder="Pick a day">
+      </el-date-picker>
 
-    <div style="background: #292b66; padding: 2em;">
+      <el-select v-model="value" placeholder="Select">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+      </el-select>
+
+      <div style="background: #292b66; padding: 2em;">
+        <tab-nav
+          class="style2"
+          :tabs="tabs"
+          :active-tab="activeTab"
+          @set-active-tab="activeTab = $event"
+        />
+      </div>
       <tab-nav
-        class="style2"
         :tabs="tabs"
         :active-tab="activeTab"
         @set-active-tab="activeTab = $event"
       />
     </div>
-    <tab-nav
-      :tabs="tabs"
-      :active-tab="activeTab"
-      @set-active-tab="activeTab = $event"
-    />
   </div>
 </template>
 
@@ -74,4 +78,7 @@ export default {
 </script>
 
 <style>
+.content-body {
+  padding-top: 1em;
+}
 </style>

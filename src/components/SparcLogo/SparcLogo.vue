@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <img :src="logoSrc" alt="Logo for SPARC">
-  </div>
+    <img class="logo" :src="logoSrc" alt="Logo for SPARC">
 </template>
 
 <script>

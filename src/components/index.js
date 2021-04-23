@@ -4,16 +4,18 @@ import SvgIcon from 'vue-svgicon'
 
 import '@/assets/styles.scss';
 
-import ContentOverviewCard from './ContentOverviewCard'
-import TabNav from './TabNav'
 import BreadcrumbTrail from './BreadcrumbTrail'
+import ContentOverviewCard from './ContentOverviewCard'
+import SparcHeader from './SparcHeader'
+import TabNav from './TabNav'
 
 import '@/assets/icons'
 
 const Components = {
+  BreadcrumbTrail,
   ContentOverviewCard,
-  TabNav,
-  BreadcrumbTrail
+  SparcHeader,
+  TabNav
 }
 
 Object.keys(Components).forEach(component => {
