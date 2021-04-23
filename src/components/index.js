@@ -6,7 +6,7 @@ import '@/assets/styles.scss';
 
 import BreadcrumbTrail from './BreadcrumbTrail'
 import ContentOverviewCard from './ContentOverviewCard'
-import Header from './Header'
+import SparcHeader from './SparcHeader'
 import TabNav from './TabNav'
 
 import '@/assets/icons'
@@ -14,7 +14,7 @@ import '@/assets/icons'
 const Components = {
   BreadcrumbTrail,
   ContentOverviewCard,
-  Header,
+  SparcHeader,
   TabNav
 }
 

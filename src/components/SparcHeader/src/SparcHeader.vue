@@ -117,7 +117,7 @@
 import SparcLogo from "../../SparcLogo/SparcLogo.vue";
 
 export default {
-  name: "Header",
+  name: "SparcHeader",
   props: {
     linkComponent: {
       type: String,

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <Header linkComponent="router-link" :currentPath="$route.name"/>
+    <SparcHeader linkComponent="router-link" :currentPath="$route.name"/>
     <div class="content-body">
       <el-button>hi</el-button>
 

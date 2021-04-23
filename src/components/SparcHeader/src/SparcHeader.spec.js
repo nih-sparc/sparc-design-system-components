@@ -1,14 +1,14 @@
 import { mount, createLocalVue  } from '@vue/test-utils'
-import Header from './Header'
+import SparcHeader from './SparcHeader'
 import VueRouter from 'vue-router'
 
 const localVue = createLocalVue()
 localVue.use(VueRouter)
 const router = new VueRouter()
 
-describe('Header', () => {
+describe('SparcHeader', () => {
 
-  const wrapper = mount(Header, {
+  const wrapper = mount(SparcHeader, {
     localVue,
     router,
     stubs: ['el-input', 'el-option', 'el-select', 'svgicon'],
