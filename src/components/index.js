@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import ElementUI from 'element-ui';
+import lang from 'element-ui/lib/locale/lang/en'
+import locale from 'element-ui/lib/locale'
 import SvgIcon from 'vue-svgicon'
 
 import '@/assets/styles.scss';
@@ -19,6 +21,8 @@ const Components = {
 Object.keys(Components).forEach(component => {
   Vue.component(component, Components[component]);
 })
+
+locale.use(lang)
 
 ElementUI.install(Vue)
 

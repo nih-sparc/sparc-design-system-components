@@ -6,7 +6,6 @@ import * as stories from './inputText.stories.js';
 # About Inputs
 Input boxes are an input that allows a user to write or edit text.
 
-
 ## Format
 
 ### Status
@@ -46,4 +45,83 @@ Input boxes are an input that allows a user to write or edit text.
 <el-input v-model="largeValue" />
 <el-input v-model="mediumValue" size="medium" />
 <el-input v-model="smallValue" size="small" />
+```
+
+## Combination Text Inputs
+
+Combination Input boxes allow mulitple inputs in one component.
+
+### Format
+
+The following are different types of combination text inputs:
+
+### Text and link
+
+<Story name='Text and link' height='60px'>{stories.TextAndLink()}</Story>
+
+#### Code
+```html
+<el-input v-model="val" class="text-and-link" placeholder="Enter the password">
+  <a href="#" slot="suffix">Forgot?</a>
+</el-input>
+```
+
+### Text and calendar link
+
+<Story name='Text and calendar link' height='60px'>{stories.TextAndCalendarLink()}</Story>
+
+#### Code
+```html
+<el-date-picker
+  v-model="val"
+  type="date"
+  placeholder="Enter Date"
+/>
+```
+
+### Stepper 1
+
+<Story name='Stepper 1' height='60px'>{stories.Stepper1()}</Story>
+
+#### Code
+```html
+<el-input-number v-model="num" :min="1" :max="10" />
+```
+
+### Stepper 2
+
+<Story name='Stepper 2' height='60px'>{stories.Stepper2()}</Story>
+
+#### Code
+```html
+<el-input-number v-model="num" :min="1" :max="10" controls-position="right" />
+```
+
+The following combination text inputs are possible types that may be used in the future:
+<Story name='Future use' height='60px'>{stories.FutureUse()}</Story>
+
+#### Code
+```html
+<el-input placeholder="Enter the URL" v-model="input1">
+  <template slot="prepend">Http://</template>
+</el-input>
+
+<el-input placeholder="Address details" v-model="input3" class="input-with-select">
+  <el-select v-model="select" slot="prepend" placeholder="City">
+    <el-option label="Philadelphia" value="Philadelphia"></el-option>
+    <el-option label="New York City" value="New York City"></el-option>
+    <el-option label="Boston" value="Boston"></el-option>
+  </el-select>
+</el-input>
+
+<el-input placeholder="Height" v-model="input3" class="input-with-select">
+  <el-select v-model="select" slot="append" placeholder="Unit">
+    <el-option label="CM" value="CM"></el-option>
+    <el-option label="In" value="In"></el-option>
+  </el-select>
+</el-input>
+
+<el-input placeholder="Please input" v-model="input2">
+  <template slot="append">.com</template>
+</el-input>
 ```
