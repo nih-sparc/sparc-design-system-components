@@ -70,3 +70,25 @@
     color: $success;
   }
 }
+
+.el-input-number__increase,
+.el-input-number__decrease,
+.el-input-number.is-controls-right .el-input-number__increase,
+.el-input-number.is-controls-right .el-input-number__decrease,
+.el-input-group__prepend,
+.el-input-group__append {
+  border-color: $lightGrey;
+  color: $mediumGrey;
+}
+
+.text-and-link.el-input--suffix .el-input__inner {
+  padding-right: 5rem;
+}
+.el-input__suffix-inner a {
+  border-left: 1px solid $lightGrey;
+  color: $grey;
+  padding-left: 0.625rem;
+}
+.el-input__icon {
+  color: $lightGrey;
+}

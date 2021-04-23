@@ -32,7 +32,7 @@
  * make sure that `table` children inside of an
  * .el-table don't also get these styles applied
  */
-table:not([class^="el-table__"]) {
+table:not([class^="el-table__"], .el-date-table) {
   @extend .el-table;
   border: 1px solid #dbdfe6;
   border-spacing: 0;
