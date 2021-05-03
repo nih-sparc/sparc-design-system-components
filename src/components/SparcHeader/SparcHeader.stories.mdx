@@ -1,14 +1,26 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs/blocks'
 
-import * as stories from './SparcHeader.stories.js';
+import Header1 from './header-1.png'
+import Header2 from './header-2.png'
 
-import SparcHeader from './src/SparcHeader'
+<Meta title="Large Components/Sparc Header" />
 
-<Meta title="Large Components/Sparc Header" component={SparcHeader} />
+# About Header
 
-# SPARC Header Desktop
+Header is on top of every page and used as a main way to navigate through the SPARC portal, providing a consistent look and feel, and giving the user familarity.
 
-Primarily used for navigating pages.
+## Layout / Arrangement
 
-## With all properties and the meta slot
-<Story name='Desktop'>{stories.Desktop()}</Story>
+### Small and large desktop:
+
+<div>
+  <img src={Header1} alt="Screenshot of the SPARC header" />
+</div>
+
+## Layout / Arrangement
+
+### Tablet and mobile:
+
+<div>
+  <img src={Header2} alt="Screenshot of the SPARC header on tablet and mobile" />
+</div>
