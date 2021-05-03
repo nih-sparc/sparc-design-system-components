@@ -12,7 +12,7 @@ export default {
   includeStories: []
 }
 
-export const Desktop = () => ({
+export const Primary = () => ({
   props: defaultProps(),
   template: `
     <div>
