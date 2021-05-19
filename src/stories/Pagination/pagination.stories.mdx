@@ -24,3 +24,18 @@ The pagination component combines pager and page navigation elements to allow th
 ## Events
 
 `select-page`: Emitted when the page is changed using the navigation arrows. Returns the page number.
+
+
+# Pagination menu
+
+The Pagination component can be paired with the PaginationMenu component to provide the user a way to change the `pageSize`. The two components can be connected using the two events they emit in tandem.
+
+<Story name='Pagination Menu'>{stories.Menu()}</Story>
+
+## Properties
+
+`pageSize`: Item counts desired for the page.
+
+## Events
+
+`update-page-size`: Emitted when a different count in the dropdown menu is selected. Returns the new count to be used as page size.
