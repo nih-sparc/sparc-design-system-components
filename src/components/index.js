@@ -10,6 +10,8 @@ import BreadcrumbTrail from './BreadcrumbTrail'
 import ContentOverviewCard from './ContentOverviewCard'
 import SparcHeader from './SparcHeader'
 import TabNav from './TabNav'
+import Pagination from './Pagination'
+import PaginationMenu from './PaginationMenu'
 
 import '@/assets/icons'
 
@@ -17,7 +19,9 @@ const Components = {
   BreadcrumbTrail,
   ContentOverviewCard,
   SparcHeader,
-  TabNav
+  TabNav,
+  Pagination,
+  PaginationMenu
 }
 
 Object.keys(Components).forEach(component => {
