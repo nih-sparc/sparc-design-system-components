@@ -1,0 +1,26 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './pagination.stories.js';
+
+<Meta title="Components/Pagination" />
+
+# Pagination
+
+The pagination component combines pager and page navigation elements to allow the user to move among different pages of content. The number of pages is calculated as follows: `pageCount = totalCount / pageSize`. The computed `pageCount` value will dictate the size of the pager and whether it is collpased or not.
+
+### Visible Pager
+<Story name='Visible Pager'>{stories.Primary()}</Story>
+
+### Collapsed Pager
+<Story name='Collapsed Pager'>{stories.Secondary()}</Story>
+
+## Properties
+
+`pageSize`: Item count of each page.
+
+`totalCount`: Total item count.
+
+`selected`: Current page number.
+
+## Events
+
+`select-page`: Emitted when the page is changed using the navigation arrows. Returns the page number.

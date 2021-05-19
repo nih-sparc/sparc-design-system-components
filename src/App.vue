@@ -33,6 +33,15 @@
         :active-tab="activeTab"
         @set-active-tab="activeTab = $event"
       />
+      <pagination
+        :total-count="pageCount"
+        :selected="3"
+        @select-page="onPaginationChange"
+      />
+      <pagination-menu 
+        :page-size="pageSize"
+        @update-page-size="updatePageSize"
+      />
     </div>
   </div>
 </template>
@@ -71,7 +80,18 @@ export default {
           label: 'Past',
           type: 'past'
         }
-      ]
+      ],
+      pageSize: 10,
+      pageCount: 100
+    }
+  },
+  methods: {
+    onPaginationChange: function(page) {
+      console.log("page: " + page)
+    },
+    updatePageSize: function(limit) {
+      this.pageSize = limit === 'View All' ?  100 : limit
+      this.pageCount = limit === 'View All' ?  100 : limit
     }
   }
 }
