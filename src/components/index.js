@@ -12,6 +12,7 @@ import SparcHeader from './SparcHeader'
 import TabNav from './TabNav'
 import Pagination from './Pagination'
 import PaginationMenu from './PaginationMenu'
+import SparcRadio from './SparcRadio'
 
 import '@/assets/icons'
 
@@ -21,7 +22,8 @@ const Components = {
   SparcHeader,
   TabNav,
   Pagination,
-  PaginationMenu
+  PaginationMenu,
+  SparcRadio
 }
 
 Object.keys(Components).forEach(component => {

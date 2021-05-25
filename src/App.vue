@@ -42,6 +42,16 @@
         :page-size="pageSize"
         @update-page-size="updatePageSize"
       />
+      <div class="radio-group">
+        <sparc-radio
+          v-for="item in radioData"
+          v-bind:key="item.label"
+          v-model="radioVal"
+          :label="item.label"
+          :disabled="item.disabled || false"
+          :display="item.display"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -82,7 +92,31 @@ export default {
         }
       ],
       pageSize: 10,
-      pageCount: 100
+      pageCount: 100,
+      radioData: [
+        {
+          label: 1,
+          display: "one"
+        },
+        {
+          label: 2,
+          display: "two",
+          disabled: true
+        },
+        {
+          label: 3,
+          display: "three"
+        },
+        {
+          label: 4,
+          display: "four"
+        },
+        {
+          label: 5,
+          display: "five"
+        }
+      ],
+      radioVal: ''
     }
   },
   methods: {
@@ -97,8 +131,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .content-body {
   padding-top: 1em;
+}
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 </style>

@@ -1,0 +1,122 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './radio.stories.js';
+
+<Meta title="Components/Radio Buttons" />
+
+# Radio Buttons
+Radio buttons are used when there is list of two or more options that are mutually exclusive and the user must select exactly one choice. If users can make more than one selection, use checkboxes.
+
+In other words, clicking a non-selected radio button will deselect whatever other button was previously selected in the list.
+Radio button icons and their labels should be left-aligned and vertical for better scannability when appropriate.
+
+## Properties
+The radio button component accepts the following properties:
+
+`label`: The value associated with the radio button. String, Number, or Boolean. Required.
+
+`disabled`: Whether the radio button should be disabled. Boolean, defaults to false.
+
+`display`: The value to display for the radio button. String, Number, or Boolean. Required.
+
+`value`: Data variable to be bound to the radio button. Must be passed in using the `v-model` directive. Required.
+
+### Radio Buttons
+
+<Story name="Radio Buttons">{stories.Single()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    radioVal: ''
+  }
+}
+```
+
+```html
+<sparc-radio
+  v-model="radioVal"
+  label="1"
+  :disabled="false"
+  display="Option 1"
+/>
+<sparc-radio
+  v-model="radioVal"
+  label="2"
+  :disabled="false"
+  display="Option 2"
+/>
+```
+
+### Radio Buttons From Array
+Using an array of objects to store the information for each radio button, multiple radio buttons can be created using the `v-for` directive.
+
+<Story name="Radio Buttons From Array">{stories.Primary()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    data: [
+      {
+        label: 1,
+        display: "Option 1",
+        disabled: false
+      },
+      {
+        label: 2,
+        display: "Option 2",
+        disabled: false
+      },
+      {
+        label: 3,
+        display: "Option 3",
+        disabled: false
+      }
+    ],
+    radioVal: ''
+  }
+}
+```
+
+```html
+<sparc-radio
+  v-for="item in data"
+  v-bind:key="item.label"
+  v-model="radioVal"
+  :label="item.label"
+  :disabled="item.disabled"
+  :display="item.display"
+/>
+```
+
+### Disabled Radio Buttons
+
+<Story name="Disabled">{stories.Disabled()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    radioVal: 1
+  }
+}
+```
+
+```html
+<sparc-radio
+  v-model="radioVal"
+  label="1"
+  :disabled="true"
+  display="Checked & Disabled"
+/>
+<sparc-radio
+  v-model="radioVal"
+  label="2"
+  :disabled="true"
+  display="Unchecked & Disabled"
+/>
+```
