@@ -52,6 +52,12 @@
           :display="item.display"
         />
       </div>
+      <div class="tooltip">
+        <sparc-tooltip v-for="dir in tooltipDirs" :key="dir" :placement="dir">
+          <div slot="data">{{ dir }}<br/>THIS IS <a href="#">ALOT</a> OF TEXT</div>
+          <el-button slot="item">{{ dir }}</el-button>
+        </sparc-tooltip>
+      </div>
     </div>
   </div>
 </template>
@@ -116,7 +122,21 @@ export default {
           display: "five"
         }
       ],
-      radioVal: ''
+      radioVal: '',
+      tooltipDirs: [
+        'top-left',
+        'top-center',
+        'top-right',
+        'left-top',
+        'left-center',
+        'left-bottom',
+        'bottom-left',
+        'bottom-center',
+        'bottom-right',
+        'right-top',
+        'right-center',
+        'right-bottom'
+      ]
     }
   },
   methods: {
@@ -141,5 +161,11 @@ export default {
   justify-content: center;
   margin-left: 10px;
   margin-top: 10px;
+}
+.tooltip {
+  display: flex;
+  align-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 </style>
