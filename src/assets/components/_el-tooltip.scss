@@ -1,0 +1,52 @@
+@import '../_variables.scss';
+
+.el-tooltip {
+  &__popper {
+    background: $tooltipColor !important;
+    border: 1px solid $purple;
+    border-radius: 4px;
+    color: #303133 !important;
+    font-size: 12px;
+    line-height: 18px;
+    a:not(.underline){
+      text-decoration: underline;
+      color: #303133;
+    }
+  }
+}
+
+.el-tooltip__popper[x-placement^="top"] .popper__arrow {
+  border-top-color: $purple;
+  border-bottom-width: 0;
+}
+.el-tooltip__popper[x-placement^="top"] .popper__arrow::after {
+  border-top-color: $tooltipColor;
+  border-bottom-width: 0;
+}
+
+.el-tooltip__popper[x-placement^="bottom"] .popper__arrow {
+  border-top-width: 0;
+  border-bottom-color: $purple;
+}
+.el-tooltip__popper[x-placement^="bottom"] .popper__arrow::after {
+  border-top-width: 0;
+  border-bottom-color: $tooltipColor;
+}
+
+.el-tooltip__popper[x-placement^="right"] .popper__arrow {
+  border-right-color: $purple;
+  border-left-width: 0;
+}
+.el-tooltip__popper[x-placement^="right"] .popper__arrow::after {
+  border-right-color: $tooltipColor;
+  border-left-width: 0;
+}
+
+.el-tooltip__popper[x-placement^="left"] .popper__arrow {
+  border-right-width: 0;
+  border-left-color: $purple;
+}
+.el-tooltip__popper[x-placement^="left"] .popper__arrow::after {
+  border-right-width: 0;
+  border-left-color: $tooltipColor;
+}

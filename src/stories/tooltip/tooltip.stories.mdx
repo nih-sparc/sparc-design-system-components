@@ -1,0 +1,101 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './tooltip.stories.js';
+
+<Meta title="Components/Tooltip" />
+
+# Tooltip
+The purpose of a tooltip is to provide context and explain the functionality of a user interface, element or feature. The content of a tooltip is only plain text. If more customization is required then a notification or modal should be used.
+
+## Tooltip Item
+The item for which the tooltip will be connected with should use the `item` slot.
+
+<Story name="Tooltip Item">{stories.Item()}</Story>
+
+#### Code
+```html
+<sparc-tooltip placement="top-center" content="top-center">
+  <el-button slot="item">Hover over me!</el-button>
+</sparc-tooltip>
+```
+
+## Content
+The content to be displayed in the tooltip can be customized through the `content` property.
+
+<Story name="Content">{stories.SingleContent()}</Story>
+
+#### Code
+
+```html
+<sparc-tooltip placement="top-center" content="Sample content text">
+  <el-button slot="item">Hover over me!</el-button>
+</sparc-tooltip>
+```
+
+### More Content
+
+Multi lined content can be displayed in the tooltip by using the `data` slot.
+
+<Story name="More Content">{stories.MoreContent()}</Story>
+
+#### Code
+
+```html
+<sparc-tooltip placement="top-center">
+  <div slot="data">This is multi-line<br/>content sample text</div>
+  <el-button slot="item">Hover over me!</el-button>
+</sparc-tooltip>
+```
+
+## Placement
+Tooltips can be in different layouts based on the position of the arrow.
+
+<Story name="Placement">{stories.Primary()}</Story>
+
+#### Code
+
+```html
+<sparc-tooltip :placement="top-left" content="top-left">
+  <el-button slot="item">top-left</el-button>
+</sparc-tooltip>
+
+<sparc-tooltip :placement="top-center" content="top-center">
+  <el-button slot="item">top-center</el-button>
+</sparc-tooltip>
+
+...
+
+<sparc-tooltip :placement="right-bottom" content="right-bottom">
+  <el-button slot="item">right-bottom</el-button>
+</sparc-tooltip>
+```
+
+#### Directions
+The direction of the tooltip can be customized with the following positions passed into the `placement` property.
+
+```js
+'top-left'
+'top-center'
+'top-right'
+'left-top'
+'left-center'
+'left-bottom'
+'bottom-left'
+'bottom-center'
+'bottom-right'
+'right-top'
+'right-center'
+'right-bottom'
+```
+
+## Links
+Content with links will appear as follows.
+
+<Story name="Links">{stories.LinkContent()}</Story>
+
+#### Code
+```html
+<sparc-tooltip placement="top-center">
+  <div slot="data">Content with <a href="#">link</a></div>
+  <el-button slot="item">Hover over me!</el-button>
+</sparc-tooltip>
+```
