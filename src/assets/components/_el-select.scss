@@ -1,5 +1,44 @@
 @import '../_variables.scss';
 
-.el-select .el-input .el-select__caret {
+.el-select {
+  &.secondary {
+    .el-input {
+      input {
+        border-color: lightgray;
+      }
+    }
+  }
+  .el-input {
+    &.is-disabled {
+      input {
+        border-color: $mediumGrey;
+      }
+      .el-select__caret {
+        color: $lightGrey;
+      }
+      .el-input__inner {
+        &:hover {
+          border-color: $mediumGrey !important;
+        }
+      }
+    }
+    .el-select__caret {
+      color: $mediumGrey;
+    }
+  }
+}
+
+.el-select-group__title {
   color: $mediumGrey;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+// HACK: The only way to edit the icon in the select
+// input box is to directly change the content value
+// of the <i> tag.
+.el-icon-arrow-up {
+  &::before {
+    content: ''
+  }
 }

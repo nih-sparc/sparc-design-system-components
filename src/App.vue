@@ -58,6 +58,25 @@
           <el-button slot="item">{{ dir }}</el-button>
         </sparc-tooltip>
       </div>
+      <el-row type="flex" justify="center">
+        <el-select
+          v-model="selectVal"
+          placeholder="Select"
+        >
+          <el-option-group
+            v-for="group in selectOpts"
+            :key="group.label"
+            :label="group.label"
+          >
+            <el-option
+              v-for="item in group.options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-option-group>
+        </el-select>
+      </el-row>
     </div>
   </div>
 </template>
@@ -136,6 +155,35 @@ export default {
         'right-top',
         'right-center',
         'right-bottom'
+      ],
+      selectVal: [],
+      selectOpts: [
+        {
+          label: 'Group 1',
+          options: [
+            {
+              value: 'Option1',
+              label: 'Option 1'
+            },
+            {
+              value: 'Option2',
+              label: 'Option 2'
+            },
+          ]
+        },
+        {
+          label: 'Group 2',
+          options: [
+            {
+              value: 'Option3',
+              label: 'Option 3'
+            },
+            {
+              value: 'Option4',
+              label: 'Option 4'
+            },
+          ]
+        },
       ]
     }
   },
