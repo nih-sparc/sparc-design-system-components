@@ -533,24 +533,17 @@ export default {
 .nav-main-container__search-input {
   width: 30vw;
   height: 34px;
-  border-radius: 4px;
-  border: solid 1px $darkGrey;
+
   @media screen and (max-width: 1023px) {
     display: none;
   }
   .el-select {
     width: 150px;
-  }
-  ::v-deep .el-input__inner {
-    color: $mediumGrey;
-    font-size:14px;
-    &:hover{
-      outline:none;
-      border:none;
-    }
-    &:focus{
-      outline:none;
-      border:none;
+    ::v-deep .el-input--suffix {
+      .el-input__inner {
+        border-radius: 4px 0px 0px 5px; 
+        border: solid 1px $lightGrey;
+      }
     }
   }
 }

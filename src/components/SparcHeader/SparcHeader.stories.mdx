@@ -1,9 +1,12 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Preview, Canvas } from '@storybook/addon-docs/blocks';
+import * as stories from './SparcHeader.stories.js';
 
 import Header1 from './header-1.png'
 import Header2 from './header-2.png'
 
-<Meta title="Large Components/Header" />
+<Meta title="Large Components/Sparc Header" />
+
+<Story name='Primary' parameters={{ docs: { disable: true }}}  height='60px'>{stories.Primary()}</Story>
 
 # About Header
 
