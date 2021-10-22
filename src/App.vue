@@ -77,6 +77,9 @@
           </el-option-group>
         </el-select>
       </el-row>
+      <multi-select
+        :options="cascaderOptions"
+      />
     </div>
   </div>
 </template>
@@ -184,7 +187,41 @@ export default {
             },
           ]
         },
-      ]
+      ],
+			cascaderOptions: [{
+				value: 1,
+				label: 'Asia',
+				children: [{
+					value: 2,
+					label: 'China',
+				}, {
+					value: 6,
+					label: 'Japan',
+				}, {
+					value: 10,
+					label: 'Korea',
+				}]
+			// }, {
+			// 	value: 14,
+			// 	label: 'Europe',
+			// 	children: [{
+			// 		value: 15,
+			// 		label: 'France'
+			// 	}, {
+			// 		value: 19,
+			// 		label: 'UK',
+			// 	}]
+			// }, {
+			// 	value: 23,
+			// 	label: 'North America',
+			// 	children: [{
+			// 		value: 24,
+			// 		label: 'US'
+			// 	}, {
+			// 		value: 28,
+			// 		label: 'Canada'
+			// 	}]
+			}]
     }
   },
   methods: {
