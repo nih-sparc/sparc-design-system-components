@@ -201,26 +201,30 @@ export default {
 					value: 10,
 					label: 'Korea',
 				}]
-			// }, {
-			// 	value: 14,
-			// 	label: 'Europe',
-			// 	children: [{
-			// 		value: 15,
-			// 		label: 'France'
-			// 	}, {
-			// 		value: 19,
-			// 		label: 'UK',
-			// 	}]
-			// }, {
-			// 	value: 23,
-			// 	label: 'North America',
-			// 	children: [{
-			// 		value: 24,
-			// 		label: 'US'
-			// 	}, {
-			// 		value: 28,
-			// 		label: 'Canada'
-			// 	}]
+			}, {
+				value: 14,
+				label: 'Europe',
+				children: [{
+					value: 15,
+					label: 'France'
+				}, {
+					value: 19,
+					label: 'UK',
+				}]
+			}, {
+				value: 23,
+				label: 'North America',
+				children: [{
+					value: 24,
+					label: 'US'
+				}, {
+					value: 28,
+					label: 'Canada'
+				},
+        {
+					value: 100,
+					label: 'Test',
+				}]
 			}]
     }
   },

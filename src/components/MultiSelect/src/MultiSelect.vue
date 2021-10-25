@@ -92,8 +92,12 @@ export default {
     return {
       props: { multiple: true },
       selectedArray: this.defaultSelectedArray,
-      previouslyCheckedShowAllNodes: []
+      previouslyCheckedShowAllNodes: [],
+      previouslySelectedArray: this.defaultSelectedArray,
     }
+  },
+  mounted: function() {
+    this.previouslySelectedArray = [...this.selectedArray]
   },
   methods:{
     addShowAllNode(option, isMultilevel) {
@@ -150,28 +154,26 @@ export default {
         // })
 
         let newSelectedArray = this.selectedArray.filter(item => item[0] !== showAllNode.value)
-        newSelectedArray.unshift([showAllNode.value, showAllNode.value])
+        newSelectedArray.push([showAllNode.value, showAllNode.value])
         this.selectedArray = newSelectedArray
         if (this.previouslyCheckedShowAllNodes.filter(item => {
           return (item[0] == showAllNode.value && item[1] == showAllNode.value)
         }).length === 0) {
-          console.log("PREVIOUS CHECKED NODES = ", this.previouslyCheckedShowAllNodes)
-          console.log("SHOW ALL NODE = ", showAllNode)
           this.previouslyCheckedShowAllNodes.push([showAllNode.value, showAllNode.value])
         }
       }
     },
-    onSelectionChange() {
-      console.log("SELECTION CHANGED TO = ", this.selectedArray)
-      this.setShowAllNodeStatus()
+    onSelectionChange(value) {
+      const option = this.getOptionSelected()
+      this.setShowAllNodeStatus(option)
+      this.previouslySelectedArray = [...this.selectedArray]
     },
-    setShowAllNodeStatus() {
+    setShowAllNodeStatus(option) {
       if (!this.isMultilevel) {
         if (this.selectedArray.length === 0) {
           this.checkShowAllNode({value: 'showAll'}, false)
         }
         else if (this.selectedArray.length > 1 && this.selectedArray.length < this.options.length - 1) {
-          console.log("PREVIOUSLY CHECKED SHOW ALL NODES = ", this.previouslyCheckedShowAllNodes)
           if (this.selectedArray.length == 2 && this.selectedArray.filter(item => item[0] === 'showAll').length > 0 && this.previouslyCheckedShowAllNodes.length === 0)
           {
             this.checkShowAllNode({value: 'showAll'}, false)
@@ -181,40 +183,45 @@ export default {
           }
         }
         else if (this.selectedArray.length >= this.options.length - 1) {
-          console.log("Checked")
           this.checkShowAllNode({value: 'showAll'}, false)
         }
       }
       else {
-        this.options.forEach(option => {
-          // nothing selected for that category
-          const numChildrenSelected = this.numChildrenSelected(option);
-          const numChildren = option.children.length
-          console.log(`NUM CHILDREN = ${numChildren}, CHILDREN SELECTED = ${numChildrenSelected}`)
-          if (numChildrenSelected === 0) {
+        const numChildrenSelected = this.numChildrenSelected(option);
+        const numChildren = option.children.length
+        if (numChildrenSelected === 0) {
+          this.checkShowAllNode(option, true)
+        }
+        else if (numChildrenSelected > 1 && numChildrenSelected < numChildren - 1) {
+          if (numChildrenSelected === 2 &&
+              this.selectedArray.filter(item => { 
+                return (item[0] === option.value && item[1] === option.value)
+              }).length > 0 && 
+              this.previouslyCheckedShowAllNodes.filter(node => {
+                return (node[0] === option.value && node[1] === option.value)
+              }).length === 0)
+          {
+            this.checkShowAllNode(option, true)
+          } 
+          else {
+            this.uncheckShowAllNode(option, true)
+          }
+        }
+        else if (numChildrenSelected > 1 && numChildrenSelected === numChildren - 1) {
+          if (this.selectedArray.filter(item => { 
+            return (item[0] === option.value && item[1] === option.value)
+          }).length > 0 && this.previouslyCheckedShowAllNodes.filter(node => {
+            return (node[0] === option.value && node[1] === option.value)
+          }).length > 0){
+            this.uncheckShowAllNode(option, true)
+          }
+          else {
             this.checkShowAllNode(option, true)
           }
-          else if (numChildrenSelected > 1 && numChildrenSelected < numChildren - 1) {
-            console.log("PREVIOUSLY CHECKED = ", this.previouslyCheckedShowAllNodes)
-            if (numChildrenSelected === 2 && 
-                this.selectedArray.filter(item => item[0] === item[1]).length > 0 && 
-                this.previouslyCheckedShowAllNodes.filter(node => {
-                  return (node[0] === option.value && node[1] === option.value)
-                }).length === 0)
-            {
-              console.log("HI")
-              this.checkShowAllNode(option, true)
-            } 
-            else {
-              console.log("BYE")
-              this.uncheckShowAllNode(option, true)
-            }
-          }
-          else if (numChildrenSelected >= numChildren - 1) {
-            console.log("Checked")
-            this.checkShowAllNode(option, true)
-          }
-        })
+        }
+        else if (numChildrenSelected >= numChildren) {
+          this.checkShowAllNode(option, true)
+        }
       }
     },
     numChildrenSelected(option) {
@@ -228,6 +235,28 @@ export default {
         })
       })
       return numSelected
+    },
+    getOptionSelected() {
+      // find what option was just selected by finding the difference between selectedArray and previouslySelectedArray
+      let optionValue = undefined
+      this.selectedArray.forEach(item => {
+        if (this.previouslySelectedArray.filter(previousItem => {
+          return (previousItem[0] === item[0] && previousItem[1] === item[1])
+        }).length === 0) {
+          optionValue = item[0]
+        }
+      })
+      // if we did not find it yet then that must mean the item was deselected so selectedArray does not have it and we must now check previouslySelectedArray
+      if (optionValue === undefined) {
+        this.previouslySelectedArray.forEach(previousItem => {
+          if (this.selectedArray.filter(item => {
+            return (previousItem[0] === item[0] && previousItem[1] === item[1])
+          }).length === 0) {
+            optionValue = previousItem[0]
+          }
+        })
+      }
+      return this.options.filter(option => option.value === optionValue)[0]
     }
   }
 }
