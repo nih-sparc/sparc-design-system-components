@@ -220,10 +220,6 @@ export default {
 				}, {
 					value: 28,
 					label: 'Canada'
-				},
-        {
-					value: 100,
-					label: 'Test',
 				}]
 			}]
     }

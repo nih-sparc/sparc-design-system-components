@@ -79,13 +79,6 @@ export default {
           this.addShowAllNode(option, true)
         })
       }
-    },
-    selectedArray : {
-      immediate: true,
-      deep: true,
-      handler() {
-        console.log("SELECTED ARRAY = ", this.selectedArray)
-      }
     }
   },
   data: function() {
@@ -122,12 +115,31 @@ export default {
     },
     uncheckShowAllNode(showAllNode, isMultilevel) {
       if (!isMultilevel) {
+        if (this.selectedArray.filter(node => node[0] === showAllNode.value).length === 0) {
+          return
+        }
         this.selectedArray = this.selectedArray.filter(selectedComponent => selectedComponent[0] !== showAllNode.value)
         this.previouslyCheckedShowAllNodes = []
       } else {
-        this.selectedArray = this.selectedArray.filter(item => {
+        if (this.selectedArray.filter(node => node[0] === showAllNode.value && node[1] === showAllNode.value).length === 0) {
+          return
+        }
+        // We need to move the newly checked node to the front of selectedArray to keep the correct sub-menu open
+        let newSelectedArray = this.selectedArray.filter(item => {
           return (item[1] !== showAllNode.value)
         })
+        let newlyCheckedNode = undefined;
+        newSelectedArray.forEach(node => {
+          if (node[0] === showAllNode.value) {
+            newlyCheckedNode = node
+          }
+        })
+        newSelectedArray = newSelectedArray.filter(item => {
+          return (item[0] !== showAllNode.value)
+        })
+        newSelectedArray.unshift(newlyCheckedNode)
+        this.selectedArray = newSelectedArray
+
         this.previouslyCheckedShowAllNodes = this.previouslyCheckedShowAllNodes.filter(node => {
           return (node[0] !== showAllNode.value && node[1] !== showAllNode.value)
         })
@@ -138,32 +150,17 @@ export default {
         this.selectedArray = [[showAllNode.value]]
         this.previouslyCheckedShowAllNodes = [...this.selectedArray]
       } else {
-        // remove all nodes selected in the category that 'show all' is being checked
-
-        // let indicies = [];
-        // this.selectedArray.forEach((item, index) => {
-        //   if (item[0] === showAllNode.value) {
-        //     indicies.push(index)
-        //   }
-        // })
-        // indicies.forEach(index => {
-        //   this.selectedArray.splice(index, 1)
-        // })
-        // this.$nextTick(() => {
-        //   this.selectedArray.push([showAllNode.value, showAllNode.value])
-        // })
-
         let newSelectedArray = this.selectedArray.filter(item => item[0] !== showAllNode.value)
-        newSelectedArray.push([showAllNode.value, showAllNode.value])
+        newSelectedArray.unshift([showAllNode.value, showAllNode.value])
         this.selectedArray = newSelectedArray
         if (this.previouslyCheckedShowAllNodes.filter(item => {
           return (item[0] == showAllNode.value && item[1] == showAllNode.value)
         }).length === 0) {
-          this.previouslyCheckedShowAllNodes.push([showAllNode.value, showAllNode.value])
+          this.previouslyCheckedShowAllNodes.unshift([showAllNode.value, showAllNode.value])
         }
       }
     },
-    onSelectionChange(value) {
+    onSelectionChange() {
       const option = this.getOptionSelected()
       this.setShowAllNodeStatus(option)
       this.previouslySelectedArray = [...this.selectedArray]
@@ -182,7 +179,19 @@ export default {
             this.uncheckShowAllNode({value: 'showAll'}, false)
           }
         }
-        else if (this.selectedArray.length >= this.options.length - 1) {
+        else if (this.selectedArray.length > 1 && this.selectedArray.length === this.options.length - 1) {
+          if (this.selectedArray.filter(item => { 
+            return (item[0] === 'showAll')
+          }).length > 0 && this.previouslyCheckedShowAllNodes.filter(node => {
+            return (node[0] === 'showAll')
+          }).length > 0){
+            this.uncheckShowAllNode({value: 'showAll'}, false)
+          }
+          else {
+            this.checkShowAllNode({value: 'showAll'}, false)
+          }
+        }
+        else if (this.selectedArray.length >= this.options.length) {
           this.checkShowAllNode({value: 'showAll'}, false)
         }
       }
