@@ -78,7 +78,10 @@
         </el-select>
       </el-row>
       <multi-select
-        :options="cascaderOptions"
+        :options="multiLevelSelectOptions"
+      />
+      <multi-select
+        :options="singleLevelSelectOptions"
       />
     </div>
   </div>
@@ -188,7 +191,7 @@ export default {
           ]
         },
       ],
-			cascaderOptions: [{
+			multiLevelSelectOptions: [{
 				value: 1,
 				label: 'Asia',
 				children: [{
@@ -221,6 +224,16 @@ export default {
 					value: 28,
 					label: 'Canada'
 				}]
+			}],
+      singleLevelSelectOptions: [{
+				value: 1,
+				label: 'Asia',
+			}, {
+				value: 14,
+				label: 'Europe',
+			}, {
+				value: 23,
+				label: 'North America',
 			}]
     }
   },

@@ -86,7 +86,7 @@ export default {
       props: { multiple: true },
       selectedArray: this.defaultSelectedArray,
       previouslyCheckedShowAllNodes: [],
-      previouslySelectedArray: this.defaultSelectedArray,
+      previouslySelectedArray: this.defaultSelectedArray
     }
   },
   mounted: function() {
@@ -162,8 +162,11 @@ export default {
     },
     onSelectionChange() {
       const option = this.getOptionSelected()
-      this.setShowAllNodeStatus(option)
-      this.previouslySelectedArray = [...this.selectedArray]
+      this.$nextTick(() => {
+        this.setShowAllNodeStatus(option)
+        this.$emit('SelectionChanged', this.selectedArray)
+        this.previouslySelectedArray = [...this.selectedArray]
+      })   
     },
     setShowAllNodeStatus(option) {
       if (!this.isMultilevel) {
