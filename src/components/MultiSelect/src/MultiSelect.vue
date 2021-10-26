@@ -328,7 +328,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
-
 .el-cascader-node__label {
   padding: 0;
 }
