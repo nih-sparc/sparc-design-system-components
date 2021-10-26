@@ -1,0 +1,95 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './multiselect.stories.js';
+
+<Meta title="Components/MultiSelect" />
+
+# MultiSelect
+
+## Properties
+The radio button component accepts the following properties:
+
+`options`: The options associated with the multiselect. String, Number, or Boolean. Required. In order to make the select multi-level then children must be added to ALL the parents. For single level, NO children should be added to ANY of the data.
+
+### Single Level MultiSelect
+
+<Story name="Single Level MultiSelect">{stories.SingleLevel()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    options: [
+		{
+			value: 1,
+			label: 'Asia',
+		}, {
+			value: 14,
+			label: 'Europe',
+		}, {
+			value: 23,
+			label: 'North America',
+		}]
+  }
+}
+```
+
+```html
+<multi-select
+	:options="options"
+/>
+```
+
+### Multi Level MultiSelect
+
+<Story name="Multi Level MultiSelect">{stories.MultiLevel()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    options: [
+		{
+			value: 1,
+			label: 'Asia',
+			children: [{
+				value: 2,
+				label: 'China',
+			}, {
+				value: 6,
+				label: 'Japan',
+			}, {
+				value: 10,
+				label: 'Korea',
+			}]
+		}, {
+			value: 14,
+			label: 'Europe',
+			children: [{
+				value: 15,
+				label: 'France'
+			}, {
+				value: 19,
+				label: 'UK',
+			}]
+		}, {
+			value: 23,
+			label: 'North America',
+			children: [{
+				value: 24,
+				label: 'US'
+			}, {
+				value: 28,
+				label: 'Canada'
+			}]
+		}]
+  }
+}
+```
+
+```html
+<multi-select
+	:options="options"
+/>
+```
