@@ -1,19 +1,29 @@
 <template>
-  <el-cascader
-    v-model="selectedArray"
-    placeholder
-    collapse-tags
-    @change="onSelectionChange"
-    :options="options"
-    popper-class="multilevel-select"
-    :props="props"
-    ref="cascader"
-  >
-    <template slot-scope="{ node, data }">
-      <span>{{ data.label }}</span>
-      <span v-if="!node.isLeaf"> ({{ data.children.length }}) </span>
-    </template>
-  </el-cascader>
+  <div>
+    <div v-show="isFilterApplied" class="multilevel-select-filter">
+      <svgicon name="filterApplied" height="20" width="20" />
+      <h3>
+        Filter applied
+      </h3>
+    </div>
+    <h3 v-show="!isFilterApplied" class="multilevel-select-filter">Show all</h3>
+    <el-cascader
+      v-model="selectedArray"
+      placeholder
+      collapse-tags
+      :class="`hide-filter`"
+      @change="onSelectionChange"
+      :options="options"
+      popper-class="multilevel-select"
+      :props="props"
+      ref="cascader"
+    >
+      <template slot-scope="{ node, data }">
+        <span>{{ data.label }}</span>
+        <span v-if="!node.isLeaf && numFiltersApplied(data) != 0"> ({{ numFiltersApplied(data) }}) </span>
+      </template>
+    </el-cascader>
+  </div>
 </template>
 
 <script>
@@ -34,18 +44,18 @@ export default {
     isMultilevel: function() {
       let multilevel = false;
       this.options.forEach(option => {
-          if (option.children !== undefined && option.children.length > 0) {
+          if ((option.children !== undefined) && (option.children.length > 0)) {
             multilevel = true;
           }
       });
       return multilevel
     },
     isFilterApplied: function() {
-      if (this.isMultilevel) {
+      if (!this.isMultilevel) {
         // if the value of a selected node is not the value of one of the options then we know 'show all' node is not selected and the results are filtered
         let isFiltered = false;
         this.selectedArray.forEach(node => {
-          if (this.options.filter(option => option.value === node.value).length === 0) {
+          if (node[0] !== 'showAll') {
             isFiltered = true;
           }
         })
@@ -55,13 +65,13 @@ export default {
         // if it is multilevel than all show all nodes will have the same value as their parent
         let isFiltered = false;
         this.selectedArray.forEach(node => {
-          if (node.value[0] !== node.value[1]) {
+          if (node[0] !== node[1]) {
             isFiltered = true;
           }
         })
         return isFiltered
       }
-    }
+    },
   },
   watch: {
     options : {
@@ -269,8 +279,22 @@ export default {
         })
       }
       return this.options.filter(option => option.value === optionValue)[0]
+    },
+    numFiltersApplied: function(data) {
+      if (data.children == undefined) {
+        return 0
+      }
+      let numFilters = 0;
+      data.children.forEach(child => {
+        if (this.selectedArray.filter(node => {
+          return (node[1] === child.value && node[0] != child.value)
+        }).length == 1) {
+          numFilters++
+        }
+      })
+      return numFilters
     }
-  }
+  },
 }
 </script>
 
@@ -289,6 +313,12 @@ export default {
 .multilevel-select .el-cascader-menu:nth-child(2) .el-cascader-menu__list {
   padding: 6px;
 }
+
+.hide-filter .el-cascader__tags{
+  span {
+    display: none;
+  }
+}
 </style>
 
 <style lang="scss" scoped>
@@ -299,5 +329,24 @@ export default {
 }
 .el-cascader-node__label {
   padding: 0;
+}
+.multilevel-select-filter {
+  color: $mediumGrey;
+  position: absolute;
+  z-index: 1;
+  padding-left: .938rem;
+  padding-top: .3rem;
+  margin-bottom: 0;
+  margin-right: 2rem;
+  min-width: 8.48rem;
+  pointer-events: none;
+  display: inline-block;
+  svg {
+    margin-top: -.25rem;
+    margin-right: .25rem;
+  }
+  h3 {
+    display: inline-block;
+  }
 }
 </style>
