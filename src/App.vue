@@ -221,7 +221,7 @@ export default {
           value: 24,
           label: 'US'
         }, {
-          value: 28,
+          value: 25,
           label: 'Canada'
         }]
       }],
