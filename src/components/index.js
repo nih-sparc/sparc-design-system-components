@@ -10,6 +10,7 @@ import BreadcrumbTrail from './BreadcrumbTrail'
 import ContentOverviewCard from './ContentOverviewCard'
 import SparcHeader from './SparcHeader'
 import TabNav from './TabNav'
+import MultiSelect from './MultiSelect'
 import Pagination from './Pagination'
 import PaginationMenu from './PaginationMenu'
 import SparcRadio from './SparcRadio'
@@ -21,6 +22,7 @@ const Components = {
   BreadcrumbTrail,
   ContentOverviewCard,
   SparcHeader,
+  MultiSelect,
   TabNav,
   Pagination,
   PaginationMenu,
