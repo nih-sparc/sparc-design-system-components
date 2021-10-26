@@ -14,7 +14,7 @@
       :class="`hide-filter`"
       @change="onSelectionChange"
       :options="options"
-      popper-class="multilevel-select"
+      :popper-class="`${isMultilevel ? 'multilevel-select' : 'singlelevel-select'}`"
       :props="props"
       ref="cascader"
     >
@@ -299,6 +299,10 @@ export default {
 </script>
 
 <style lang="scss">
+.singlelevel-select .el-cascader-menu:first-child .el-cascader-node:first-child {
+  border-bottom: 1px solid #e4e7ed;
+}
+
 .multilevel-select li[aria-haspopup=true] > .el-checkbox {
   display: none;
 }
@@ -310,7 +314,8 @@ export default {
   border-bottom: 1px solid #e4e7ed;
 }
 
-.multilevel-select .el-cascader-menu:nth-child(2) .el-cascader-menu__list {
+.multilevel-select .el-cascader-menu:nth-child(2) .el-cascader-menu__list,
+.singlelevel-select .el-cascader-menu:first-child .el-cascader-menu__list {
   padding: 6px;
 }
 
@@ -324,9 +329,6 @@ export default {
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
 
-.cascader >>> .el-cascader-menu:nth-child(2) .el-cascader-node:first-child {
-  border-bottom: 1px solid #e4e7ed;
-}
 .el-cascader-node__label {
   padding: 0;
 }
