@@ -14,11 +14,9 @@ const createDemo = (options) => {
       }
     },
     template: `
-      <div class="multiselect">
-        <multi-select
-          :options="options"
-        />
-      </div>
+      <multi-select
+        :options="options"
+      />
     `
   }
 }

@@ -21,7 +21,7 @@
           }
         ]"
       >
-        <el-form class="scroll" :disabled="!enabled">
+        <el-form class="scroll">
           <el-scrollbar wrap-style="max-height: 17.5rem;">
             <el-tree
               ref="tree"
@@ -74,10 +74,6 @@ export default {
     category: {
       type: Object,
       default: () => {}
-    },
-    enabled: {
-      type: Boolean,
-      default: true
     },
     tooltip: {
       type: String,
