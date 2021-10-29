@@ -83,6 +83,34 @@
       <multi-select
         :options="singleLevelSelectOptions"
       />
+      <el-col class="dropdown-multiselect">
+        <el-row>
+          <dropdown-multiselect
+            :category="oneOptionsDropdownMultiselectCategory"  
+          />
+        </el-row>
+        <el-row>
+          <dropdown-multiselect
+            :category="twoOptionsDropdownMultiselectCategory"  
+            :tooltip="dropdownMultiselectTooltip"
+          />
+        </el-row>
+        <el-row>
+          <dropdown-multiselect
+            :category="nineOptionsDropdownMultiselectCategory" 
+          />
+        </el-row>
+        <el-row>
+          <dropdown-multiselect
+            :category="fifteenOptionsDropdownMultiselectCategory" 
+          />
+        </el-row>
+        <el-row>
+          <dropdown-multiselect
+            :category="multiLevelDropdownMultiselectCategory" 
+          />
+        </el-row>
+      </el-col>
     </div>
   </div>
 </template>
@@ -234,7 +262,211 @@ export default {
       }, {
         value: 23,
         label: 'North America',
-      }]
+      }],
+      dropdownMultiselectTooltip: "This is a very long test<br/>tooltip for the dropdown<br/>multiselect component.",
+      oneOptionsDropdownMultiselectCategory: {
+        label: 'One Option',
+        id: '0',
+        data: [
+        {
+          label: 'One',
+          id: '1',
+        }]
+      },
+      twoOptionsDropdownMultiselectCategory: {
+        label: 'Two Options',
+        id: '0',
+        data: [
+        {
+          label: 'One',
+          id: '1',
+        },
+        {
+          label: 'Two',
+          id: '2',
+        }]
+      },
+      nineOptionsDropdownMultiselectCategory: {
+        label: 'Nine Options',
+        id: '0',
+        data: [
+        {
+          label: 'One',
+          id: '1',
+        },
+        {
+          label: 'Two',
+          id: '2',
+        },
+        {
+          label: 'Three',
+          id: '3',
+        },
+        {
+          label: 'Four',
+          id: '4',
+        },
+        {
+          label: 'Five',
+          id: '5',
+        },
+        {
+          label: 'Six',
+          id: '6',
+        },
+        {
+          label: 'Seven',
+          id: '7',
+        },
+        {
+          label: 'Eight',
+          id: '8',
+        },
+        {
+          label: 'Nine',
+          id: '9',
+        }]
+      },
+      multiLevelDropdownMultiselectCategory: {
+        label: 'Multi-Level',
+        id: '0',
+        data: [
+        {
+          label: 'One',
+          id: '1',
+          children: [
+          {
+            label: 'Child One',
+            id: '6',
+          },
+          {
+            label: 'Child Two',
+            id: '7',
+          },
+          {
+            label: 'Child Three',
+            id: '8',
+          }]
+        },
+        {
+          label: 'Two',
+          id: '2',
+        },
+        {
+          label: 'Three',
+          id: '3',
+          children: [
+          {
+            label: 'Child One',
+            id: '9',
+          },
+          {
+            label: 'Child Two',
+            id: '10',
+          },
+          {
+            label: 'Child Three',
+            id: '11',
+          },
+          {
+            label: 'Child Four',
+            id: '12',
+          },
+          {
+            label: 'Child Five',
+            id: '13',
+          },
+          {
+            label: 'Child Six',
+            id: '14',
+          },
+          {
+            label: 'Child Seven',
+            id: '15',
+          },
+          {
+            label: 'Child Eight',
+            id: '16',
+          },
+          {
+            label: 'Child Nine',
+            id: '17',
+          }]
+        },
+        {
+          label: 'Four',
+          id: '4',
+        },
+        {
+          label: 'Five',
+          id: '5',
+        }]
+      },
+      fifteenOptionsDropdownMultiselectCategory: {
+        label: 'Fifteen Options',
+        id: '0',
+        data: [
+        {
+          label: 'One',
+          id: '1',
+        },
+        {
+          label: 'Two',
+          id: '2',
+        },
+        {
+          label: 'Three',
+          id: '3',
+        },
+        {
+          label: 'Four',
+          id: '4',
+        },
+        {
+          label: 'Five',
+          id: '5',
+        },
+        {
+          label: 'Six',
+          id: '6',
+        },
+        {
+          label: 'Seven',
+          id: '7',
+        },
+        {
+          label: 'Eight',
+          id: '8',
+        },
+        {
+          label: 'Nine',
+          id: '9',
+        },
+        {
+          label: 'Ten',
+          id: '10'
+        },
+        {
+          label: 'Eleven',
+          id: '11',
+        },
+        {
+          label: 'Twelve',
+          id: '12',
+        },
+        {
+          label: 'Thirteen',
+          id: '13',
+        },
+        {
+          label: 'Fourteen',
+          id: '14',
+        },
+        {
+          label: 'Fifteen',
+          id: '15'
+        }]
+      }
     }
   },
   methods: {
@@ -265,5 +497,11 @@ export default {
   align-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
+}
+.dropdown-multiselect {
+  width: 14rem !important;
+  .el-row:not(:last-child) .dropdown-multiselect-border {
+    border-bottom: none !important;
+  }
 }
 </style>
