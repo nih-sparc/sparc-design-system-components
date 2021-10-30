@@ -1,0 +1,123 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './eventCard.stories.js';
+
+<Meta title="Components/Event Card" />
+
+# Event Card
+
+## Properties
+The Event Card component accepts the following properties:
+
+`title`: The title associated with the event. String. Required.
+
+`eventImage`: The image associated with the event. String. Required.
+
+`eventType`: The type associated with the event. String. Required.
+
+`startDate`: The title associated with the event. String. Required.
+
+`endDate`: The end date associated with the event. String. Optional.
+
+`location`: The location associated with the event. String. Optional.
+
+`url`: The title associated with the event. String. Optional.
+
+### Event Card
+
+<Story name="Event Card">{stories.Testing()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    title: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String,
+      required: true
+    },
+    type: {
+      type: String,
+      required: true
+    },
+    location: {
+      type: String,
+      required: true
+    },
+    startDate: {
+      type: String,
+      required: true
+    },
+    endDate: {
+      type: String,
+    },
+    url: {
+      type: String
+    }
+  }
+}
+```
+
+```html
+<el-row class="event-card-row">
+  <el-col>
+    <event-card
+      :eventType="type"
+      :eventImage="image"
+      :title="title"
+      :startDate="startDate"
+      :endDate="endDate"
+      :location="location"
+      :url="url"
+    />
+  </el-col>
+  <el-col>
+    <event-card
+      :eventImage="image"
+      :title="title"
+      :startDate="startDate"
+      :endDate="endDate"
+      :location="location"
+      :url="url"
+    />
+  </el-col>
+  <el-col>
+    <event-card
+      :eventType="type"
+      :eventImage="image"
+      :title="title"
+      :startDate="startDate"
+      :location="location"
+      :url="url"
+    />
+  </el-col>
+  <el-col>
+    <event-card
+      :eventType="type"
+      :eventImage="image"
+      :title="title"
+      :startDate="startDate"
+      :endDate="endDate"
+      :location="location"
+    />
+  </el-col>
+</el-row> 
+/>
+```
+
+```css
+.event-card-row {
+  .el-col {
+    width: 100%;
+    @media (min-width: 48em) {
+      width: 50%;
+    }
+    @media (min-width: 64em) {
+      width: 25%;
+    }
+  }
+}
+```

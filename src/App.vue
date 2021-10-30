@@ -1,16 +1,13 @@
 <template>
   <div id="app">
-
     <SparcHeader linkComponent="router-link" :currentPath="$route.name"/>
     <div class="content-body">
       <el-button>hi</el-button>
-
       <el-date-picker
         v-model="value1"
         type="date"
         placeholder="Pick a day">
       </el-date-picker>
-
       <el-select v-model="value" placeholder="Select">
         <el-option
           v-for="item in options"
@@ -19,7 +16,6 @@
           :value="item.value">
         </el-option>
       </el-select>
-
       <div style="background: #292b66; padding: 2em;">
         <tab-nav
           class="style2"
@@ -109,6 +105,54 @@
           <dropdown-multiselect
             :category="multiLevelDropdownMultiselectCategory" 
           />
+        </el-row>
+      </el-col>
+      <el-col>
+        <el-row class="event-card-row">
+          <el-col>
+            <event-card
+              :eventType="eventCardEvent.type"
+              :eventImage="eventCardEvent.image"
+              :title="eventCardEvent.title"
+              :startDate="eventCardEvent.startDate"
+              :endDate="eventCardEvent.endDate"
+              :location="eventCardEvent.location"
+              :url="eventCardEvent.url"
+            />
+          </el-col>
+          <el-col>
+            <event-card
+              :eventType="eventCardEvent.type"
+              :eventImage="eventCardEvent.image"
+              :title="eventCardEvent.title"
+              :startDate="eventCardEvent.startDate"
+              :endDate="eventCardEvent.endDate"
+              :location="eventCardEvent.location"
+              :url="eventCardEvent.url"
+            />
+          </el-col>
+          <el-col>
+            <event-card
+              :eventType="eventCardEvent.type"
+              :eventImage="eventCardEvent.image"
+              :title="eventCardEvent.title"
+              :startDate="eventCardEvent.startDate"
+              :endDate="eventCardEvent.endDate"
+              :location="eventCardEvent.location"
+              :url="eventCardEvent.url"
+            />
+          </el-col>
+          <el-col>
+            <event-card
+              :eventType="eventCardEvent.type"
+              :eventImage="eventCardEvent.image"
+              :title="eventCardEvent.title"
+              :startDate="eventCardEvent.startDate"
+              :endDate="eventCardEvent.endDate"
+              :location="eventCardEvent.location"
+              :url="eventCardEvent.url"
+            />
+          </el-col>
         </el-row>
       </el-col>
     </div>
@@ -466,6 +510,15 @@ export default {
           label: 'Fifteen',
           id: '15'
         }]
+      },
+      eventCardEvent: {
+        type: "Conference",
+        image: "https://via.placeholder.com/736",
+        title: "SPARC and Experimental Biology (EB)",
+        startDate: "2020-04-04T10:36:01.516Z",
+        endDate:"2020-04-07T10:36:01.516Z",
+        location: "San Diego, California",
+        url: "/#"
       }
     }
   },
@@ -502,6 +555,17 @@ export default {
   width: 14rem !important;
   .el-row:not(:last-child) .dropdown-multiselect-border {
     border-bottom: none !important;
+  }
+}
+.event-card-row {
+  .el-col {
+    width: 100%;
+    @media (min-width: 48em) {
+      width: 50%;
+    }
+    @media (min-width: 64em) {
+      width: 25%;
+    }
   }
 }
 </style>
