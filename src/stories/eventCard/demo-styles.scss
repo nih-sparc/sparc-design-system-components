@@ -1,0 +1,11 @@
+.event-card-row {
+  .el-col {
+    width: 100%;
+    @media (min-width: 48em) {
+      width: 50%;
+    }
+    @media (min-width: 64em) {
+      width: 25%;
+    }
+  }
+}

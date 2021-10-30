@@ -28,6 +28,7 @@
   "dependencies": {
     "@carbon/grid": "10.17.0",
     "core-js": "^3.6.5",
+    "date-fns": "^2.25.0",
     "element-ui": "2.15.6",
     "generate-changelog": "^1.8.0",
     "sass": "^1.26.9",
