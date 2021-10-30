@@ -1,0 +1,357 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './dropdownMultiselect.stories.js';
+
+<Meta title="Components/Dropdown Multiselect" />
+
+# Dropdown Multiselect
+
+## Properties
+The dropdown multiselect component accepts the following properties:
+
+`category`: The category associated with the dropdown multiselect. Object. Required.
+
+`tooltip`: The tooltip associated with the dropdown category. String. Not Required. Setting this will cause the help icon to appear next to the category title and hovering over it will show the tooltip.
+
+### One Option Dropdown Multiselect
+
+<Story name="One Option">{stories.OneOption()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    category: {
+      label: 'One Option',
+      id: '0',
+      data: [
+      {
+        label: 'One',
+        id: '1',
+      }]
+    },
+  }
+}
+```
+
+```html
+<dropdown-multiselect
+  :category="category"  
+/>
+```
+
+### Less than 5 options Dropdown Multiselect
+
+<Story name="Two Options">{stories.TwoOptions()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    category: {
+      label: 'Two Options',
+      id: '0',
+      data: [
+      {
+        label: 'One',
+        id: '1',
+      },
+      {
+        label: 'Two',
+        id: '2',
+      }]
+    }
+  }
+}
+```
+
+```html
+<dropdown-multiselect
+  :category="category"  
+/>
+```
+
+### Between 5 and 9 options Dropdown Multiselect
+
+<Story name="Nine Options">{stories.NineOptions()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    category: {
+      label: 'Nine Options',
+      id: '0',
+      data: [
+      {
+        label: 'One',
+        id: '1',
+      },
+      {
+        label: 'Two',
+        id: '2',
+      },
+      {
+        label: 'Three',
+        id: '3',
+      },
+      {
+        label: 'Four',
+        id: '4',
+      },
+      {
+        label: 'Five',
+        id: '5',
+      },
+      {
+        label: 'Six',
+        id: '6',
+      },
+      {
+        label: 'Seven',
+        id: '7',
+      },
+      {
+        label: 'Eight',
+        id: '8',
+      },
+      {
+        label: 'Nine',
+        id: '9',
+      }]
+    }
+  }
+}
+```
+
+```html
+<dropdown-multiselect
+  :category="category"  
+/>
+```
+
+### Greater than 9 options Dropdown Multiselect
+
+<Story name="Fifteen Options">{stories.FifteenOptions()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    category: {
+      label: 'Fifteen Options',
+      id: '0',
+      data: [
+      {
+        label: 'One',
+        id: '1',
+      },
+      {
+        label: 'Two',
+        id: '2',
+      },
+      {
+        label: 'Three',
+        id: '3',
+      },
+      {
+        label: 'Four',
+        id: '4',
+      },
+      {
+        label: 'Five',
+        id: '5',
+      },
+      {
+        label: 'Six',
+        id: '6',
+      },
+      {
+        label: 'Seven',
+        id: '7',
+      },
+      {
+        label: 'Eight',
+        id: '8',
+      },
+      {
+        label: 'Nine',
+        id: '9',
+      },
+      {
+        label: 'Ten',
+        id: '10'
+      },
+      {
+        label: 'Eleven',
+        id: '11',
+      },
+      {
+        label: 'Twelve',
+        id: '12',
+      },
+      {
+        label: 'Thirteen',
+        id: '13',
+      },
+      {
+        label: 'Fourteen',
+        id: '14',
+      },
+      {
+        label: 'Fifteen',
+        id: '15'
+      }]
+    }
+  }
+}
+```
+
+```html
+<dropdown-multiselect
+  :category="category"  
+/>
+```
+
+### Multilevel Dropdown Multiselect
+
+<Story name="Multilevel">{stories.Multilevel()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    category: {
+      label: 'Multi-Level',
+      id: '0',
+      data: [
+      {
+        label: 'One',
+        id: '1',
+        children: [
+        {
+          label: 'Child One',
+          id: '6',
+        },
+        {
+          label: 'Child Two',
+          id: '7',
+        },
+        {
+          label: 'Child Three',
+          id: '8',
+        }]
+      },
+      {
+        label: 'Two',
+        id: '2',
+      },
+      {
+        label: 'Three',
+        id: '3',
+        children: [
+        {
+          label: 'Child One',
+          id: '9',
+        },
+        {
+          label: 'Child Two',
+          id: '10',
+        },
+        {
+          label: 'Child Three',
+          id: '11',
+        },
+        {
+          label: 'Child Four',
+          id: '12',
+        },
+        {
+          label: 'Child Five',
+          id: '13',
+        },
+        {
+          label: 'Child Six',
+          id: '14',
+        },
+        {
+          label: 'Child Seven',
+          id: '15',
+        },
+        {
+          label: 'Child Eight',
+          id: '16',
+        },
+        {
+          label: 'Child Nine',
+          id: '17',
+        }]
+      },
+      {
+        label: 'Four',
+        id: '4',
+      },
+      {
+        label: 'Five',
+        id: '5',
+      }]
+    }
+  }
+}
+```
+
+```html
+<dropdown-multiselect
+  :category="category"  
+/>
+```
+
+### Dropdown Multiselect with help icon
+
+<Story name="Help Icon">{stories.HelpIcon()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    category: {
+      label: 'Multiselect with help icon',
+      id: '0',
+      data: [
+      {
+        label: 'One',
+        id: '1',
+      },
+      {
+        label: 'Two',
+        id: '2',
+      },
+      {
+        label: 'Three',
+        id: '3',
+      },
+      {
+        label: 'Four',
+        id: '4',
+      },
+      {
+        label: 'Five',
+        id: '5',
+      }]
+    },
+    tooltip: "This is a tooltip for the<br/>dropdown multiselect<br/>component."
+  }
+}
+```
+
+```html
+<dropdown-multiselect
+  :category="category"
+  :tooltip="tooltip" 
+/>
+```
