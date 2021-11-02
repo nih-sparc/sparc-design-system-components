@@ -169,6 +169,28 @@
           />
         </el-row>
       </el-col>
+      <el-col>
+        <el-row>
+          <content-overview-card
+            :subtitle="contentOverviewCard.subtitle"
+            :title="contentOverviewCard.title"
+            :description="contentOverviewCard.description"
+            :metadata="contentOverviewCard.metadata"
+            :image="contentOverviewCard.image"
+          >
+            <div slot="button">
+              <a
+                href="/#"
+                target="_blank"
+              >
+                <el-button>
+                  View on NIH Reporter
+                </el-button>
+              </a>
+            </div>
+          </content-overview-card>
+        </el-row>
+      </el-col>
     </div>
   </div>
 </template>
@@ -578,6 +600,24 @@ export default {
         }],
         text: "Show all News",
         url: "/#"
+      },
+      contentOverviewCard: {
+        subtitle: 'Cardio-respiratory system: heart',
+        title: 'Comprehensive structural and functional mapping of the mammalian cardiac nervous system',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing',
+        image: 'https://via.placeholder.com/736',
+        metadata: [{
+          title: 'NIH Award',
+          value: '000000000000'
+        },
+        {
+          title: 'Principal Investigator',
+          value: 'Fynn Blackwell'
+        },
+        {
+          title: 'Institution',
+          value: 'University of California Los Angeles'
+        }],
       }
     }
   },

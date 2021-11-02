@@ -1,56 +1,61 @@
-import { withKnobs, text } from '@storybook/addon-knobs';
-
-const defaultProps = () => ({
-  subtitle: {
-    default: text('subtitle', 'Cardio-respiratory system: heart')
-  },
-  title: {
-    default: text('title', 'Comprehensive structural and functional mapping of the mammalian cardiac nervous system')
-  },
-  description: {
-    default: text('description', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing')
-  },
-  image: {
-    default: text('image', 'https://placehold.it/736')
-  }
-})
+import ContentOverviewCard from '@/components/ContentOverviewCard/src/ContentOverviewCard.vue'
 
 export default {
-  title: 'Components/Content Overview Card',
-  decorators: [withKnobs],
+  title: 'Components/ContentOverviewCard',
   includeStories: []
 }
 
-export const Primary = () => ({
-  props: defaultProps(),
-  template: `
-    <div>
+const createDemo = (content) => {
+  return {
+    components: { ContentOverviewCard },
+    data() {
+      return {
+        title: content.title,
+        subtitle: content.subtitle,
+        description: content.description,
+        image: content.image,
+        metadata: content.metadata
+      }
+    },
+    template: `
       <content-overview-card
         :subtitle="subtitle"
         :title="title"
         :description="description"
+        :image="image"
+        :metadata="metadata"
       >
-        <img :src="image" alt="Image" slot="image" />
-        <div slot="meta">
-          <el-button>
-            View on NIH Reporter
-          </el-button>
+        <div slot="button">
+          <a
+            href="/#"
+            target="_blank"
+          >
+            <el-button>
+              View on NIH Reporter
+            </el-button>
+          </a>
         </div>
       </content-overview-card>
-    </div>
-  `
-})
+    `
+  }
+}
 
-export const Minimal = () => ({
-  props: defaultProps(),
-  template: `
-    <div>
-      <content-overview-card
-        :title="title"
-        :description="description"
-      >
-        <img :src="image" alt="Image" slot="image" />
-      </content-overview-card>
-    </div>
-  `
+export const Primary = () => createDemo({
+  title: "Comprehensive structural and functional mapping of the mammalian cardiac nervous system",
+  subtitle: "Cardio-respiratory system: heart",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing",
+  image: "https://via.placeholder.com/736",
+  metadata: [{
+    title: 'NIH Award',
+      value: '000000000000'
+    },
+    {
+      title: 'Principal Investigator',
+      value: 'Fynn Blackwell'
+    },
+    {
+      title: 'Institution',
+      value: 'University of California Los Angeles'
+    }
+  ]
 })
