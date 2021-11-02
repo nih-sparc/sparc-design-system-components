@@ -50,7 +50,6 @@ export default {
     },
     eventType: {
       type: String,
-      required: true
     },
     location: {
       type: String,

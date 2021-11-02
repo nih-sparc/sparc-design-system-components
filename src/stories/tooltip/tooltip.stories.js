@@ -40,7 +40,7 @@ export const Primary = () => ({
 
   template: `
     <div>
-      <el-row v-for="dirs in tooltipDirs" type="flex" justify="center">
+      <el-row v-for="dirs in tooltipDirs" class="tooltip-container" type="flex" justify="center">
         <sparc-tooltip v-for="dir in dirs" :key="dir" :placement="dir" :content="dir">
           <el-button slot="item">{{ dir }}</el-button>
         </sparc-tooltip>
@@ -56,7 +56,7 @@ export const SingleContent = () => ({
 
   template: `
     <div>
-      <el-row type="flex" justify="center">
+      <el-row type="flex" class="tooltip-container" justify="center">
         <sparc-tooltip placement="top-center" content="Sample content text">
           <el-button slot="item">Hover over me!</el-button>
         </sparc-tooltip>
@@ -72,7 +72,7 @@ export const MoreContent = () => ({
 
   template: `
     <div>
-      <el-row type="flex" justify="center">
+      <el-row type="flex" class="tooltip-container" justify="center">
         <sparc-tooltip placement="top-center">
           <div slot="data">This is multi-line<br/>content sample text</div>
           <el-button slot="item">Hover over me!</el-button>
@@ -89,7 +89,7 @@ export const Item = () => ({
 
   template: `
     <div>
-      <el-row type="flex" justify="center">
+      <el-row type="flex" class="tooltip-container" justify="center">
         <sparc-tooltip placement="top-center" content="top-center">
           <el-button slot="item">Hover over me!</el-button>
         </sparc-tooltip>
@@ -105,7 +105,7 @@ export const LinkContent = () => ({
 
   template: `
     <div>
-      <el-row type="flex" justify="center">
+      <el-row type="flex" class="tooltip-container" justify="center">
         <sparc-tooltip placement="top-center">
           <div slot="data">Content with <a href="#">link</a></div>
           <el-button slot="item">Hover over me!</el-button>
