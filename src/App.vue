@@ -155,6 +155,20 @@
           </el-col>
         </el-row>
       </el-col>
+      <el-col>
+        <el-row style="margin: 2rem 2rem">
+          <list-card
+            :data="listCardDataStyleOne"
+          />
+        </el-row>
+        <el-row style="margin: 2rem 2rem">
+          <list-card
+            :data="listCardDataStyleTwo.data"
+            :sectionText="listCardDataStyleTwo.text"
+            :sectionUrl="listCardDataStyleTwo.url"
+          />
+        </el-row>
+      </el-col>
     </div>
   </div>
 </template>
@@ -518,6 +532,51 @@ export default {
         startDate: "2020-04-04T10:36:01.516Z",
         endDate:"2020-04-07T10:36:01.516Z",
         location: "San Diego, California",
+        url: "/#"
+      },
+      listCardDataStyleOne: [
+        {
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#",
+          image: "https://via.placeholder.com/128"
+        },
+        {
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#",
+          image: "https://via.placeholder.com/128"
+        },
+        {
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#",
+          image: "https://via.placeholder.com/128"
+        }
+      ],
+      listCardDataStyleTwo: {
+        data: [{
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#"
+        },
+        {
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#"
+        },
+        {
+          title: "Prototype simulation of undiseased human cardiac ventricular cells",
+          summary: "A prototype use-case package consisting of a single-cell, 1D and 2D tissue model for simulation of autonomic effects on the cardiovascular system derived from the human ventricular model developed by O'Hara and Rudy group.",
+          date: "2020-04-04T10:36:01.516Z",
+          url: "/#"
+        }],
+        text: "Show all News",
         url: "/#"
       }
     }
