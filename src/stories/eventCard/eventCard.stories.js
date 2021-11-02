@@ -68,7 +68,7 @@ const createDemo = (event) => {
   }
 }
 
-export const Testing = () => createDemo(
+export const EventCardDemo = () => createDemo(
   {
     type: "Conference",
     image: "https://via.placeholder.com/736",
