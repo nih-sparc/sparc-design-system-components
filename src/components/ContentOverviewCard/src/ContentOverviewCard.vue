@@ -16,7 +16,7 @@
             {{ description }}
           </p>
           <div class="metadata-container">
-              <slot name="metadata"/>
+            <slot name="metadata"/>
           </div>
           <slot name="buttons" />
         </div>

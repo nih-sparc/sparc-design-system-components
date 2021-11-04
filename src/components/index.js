@@ -12,6 +12,7 @@ import SparcHeader from './SparcHeader'
 import TabNav from './TabNav'
 import DropdownMultiselect from './DropdownMultiselect'
 import EventCard from './EventCard'
+import IconCard from './IconCard'
 import ListCard from './ListCard';
 import MultiSelect from './MultiSelect'
 import Pagination from './Pagination'
@@ -27,6 +28,7 @@ const Components = {
   SparcHeader,
   DropdownMultiselect,
   EventCard,
+  IconCard,
   ListCard,
   MultiSelect,
   TabNav,
