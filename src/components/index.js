@@ -10,6 +10,7 @@ import BreadcrumbTrail from './BreadcrumbTrail'
 import ContentOverviewCard from './ContentOverviewCard'
 import SparcHeader from './SparcHeader'
 import TabNav from './TabNav'
+import ContentTabCard from './ContentTabCard'
 import DropdownMultiselect from './DropdownMultiselect'
 import EventCard from './EventCard'
 import ListCard from './ListCard';
@@ -25,6 +26,7 @@ const Components = {
   BreadcrumbTrail,
   ContentOverviewCard,
   SparcHeader,
+  ContentTabCard,
   DropdownMultiselect,
   EventCard,
   ListCard,

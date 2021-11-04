@@ -1,0 +1,61 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './contentTabCard.stories.js';
+
+<Meta title="Components/Content Tab Card" />
+
+# Content Tab Card
+
+## Properties
+
+The Content Tab Card component accepts the following properties:
+
+`tabs`: The tabs associated with the content tab card. Array. Required.
+
+`linkComponent`: The type of link component associated with the tabs. Expecting either a nuxt-link or router-link. String. Optional.
+
+`defaultTabType`: The default tab type to be selected on render. String. Optional.
+
+### Content Tab Card
+
+<Story name="Primary">{stories.ContentTabCardDemo()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    tabs: tabs,
+    defaultTab: tabs[0].type,
+    activeTab: ''
+  }
+},
+methods: {
+  tabChanged(newTabType) {
+    this.activeTab = newTabType
+  }
+}
+```
+
+```html
+<content-tab-card
+  :tabs="tabs"
+  :default-tab="defaultTab"
+  linkComponent="router-link"
+  @tab-changed="tabChanged"
+>
+  <div
+    v-for="tab in tabs"
+    :key="tab.type"
+  >
+    <div
+      v-show="activeTab === tab.type" 
+    >
+      Content for {{tab.label}} goes here!
+    </div>
+  </div>
+</content-tab-card>
+```
+
+```css
+
+```

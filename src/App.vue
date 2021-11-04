@@ -191,6 +191,27 @@
           </content-overview-card>
         </el-row>
       </el-col>
+      <el-col>
+        <el-row>
+          <content-tab-card
+            :tabs="contentTabCard.tabs"
+            :default-tab="contentTabCard.tabs[0].type"
+            linkComponent="router-link"
+            @tab-changed="tabChanged"
+          >
+            <div
+              v-for="tab in contentTabCard.tabs"
+              :key="tab.type"
+            >
+              <div
+                v-show="contentTabCard.activeTab === tab.type" 
+              >
+                Content for {{tab.label}} goes here!
+              </div>
+            </div>
+          </content-tab-card>
+        </el-row>
+      </el-col>
     </div>
   </div>
 </template>
@@ -618,7 +639,22 @@ export default {
           title: 'Institution',
           value: 'University of California Los Angeles'
         }],
-      }
+      },
+      contentTabCard: {
+        tabs: [{
+          label: 'Team Information', 
+          type: 'Team Information'
+        },
+        {
+          label: 'Diseases', 
+          type: 'Diseases'
+        },
+        {
+          label: 'Datasets', 
+          type: 'Datasets'
+        }],
+        activeTab: "Team Information"
+      },
     }
   },
   methods: {
@@ -628,6 +664,9 @@ export default {
     updatePageSize: function(limit) {
       this.pageSize = limit === 'View All' ?  100 : limit
       this.pageCount = limit === 'View All' ?  100 : limit
+    },
+    tabChanged(newTabType) {
+      this.contentTabCard.activeTab = newTabType
     }
   }
 }
