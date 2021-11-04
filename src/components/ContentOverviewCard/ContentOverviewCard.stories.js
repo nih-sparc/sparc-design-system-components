@@ -1,4 +1,5 @@
 import ContentOverviewCard from '@/components/ContentOverviewCard/src/ContentOverviewCard.vue'
+import './demo-styles.scss'
 
 export default {
   title: 'Components/ContentOverviewCard',
@@ -23,9 +24,21 @@ const createDemo = (content) => {
         :title="title"
         :description="description"
         :image="image"
-        :metadata="metadata"
       >
-        <div slot="button">
+        <div
+          v-for="property in metadata"
+          slot="metadata"
+          class="metadata-content"
+          :key="property.title"
+        >
+          <div class="metadata-title">
+            {{property.title}}
+          </div>
+          <div>
+            {{property.value}}
+          </div>
+        </div>
+        <div slot="buttons">
           <a
             href="/#"
             target="_blank"

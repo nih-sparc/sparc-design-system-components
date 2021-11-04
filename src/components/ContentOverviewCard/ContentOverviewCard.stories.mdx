@@ -20,8 +20,6 @@ The Content Overview Card component accepts the following properties:
 
 `subtitle`: The subtitle associated with the component. String. Optional.
 
-`metadata`: Any metadata associated with the component. Object[]. Optional.
-
 ### Content Overview Card
 
 <Story name="Primary">{stories.Primary()}</Story>
@@ -58,9 +56,21 @@ data() {
   :title="title"
   :description="description"
   :image="image"
-  :metadata="metadata"
 >
-  <div slot="button">
+  <div
+    v-for="property in metadata"
+    slot="metadata"
+    class="metadata-content"
+    :key="property.title"
+  >
+    <div class="metadata-title">
+      {{property.title}}
+    </div>
+    <div>
+      {{property.value}}
+    </div>
+  </div>
+  <div slot="buttons">
     <a
       href="/#"
       target="_blank"
@@ -71,4 +81,16 @@ data() {
     </a>
   </div>
 </content-overview-card>
+```
+
+```css
+.metadata-content {
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  @media (max-width: 48em) {
+  }
+}
+.metadata-title {
+  font-weight: 500;
+}
 ```

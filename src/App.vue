@@ -175,10 +175,22 @@
             :subtitle="contentOverviewCard.subtitle"
             :title="contentOverviewCard.title"
             :description="contentOverviewCard.description"
-            :metadata="contentOverviewCard.metadata"
             :image="contentOverviewCard.image"
           >
-            <div slot="button">
+            <div
+              v-for="property in contentOverviewCard.metadata"
+              slot="metadata"
+              class="metadata-content"
+              :key="property.title"
+            >
+              <div class="metadata-title">
+                {{property.title}}
+              </div>
+              <div>
+                {{property.value}}
+              </div>
+            </div>
+            <div slot="buttons">
               <a
                 href="/#"
                 target="_blank"
@@ -666,5 +678,14 @@ export default {
       width: 25%;
     }
   }
+}
+.metadata-content {
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  @media (max-width: 48em) {
+  }
+}
+.metadata-title {
+  font-weight: 500;
 }
 </style>
