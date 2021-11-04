@@ -1,0 +1,106 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './iconCard.stories.js';
+
+<Meta title="Components/Icon Card" />
+
+# Icon Card
+
+## Properties
+The Icon Card component accepts the following properties:
+
+`title`: The title associated with the icon card. String. Optional.
+
+`icons`: The icons data associated with the icon card. Array. Required.
+
+### Icon Card
+
+<Story name="Icon Card">{stories.IconCardDemo()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    title: 'Browse Data by Category',
+    icons: [{
+      title: 'Bladder',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/bladder'
+    },
+    {
+      title: 'Colon',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/colon'
+    },
+    {
+      title: 'Esophogus',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/esophogus'
+    },
+    {
+      title: 'Female Reproductive System',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/female-reproductive-system'
+    },
+    {
+      title: 'Heart',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/heart'
+    },
+    {
+      title: 'Kidney',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/kidney'
+    },
+    {
+      title: 'Liver',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/liver'
+    },
+    {
+      title: 'Lungs',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/lungs'
+    },
+    {
+      title: 'Male Reproductive System',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/male-reproductive-system'
+    },
+    {
+      title: 'Small Intestine',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/small-intestine'
+    },
+    {
+      title: 'Spleen',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/spleen'
+    },
+    {
+      title: 'Stomach',
+      image: 'https://via.placeholder.com/736',
+      linkComponent: 'router-link',
+      url: '/stomach'
+    }]
+  }
+}
+```
+
+```html
+<icon-card
+  :title="title"
+  :icons="icons"
+/>
+```
