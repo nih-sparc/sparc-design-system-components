@@ -1,0 +1,102 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './aboutTab.stories.js';
+
+<Meta title="Components/About Tabs" />
+
+# About Tabs
+
+## Properties
+The About Tab component accepts the following properties:
+
+`tabs`: The tabs associated with the components. Array. Required.
+
+`activeTab`: The currently active tab. String. Optional.
+
+### About Tab Style One
+
+<Story name="Style One">{stories.AboutTabStyleOne()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    activeTab: 'organs',
+    tabs: [
+      {
+        label: 'Datasets',
+        id: 'datasets'
+      },
+      {
+        label: 'Organs',
+        id: 'organs'
+      },
+      {
+        label: 'Images',
+        id: 'images'
+      },
+      {
+        label: 'Projects',
+        id: 'projects'
+      },
+      {
+        label: 'Simulations',
+        id: 'simulations'
+      }
+    ]
+  }
+}
+```
+
+```html
+<tab-nav
+  :tabs="tabs"
+  :active-tab="activeTab"
+  @tab-changed="activeTab = $event"
+/>
+```
+
+### About Tab Style Two
+
+<Story name="Style Two">{stories.AboutTabStyleTwo()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    activeTab: 'organs',
+    tabs: [
+      {
+        label: 'Datasets',
+        id: 'datasets'
+      },
+      {
+        label: 'Organs',
+        id: 'organs'
+      },
+      {
+        label: 'Images',
+        id: 'images'
+      },
+      {
+        label: 'Projects',
+        id: 'projects'
+      },
+      {
+        label: 'Simulations',
+        id: 'simulations'
+      }
+    ]
+  }
+}
+```
+
+```html
+<tab-nav
+  class='style2'
+  :tabs="tabs"
+  :active-tab="activeTab"
+  @tab-changed="activeTab = $event"
+/>
+```

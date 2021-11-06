@@ -16,18 +16,16 @@
           :value="item.value">
         </el-option>
       </el-select>
-      <div style="background: #292b66; padding: 2em;">
-        <tab-nav
-          class="style2"
-          :tabs="tabs"
-          :active-tab="activeTab"
-          @set-active-tab="activeTab = $event"
-        />
-      </div>
-      <tab-nav
+      <about-tab
         :tabs="tabs"
         :active-tab="activeTab"
-        @set-active-tab="activeTab = $event"
+        @tab-changed="activeTab = $event"
+      />
+      <about-tab
+        class="style2"
+        :tabs="tabs"
+        :active-tab="activeTab"
+        @tab-changed="activeTab = $event"
       />
       <pagination
         :total-count="pageCount"
@@ -231,15 +229,27 @@ export default {
         label: 'Option5'
       }],
       value: '',
-      activeTab: 'upcoming',
+      activeTab: 'organs',
       tabs: [
         {
-          label: 'Upcoming',
-          type: 'upcoming'
+          label: 'Datasets',
+          id: 'datasets'
         },
         {
-          label: 'Past',
-          type: 'past'
+          label: 'Organs',
+          id: 'organs'
+        },
+        {
+          label: 'Images',
+          id: 'images'
+        },
+        {
+          label: 'Projects',
+          id: 'projects'
+        },
+        {
+          label: 'Simulations',
+          id: 'simulations'
         }
       ],
       pageSize: 10,
@@ -682,8 +692,6 @@ export default {
 .metadata-content {
   margin-right: 2rem;
   margin-bottom: 1rem;
-  @media (max-width: 48em) {
-  }
 }
 .metadata-title {
   font-weight: 500;

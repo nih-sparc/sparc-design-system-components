@@ -9,7 +9,7 @@ import '@/assets/styles.scss';
 import BreadcrumbTrail from './BreadcrumbTrail'
 import ContentOverviewCard from './ContentOverviewCard'
 import SparcHeader from './SparcHeader'
-import TabNav from './TabNav'
+import AboutTab from './AboutTab'
 import DropdownMultiselect from './DropdownMultiselect'
 import EventCard from './EventCard'
 import ListCard from './ListCard';
@@ -29,7 +29,7 @@ const Components = {
   EventCard,
   ListCard,
   MultiSelect,
-  TabNav,
+  AboutTab,
   Pagination,
   PaginationMenu,
   SparcRadio,

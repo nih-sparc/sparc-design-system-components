@@ -1,12 +1,21 @@
 <template>
-  <div name="tab-nav">
+  <div class="about-tab-nav">
     <ul class="tabs">
-      <li v-for="tab in tabs" :key="tab.label">
-        <a
+      <li v-for="tab in tabs" :key="tab.id">
+        <a 
+          v-if="tab.href"
           class="tabs__button"
-          :class="{ active: tab.type === activeTab }"
+          :class="{ active: tab.id === activeTab }"
+          :href="tab.href"
+        >
+          {{ tab.label }}
+        </a>
+        <a
+          v-else
+          class="tabs__button"
+          :class="{ active: tab.id === activeTab }"
           href="#"
-          @click.prevent="$emit('set-active-tab', tab.type)"
+          @click.prevent="$emit('tab-changed', tab.id)"
         >
           {{ tab.label }}
         </a>
@@ -17,7 +26,7 @@
 
 <script>
 export default {
-  name: 'TabNav',
+  name: 'AboutTab',
   props: {
     tabs: {
       type: Array,
@@ -33,12 +42,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
+.about-tab-nav {
+  padding: 1rem;
+}
 .tabs {
   display: flex;
   list-style: none;
   overflow: auto;
   width: calc(100% - 2rem);
-  margin: 0 -2rem 0 0;
   padding: 0 1rem;
   @media (min-width: 48em) {
     margin: 0;
@@ -47,7 +58,7 @@ export default {
   li {
     margin: 0 0.625em;
     @media (min-width: 48em) {
-      margin: 0 2.25em;
+      margin: 0 1em;
     }
     &:first-child {
       margin-left: 0;
@@ -56,7 +67,7 @@ export default {
   &__button {
     background: none;
     border-bottom: 2px solid transparent;
-    color: $app-primary-color;
+    color: $text-color;
     cursor: pointer;
     display: block;
     font-size: 0.75em;
@@ -66,20 +77,23 @@ export default {
     text-decoration: none;
     text-transform: uppercase;
     @media (min-width: 48em) {
-      font-size: 1.25em;
-      font-weight: 400;
+      font-size: 1em;
       text-transform: none;
     }
     &:hover,
     &:focus,
     &.active {
       border-bottom-color: $app-primary-color;
-      font-weight: 500;
+      color: $app-primary-color;
     }
   }
 }
 
+.tabs__button {
+  padding: 0 .25em;
+}
 .style2 {
+  background-color: $darkBlue;
   .tabs__button {
     color: #fff;
     &:hover,
