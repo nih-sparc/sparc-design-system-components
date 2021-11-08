@@ -47,6 +47,64 @@
         @click="openNotificationWithIcon">
         Show Notification with Icon
       </el-button>
+      <div style="margin-top: 1rem;">
+        <large-modal
+          :visible="dialogVisible"
+          @close-download-dialog="dialogVisible = false"
+        >
+          <div slot="optionalContent">
+            <h1>Direct download</h1>
+            <div>
+              <p>You can download the raw files and metadata directly to your computer as a zip archive free of charge.</p>
+              <p class="download-container__download-dataset-size">
+                Dataset Size: 17.43 GB
+              </p>
+              <el-button class="download-button">Download</el-button>
+            </div>
+          </div>
+          <div slot="mainContent">
+            <h1>Download from AWS</h1>
+            <p>
+              Raw files and metadata are stored in an AWS S3 Requester Pays bucket.
+              You can learn more about downloading data from AWS on our
+              <a href="/#" target="_blank">Help Page</a>.
+            </p>
+            <div>
+              <p>*Requester pays means that any costs associated with downloading the data will be charged to your AWS account.
+                For transfer pricing information, visit the <a href="https://aws.amazon.com/s3/pricing/" target="blank">AWS Pricing documentation.</a>
+              </p>
+              <div>
+              <el-button class="secondary" @click="dialogVisible = false">
+                Close
+              </el-button>
+              </div>
+            </div>
+          </div>
+        </large-modal>
+      </div>
+      <el-button
+        plain
+        @click="dialogVisible = true">
+        Open Large Modal
+      </el-button>
+      <el-popover
+        class="popover"
+        placement="top-start"
+        trigger="click" 
+      >
+        <div>
+          <p>Phrenic Nerve</p>
+          <p><b>COMPONENTS</b></p>
+          <p>Non-autonomic peripheral</p>
+          <div style="margin-bottom: 5px;">
+            <el-button class="extra-small">View Source</el-button>
+          </div>
+          <div>
+            <el-button class="extra-small">Explore Data</el-button>
+          </div>
+        </div>
+        <el-button slot="reference">Hover to activate</el-button>
+      </el-popover>
       <pagination
         :total-count="pageCount"
         :selected="3"
@@ -298,6 +356,7 @@ export default {
           display: "five"
         }
       ],
+      dialogVisible: false,
       radioVal: '',
       tooltipDirs: [
         'top-left',

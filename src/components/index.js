@@ -14,6 +14,7 @@ import DropdownMultiselect from './DropdownMultiselect'
 import EventCard from './EventCard'
 import ListCard from './ListCard';
 import MultiSelect from './MultiSelect'
+import LargeModal from './LargeModal'
 import Pagination from './Pagination'
 import PaginationMenu from './PaginationMenu'
 import SparcRadio from './SparcRadio'
@@ -29,6 +30,7 @@ const Components = {
   EventCard,
   ListCard,
   MultiSelect,
+  LargeModal,
   AboutTab,
   Pagination,
   PaginationMenu,

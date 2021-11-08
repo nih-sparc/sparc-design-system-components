@@ -1,0 +1,46 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './popupModal.stories.js';
+
+import ElPopover from 'element-ui'
+
+<Meta title="Components/Popup Modal" component={ElPopover} />
+
+# Popup Modal
+
+## About Popup Modals
+Used to display key information about a specific item.
+
+### Popup Modal
+
+<Story name='Primary'>{stories.Primary()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    placement: 'top-start',
+    trigger: 'hover'
+  }
+}
+```
+
+```html
+<el-popover
+  :placement="placement"
+  :trigger="trigger" 
+>
+  <div>
+    <p>Phrenic Nerve</p>
+    <p><b>COMPONENTS</b></p>
+    <p>Non-autonomic peripheral</p>
+    <div style="margin-bottom: 5px;">
+      <el-button class="extra-small">View Source</el-button>
+    </div>
+    <div>
+      <el-button class="extra-small">Explore Data</el-button>
+    </div>
+  </div>
+  <el-button slot="reference">Hover to activate</el-button>
+</el-popover>
+```
