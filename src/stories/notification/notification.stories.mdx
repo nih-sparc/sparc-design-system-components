@@ -1,0 +1,122 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './notification.stories.js';
+
+<Meta title="Components/Notification" />
+
+# Notifications
+
+### Information Notification
+
+<Story name="Information Notification">{stories.InformationNotification()}</Story>
+
+#### Code
+
+```js
+import { informationNotification } from "@/utils/notificationMessages"
+
+data() {
+  return {
+    notification : informationNotification('Notification Title', 'This is a notification.')
+  }
+},
+methods() {
+  clickHandler() {
+    this.$notify(this.notification)
+  }
+}
+```
+
+```html
+<el-button
+  plain
+  @click="clickHandler">
+  Show Notification
+</el-button>
+```
+
+### Information Notification with Icon
+
+<Story name="Icon Information Notification">{stories.IconInformationNotification()}</Story>
+
+#### Code
+
+```js
+import { iconInformationNotification } from "@/utils/notificationMessages"
+
+data() {
+  return {
+    notification : iconInformationNotification('Icon Notification Title', 'This is a notification with an icon.')
+  }
+},
+methods() {
+  clickHandler() {
+    this.$notify(this.notification)
+  }
+}
+```
+
+```html
+<el-button
+  plain
+  @click="clickHandler">
+  Show Notification
+</el-button>
+```
+
+### Success Notification
+
+<Story name="Success Notification">{stories.SuccessNotification()}</Story>
+
+#### Code
+
+```js
+import { successMessage } from "@/utils/notificationMessages"
+
+data() {
+  return {
+    notification : successMessage('Success!')
+  }
+},
+methods() {
+  clickHandler() {
+    this.$message(this.notification)
+  }
+}
+```
+
+```html
+<el-button
+  plain
+  @click="clickHandler">
+  Show Notification
+</el-button>
+```
+
+### Failure Notification
+
+<Story name="Failure Notification">{stories.FailureNotification()}</Story>
+
+#### Code
+
+```js
+import { failMessage } from "@/utils/notificationMessages"
+
+data() {
+  return {
+    notification : failMessage('Failure.')
+  }
+},
+methods() {
+  clickHandler() {
+    this.$message(this.notification)
+  }
+}
+```
+
+```html
+<el-button
+  plain
+  @click="clickHandler">
+  Show Notification
+</el-button>
+```
