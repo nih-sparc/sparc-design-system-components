@@ -27,6 +27,26 @@
         :active-tab="activeTab"
         @tab-changed="activeTab = $event"
       />
+      <el-button
+        plain
+        @click="openSuccessMessage">
+        Show Success Notification
+      </el-button>
+      <el-button
+        plain
+        @click="openFailMessage">
+        Show Failure Notification
+      </el-button>
+      <el-button
+        plain
+        @click="openNotification">
+        Show Notification
+      </el-button>
+      <el-button
+        plain
+        @click="openNotificationWithIcon">
+        Show Notification with Icon
+      </el-button>
       <pagination
         :total-count="pageCount"
         :selected="3"
@@ -206,6 +226,7 @@
 </template>
 
 <script>
+import { successMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
 export default {
   name: 'App',
 
@@ -650,6 +671,18 @@ export default {
     updatePageSize: function(limit) {
       this.pageSize = limit === 'View All' ?  100 : limit
       this.pageCount = limit === 'View All' ?  100 : limit
+    },
+    openSuccessMessage() {
+      this.$message(successMessage(`Success!`))
+    },
+    openFailMessage() {
+      this.$message(failMessage(`Failure.`))
+    },
+    openNotification() {
+      this.$notify(informationNotification('Notification Title', 'This is a notification.'))
+    },
+    openNotificationWithIcon() {
+      this.$notify(iconInformationNotification('Notification Title', 'This is a notification with an icon.'))
     }
   }
 }
