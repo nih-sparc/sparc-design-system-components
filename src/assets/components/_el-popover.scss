@@ -1,0 +1,13 @@
+@import '../_variables.scss';
+
+.el-popover {
+  border-color: $purple;
+  padding: .5rem !important;
+  .popper__arrow {
+    border-top-color: $purple !important;
+    border-bottom-color: $purple !important;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}

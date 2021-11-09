@@ -16,21 +16,9 @@
             {{ description }}
           </p>
           <div class="metadata-container">
-            <div
-              v-for="property in metadata"
-              :key="property.title"
-            >
-              <div class="metadata-content">
-                <div class="metadata-title">
-                  {{property.title}}
-                </div>
-                <div>
-                  {{property.value}}
-                </div>
-              </div>
-            </div>
+              <slot name="metadata"/>
           </div>
-          <slot name="button" />
+          <slot name="buttons" />
         </div>
       </el-col>
     </el-row>
@@ -56,10 +44,6 @@ export default {
     description: {
       type: String,
       required: true
-    },
-    metadata: {
-      type: Array,
-      default: () => []
     }
   },
 
@@ -121,15 +105,6 @@ export default {
   @media (max-width: 48em) {
     flex-direction: column;
   }
-}
-.metadata-content {
-  margin-right: 2rem;
-  margin-bottom: 1rem;
-  @media (max-width: 48em) {
-  }
-}
-.metadata-title {
-  font-weight: 500;
 }
 
 .card-image {

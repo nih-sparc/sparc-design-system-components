@@ -9,14 +9,16 @@ import '@/assets/styles.scss';
 import BreadcrumbTrail from './BreadcrumbTrail'
 import ContentOverviewCard from './ContentOverviewCard'
 import SparcHeader from './SparcHeader'
-import TabNav from './TabNav'
 import ContentTabCard from './ContentTabCard'
+import AboutTab from './AboutTab'
 import DropdownMultiselect from './DropdownMultiselect'
 import EventCard from './EventCard'
 import ListCard from './ListCard';
 import MultiSelect from './MultiSelect'
+import LargeModal from './LargeModal'
 import Pagination from './Pagination'
 import PaginationMenu from './PaginationMenu'
+import SparcCheckbox from './SparcCheckbox'
 import SparcRadio from './SparcRadio'
 import SparcTooltip from './SparcTooltip'
 
@@ -31,9 +33,11 @@ const Components = {
   EventCard,
   ListCard,
   MultiSelect,
-  TabNav,
+  LargeModal,
+  AboutTab,
   Pagination,
   PaginationMenu,
+  SparcCheckbox,
   SparcRadio,
   SparcTooltip
 }

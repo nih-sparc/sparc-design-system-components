@@ -299,6 +299,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../../assets/_variables.scss';
 .singlelevel-select .el-cascader-menu:first-child .el-cascader-node:first-child {
   border-bottom: 1px solid #e4e7ed;
 }
@@ -317,6 +318,14 @@ export default {
 .multilevel-select .el-cascader-menu:nth-child(2) .el-cascader-menu__list,
 .singlelevel-select .el-cascader-menu:first-child .el-cascader-menu__list {
   padding: 6px;
+}
+
+.singlelevel-select, .multilevel-select {
+  .el-cascader-node .el-checkbox__input.is-focus:not(.is-checked) {
+    .el-checkbox__inner {
+      border-color: $lineColor1;
+    } 
+  }
 }
 
 .hide-filter .el-cascader__tags{

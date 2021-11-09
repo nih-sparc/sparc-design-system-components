@@ -208,7 +208,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../../../assets/_variables.scss';
+
 .capitalize {
   text-transform: capitalize;
 }
@@ -231,6 +233,11 @@ export default {
 .el-tree-node__content {
   margin-left: 1.5rem !important;
   margin-right: 1rem !important;
+  .el-checkbox__input.is-focus:not(.is-checked) {
+    .el-checkbox__inner {
+      border-color: $lineColor1;
+    } 
+  }
 }
 </style>
 
