@@ -55,31 +55,36 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
+.list-card-table::before {
+  display: none;
+}
 .list-card-table td.el-table__cell {
   border: none;
   padding: 0;
 }
-.list-card-table tbody tr>td .cell::after {
-  content: "";
-  border-bottom: 2px solid #D8D8D8;
-  width: 100%;
-  margin: 0 auto;
-  display: block;
-}
-.list-card-table tbody tr:last-of-type>td {
-  background-color: white !important;
-}
-.list-card-table tbody tr:last-of-type>td .cell {
-  padding: 0
-}
-.list-card-table tbody tr:last-of-type>td .cell .list-item {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-.list-card-table tbody tr:last-of-type>td .cell .list-item:hover {
-  background-color: #F7FAFF;
-  transition: background-color 0.25s ease;
+.list-card-table tbody {
+  tr:not(:last-child)>td .cell::after {
+    content: "";
+    border-bottom: 2px solid #D8D8D8;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+  tr:last-of-type>td {
+    background-color: white !important;
+  }
+  tr:last-of-type>td .cell {
+    padding: 0;
+    .list-item {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .list-item:hover {
+      background-color: #F7FAFF;
+      transition: background-color 0.25s ease;
+    }
+  }
 }
 </style>
 <style lang="scss" scoped>

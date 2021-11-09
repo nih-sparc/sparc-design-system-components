@@ -5,6 +5,9 @@ import * as stories from './notification.stories.js';
 
 # Notifications
 
+Use notifications to inform users of updates or changes to system status. Communicating with users and providing immediate feedback are important for building trust.
+While notifications are an effective method of communicating with users, they are disruptive and should be used sparingly.
+
 ### Information Notification
 
 <Story name="Information Notification">{stories.InformationNotification()}</Story>
@@ -36,6 +39,8 @@ methods() {
 
 ### Information Notification with Icon
 
+The icon is used to inform the users of the type of notification, such as a new release.
+
 <Story name="Icon Information Notification">{stories.IconInformationNotification()}</Story>
 
 #### Code
@@ -65,6 +70,8 @@ methods() {
 
 ### Success Notification
 
+Success messages are used to indicate a completion of a task, such as when a citation has been copied to the clipboard.
+
 <Story name="Success Notification">{stories.SuccessNotification()}</Story>
 
 #### Code
@@ -93,6 +100,8 @@ methods() {
 ```
 
 ### Failure Notification
+
+Error messages are a response to a technical error or failure.
 
 <Story name="Failure Notification">{stories.FailureNotification()}</Story>
 
