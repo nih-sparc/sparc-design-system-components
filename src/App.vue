@@ -124,6 +124,16 @@
           :display="item.display"
         />
       </div>
+      <div class="checkbox-group">
+        <sparc-checkbox
+          v-for="item in checkboxData"
+          v-bind:key="item.label"
+          v-model="checkboxVals"
+          :label="item.label"
+          :disabled="item.disabled || false"
+          :display="item.display"
+        />
+      </div>
       <div class="tooltip">
         <sparc-tooltip v-for="dir in tooltipDirs" :key="dir" :placement="dir">
           <div slot="data">{{ dir }}<br/>THIS IS <a href="#">ALOT</a> OF TEXT</div>
@@ -356,8 +366,32 @@ export default {
           display: "five"
         }
       ],
+      checkboxData: [
+        {
+          label: 1,
+          display: "one"
+        },
+        {
+          label: 2,
+          display: "two",
+          disabled: true
+        },
+        {
+          label: 3,
+          display: "three"
+        },
+        {
+          label: 4,
+          display: "four"
+        },
+        {
+          label: 5,
+          display: "five"
+        }
+      ],
       dialogVisible: false,
       radioVal: '',
+      checkboxVals: [],
       tooltipDirs: [
         'top-left',
         'top-center',
@@ -752,6 +786,13 @@ export default {
   padding-top: 1em;
 }
 .radio-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.checkbox-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
