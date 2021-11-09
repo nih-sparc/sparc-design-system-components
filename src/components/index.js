@@ -17,6 +17,7 @@ import MultiSelect from './MultiSelect'
 import LargeModal from './LargeModal'
 import Pagination from './Pagination'
 import PaginationMenu from './PaginationMenu'
+import SparcCheckbox from './SparcCheckbox'
 import SparcRadio from './SparcRadio'
 import SparcTooltip from './SparcTooltip'
 
@@ -34,6 +35,7 @@ const Components = {
   AboutTab,
   Pagination,
   PaginationMenu,
+  SparcCheckbox,
   SparcRadio,
   SparcTooltip
 }

@@ -1,0 +1,123 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as stories from './checkbox.stories.js';
+
+<Meta title="Components/Checkboxes" />
+
+# Checkboxes
+Checkboxes are used when there are lists of options and the user may select any number of choices, including zero, one, or several. If users can only make one selection, use radio buttons.
+
+Each checkbox is independent of all other checkboxes in the list, so checking one box doesn't uncheck the others.
+
+A stand-alone checkbox is used for a single option that the user can turn on or off.
+
+## Properties
+The checkbox component accepts the following properties:
+
+`label`: The value associated with the checkbox. String, Number, or Boolean. Required.
+
+`disabled`: Whether the checkbox should be disabled. Boolean, defaults to false.
+
+`display`: The value to display for the checkbox. String, Number, or Boolean. Required.
+
+`value`: Data variable to be bound to the checkbox. Must be passed in using the `v-model` directive. Required.
+
+### Checkboxes
+
+<Story name="Checkboxes">{stories.Single()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    checkboxVal: []
+  }
+}
+```
+
+```html
+<sparc-checkbox
+  v-model="checkboxVal"
+  label="1"
+  :disabled="false"
+  display="Option 1"
+/>
+<sparc-checkbox
+  v-model="checkboxVal"
+  label="2"
+  :disabled="false"
+  display="Option 2"
+/>
+```
+
+### Checkboxes From Array
+Using an array of objects to store the information for each checkbox, multiple checkboxes can be created using the `v-for` directive.
+
+<Story name="Checkboxes From Array">{stories.Primary()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    data: [
+      {
+        label: 1,
+        display: "Option 1",
+        disabled: false
+      },
+      {
+        label: 2,
+        display: "Option 2",
+        disabled: false
+      },
+      {
+        label: 3,
+        display: "Option 3",
+        disabled: false
+      }
+    ],
+    checkboxVal: []
+  }
+}
+```
+
+```html
+<sparc-checkbox
+  v-for="item in data"
+  v-bind:key="item.label"
+  v-model="checkboxVal"
+  :label="item.label"
+  :disabled="item.disabled"
+  :display="item.display"
+/>
+```
+
+### Disabled Checkboxes
+
+<Story name="Disabled">{stories.Disabled()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    checkboxVal: []
+  }
+}
+```
+
+```html
+<sparc-checkbox
+  v-model="checkboxVal"
+  label="1"
+  :disabled="true"
+  display="Checked & Disabled"
+/>
+<sparc-checkbox
+  v-model="checkboxVal"
+  label="2"
+  :disabled="true"
+  display="Unchecked & Disabled"
+/>
+```
