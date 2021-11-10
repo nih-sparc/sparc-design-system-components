@@ -2,18 +2,35 @@
   <div name="details-tabs">
     <div class="details-tabs__container">
       <el-row type="flex">
-        <el-col :span="24">
+        <el-col class="details-tabs__types-container" :span="24">
           <ul class="details-tabs__container--types">
             <li v-for="tab in tabs" :key="tab.label">
               <!-- Expect this to be either nuxt-link or router-link -->
-              <component
+              <component v-if="linkComponent"
                 :is="linkComponent"
-                :to="{ query: queryParams(tab.type) }"
-                :class="{ active: tab.type === activeTab }"
+                :to="{ query: queryParams(tab.id) }"
+                @click.native="$emit('tab-changed', tab)"
+                :class="{ active: tab.id === activeTabId }"
                 class="details-tabs__container--button"
               >
                 {{ tab.label }}
               </component>
+              <a v-else-if="tab.href"
+                class="details-tabs__container--button"
+                :class="{ active: tab.id === activeTabId }"
+                :href="tab.href"
+                target="_blank"
+              >
+                {{ tab.label }}
+              </a>
+              <a
+                v-else
+                class="details-tabs__container--button"
+                :class="{ active: tab.id === activeTabId }"
+                @click.prevent="$emit('tab-changed', tab)"
+              >
+                {{ tab.label }}
+              </a>
             </li>
           </ul>
         </el-col>
@@ -35,39 +52,21 @@ export default {
       required: true
     },
     linkComponent: {
-      type: String,
-      default: "nuxt-link"
+      type: String
     },
-    defaultTabType: {
+    activeTabId: {
       type: String,
-      default: ''
+      required: true
+    },
+    routeName: {
+      type: String,
+      default: 'tab'
     }
-  },
-  computed: {
-    activeTab: function() {
-      console.log("ROUTE = ", this.$router)
-      return this.$route.query.tab ? this.$route.query.tab : this.defaultTabType
-    }
-  },
-  watch: {
-    /**
-   * Set the active tab to match the current query values.
-   */
-    '$route.query': {
-      handler: function() {
-        this.$emit('tab-changed', this.activeTab)
-      }
-    }
+    
   },
   methods: {
-    queryParams(tabType) {
-      const query = { ...this.$route.query }
-      if (tabType === this.defaultTabType && 'tab' in query) {
-        delete query.tab
-      } else if (tabType !== this.defaultTabType) {
-        query['tab'] = tabType
-      }
-      return query
+    queryParams(tabId) {
+      return { ...this.$route.query, [this.routeName]: tabId }
     }
   },
 }
@@ -75,25 +74,32 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
+.details-tabs__container--types {
+  margin: 1em;
+  flex-wrap: wrap;
+}
+.details-tabs__container--data {
+  overflow: auto;
+  padding: 1em 3em;
+  @media (max-width: 48em) {
+    padding: 1em;
+  }
+}
+.details-tabs__container--data:empty {
+  display: none;
+}
 .details-tabs {
-  margin: 1.25rem;
   &__container {
     background: white;
-    border: solid 1px #dbdfe6;
-    padding: 2em;
 
     &--types {
       border-bottom: 2px solid #dbdfe6;
       display: flex;
       list-style: none;
-      margin: 0 0 1.5rem;
       padding: 0;
       li {
         margin: 0 2em;
         transform: translateY(2px);
-        &:first-child {
-          margin-left: 0;
-        }
       }
     }
 
@@ -117,33 +123,35 @@ export default {
     }
   }
 }
-@media screen and (max-width: 768px) {
-  .details-tabs {
-    &__container {
-      margin-top: 1.5rem;
-      padding-right: 1rem;
-      padding-left: 1rem;
-      &--types {
-        display: -webkit-box;
-        width: max-content;
-      }
-      &--button {
-        font-size: 1em;
-        padding-right: 0;
-        padding-left: 0;
-      }
-      li {
-        margin-right: 0;
-      }
-    }
-  }
-}
 
-@media screen and (max-width: 1024px) {
+.style2 {
+  .details-tabs__container--types {
+    margin: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
   .details-tabs {
     &__container {
       &--types {
-        width: 100%;
+        border-bottom: none;
+        background-color: $darkBlue;
+        padding-left: 3rem;
+        padding-top: .5rem;
+        padding-bottom: 1rem;
+        li {
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+
+      &--button {
+        color: white;
+        &:hover,
+        &.active {
+          color: white;
+          border-bottom: 2px solid white;
+        }
       }
     }
   }

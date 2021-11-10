@@ -11,27 +11,42 @@ The Content Tab Card component accepts the following properties:
 
 `tabs`: The tabs associated with the content tab card. Array. Required.
 
-`linkComponent`: The type of link component associated with the tabs. Expecting either a nuxt-link or router-link. String. Optional.
+`activeTabId`: The id of the active tab. String. Required.
 
-`defaultTabType`: The default tab type to be selected on render. String. Optional.
+`linkComponent`: The type of link component associated with the tabs if the tabs are to be used for routing. Expecting either a nuxt-link or router-link.
+Setting this property will enable the use of routing using the routeName property below. Setting this will also negate any href properties set on a tab. String. Optional.
+
+'routeName': The name of the property to be used for routing purposes. This property will only be applicable when a linkComponent is set. Defaults to 'tab'.
+i.e. If a link component is set and the routeName is set to 'selectedExampleTab' and a user selects a tab with an id of 'exampleId' then the query '/?selectedExampleTab=exampleId' will be added to the route path. String. Optional
 
 ### Content Tab Card
 
-<Story name="Primary">{stories.ContentTabCardDemo()}</Story>
+<Story name="Primary">{stories.Primary()}</Story>
 
 #### Code
 
 ```js
 data() {
   return {
-    tabs: tabs,
-    defaultTab: tabs[0].type,
-    activeTab: ''
+    tabs: [{
+      label: 'Team Information', 
+      id: 'Team Information'
+    },
+    {
+      label: 'Diseases', 
+      id: 'Diseases'
+    },
+    {
+      label: 'Datasets', 
+      id: 'Datasets'
+      href: '/#'
+    }],
+    activeTabId: this.tabs[0].id,
   }
 },
 methods: {
-  tabChanged(newTabType) {
-    this.activeTab = newTabType
+  tabChanged(newTab) {
+    this.activeTabId = newTab.id
   }
 }
 ```
@@ -39,23 +54,18 @@ methods: {
 ```html
 <content-tab-card
   :tabs="tabs"
-  :default-tab="defaultTab"
-  linkComponent="router-link"
+  :active-tab-id="activeTabId"
   @tab-changed="tabChanged"
 >
   <div
     v-for="tab in tabs"
-    :key="tab.type"
+    :key="tab.id"
   >
     <div
-      v-show="activeTab === tab.type" 
+      v-show="activeTabId === tab.id" 
     >
       Content for {{tab.label}} goes here!
     </div>
   </div>
 </content-tab-card>
-```
-
-```css
-
 ```

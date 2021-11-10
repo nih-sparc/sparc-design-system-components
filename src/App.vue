@@ -16,17 +16,6 @@
           :value="item.value">
         </el-option>
       </el-select>
-      <about-tab
-        :tabs="tabs"
-        :active-tab="activeTab"
-        @tab-changed="activeTab = $event"
-      />
-      <about-tab
-        class="style2"
-        :tabs="tabs"
-        :active-tab="activeTab"
-        @tab-changed="activeTab = $event"
-      />
       <el-button
         plain
         @click="openSuccessMessage">
@@ -290,19 +279,44 @@
         </el-row>
       </el-col>
       <el-col>
+      </el-col>
+      <el-col>
         <el-row>
           <content-tab-card
             :tabs="contentTabCard.tabs"
-            :default-tab="contentTabCard.tabs[0].type"
+            :active-tab-id="contentTabCard.activeTabId"
+            @tab-changed="tabChanged"
+          />
+          <content-tab-card
+            :tabs="contentTabCard.tabs"
+            :active-tab-id="contentTabCard.activeTabId"
             linkComponent="router-link"
             @tab-changed="tabChanged"
           >
             <div
               v-for="tab in contentTabCard.tabs"
-              :key="tab.type"
+              :key="tab.id"
             >
               <div
-                v-show="contentTabCard.activeTab === tab.type" 
+                v-show="contentTabCard.activeTabId === tab.id" 
+              >
+                Content for {{tab.label}} goes here!
+              </div>
+            </div>
+          </content-tab-card>
+          <content-tab-card
+            class="style2"
+            :tabs="contentTabCard.tabs"
+            :active-tab-id="contentTabCard.activeTabId"
+            linkComponent="router-link"
+            @tab-changed="tabChanged"
+          >
+            <div
+              v-for="tab in contentTabCard.tabs"
+              :key="tab.id"
+            >
+              <div
+                v-show="contentTabCard.activeTabId === tab.id" 
               >
                 Content for {{tab.label}} goes here!
               </div>
@@ -341,28 +355,6 @@ export default {
       }],
       value: '',
       activeTab: 'organs',
-      tabs: [
-        {
-          label: 'Datasets',
-          id: 'datasets'
-        },
-        {
-          label: 'Organs',
-          id: 'organs'
-        },
-        {
-          label: 'Images',
-          id: 'images'
-        },
-        {
-          label: 'Projects',
-          id: 'projects'
-        },
-        {
-          label: 'Simulations',
-          id: 'simulations'
-        }
-      ],
       pageSize: 10,
       pageCount: 100,
       radioData: [
@@ -780,17 +772,18 @@ export default {
       contentTabCard: {
         tabs: [{
           label: 'Team Information', 
-          type: 'Team Information'
+          id: 'Team Information'
         },
         {
           label: 'Diseases', 
-          type: 'Diseases'
+          id: 'Diseases'
         },
         {
           label: 'Datasets', 
-          type: 'Datasets'
+          id: 'Datasets',
+          href: '/#'
         }],
-        activeTab: "Team Information"
+        activeTabId: "Team Information"
       },
     }
   },
@@ -802,8 +795,8 @@ export default {
       this.pageSize = limit === 'View All' ?  100 : limit
       this.pageCount = limit === 'View All' ?  100 : limit
     },
-    tabChanged(newTabType) {
-      this.contentTabCard.activeTab = newTabType
+    tabChanged(newTab) {
+      this.contentTabCard.activeTabId = newTab.id
     },
     openSuccessMessage() {
       this.$message(successMessage(`Success!`))

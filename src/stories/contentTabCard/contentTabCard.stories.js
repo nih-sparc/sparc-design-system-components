@@ -1,41 +1,37 @@
 import ContentTabCard from '@/components/ContentTabCard/src/ContentTabCard.vue'
-import StoryRouter from 'storybook-vue-router';
 import './demo-styles.scss';
 
-storiesOf('App', module)
- .addDecorator(StoryRouter({}, router.options))
- .add('app', () => ({
-     render: h => h(App)
- }));
+export default {
+  title: 'Components/ContentTabCard',
+  includeStories: []
+}
 
-const createDemo = (tabs) => {
+const createDemo = (contentTabCardItem) => {
   return {
     components: { ContentTabCard },
     data() {
       return {
-        tabs: tabs,
-        defaultTab: tabs[0].type,
-        activeTab: ''
+        tabs: contentTabCardItem.tabs,
+        activeTabId: contentTabCardItem.tabs[0].id
       }
     },
     methods: {
-      tabChanged(newTabType) {
-        this.activeTab = newTabType
+      tabChanged(newTab) {
+        this.activeTabId = newTab.id
       }
     },
     template: `
       <content-tab-card
         :tabs="tabs"
-        :default-tab="defaultTab"
-        linkComponent="router-link"
+        :active-tab-id="activeTabId"
         @tab-changed="tabChanged"
       >
         <div
           v-for="tab in tabs"
-          :key="tab.type"
+          :key="tab.id"
         >
           <div
-            v-show="activeTab === tab.type" 
+            v-show="activeTabId === tab.id" 
           >
             Content for {{tab.label}} goes here!
           </div>
@@ -45,17 +41,20 @@ const createDemo = (tabs) => {
   }
 }
 
-export const ContentTabCardDemo = () => createDemo(
-  [{
-    label: 'Team Information', 
-    type: 'Team Information'
-  },
+export const Primary = () => createDemo(
   {
-    label: 'Diseases', 
-    type: 'Diseases'
-  },
-  {
-    label: 'Datasets', 
-    type: 'Datasets'
-  }]
+    tabs: [{
+      label: 'Team Information', 
+      id: 'Team Information'
+    },
+    {
+      label: 'Diseases', 
+      id: 'Diseases'
+    },
+    {
+      label: 'Datasets', 
+      id: 'Datasets',
+      href: '/#'
+    }]
+  }
 )
