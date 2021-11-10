@@ -9,6 +9,7 @@ import '@/assets/styles.scss';
 import BreadcrumbTrail from './BreadcrumbTrail'
 import ContentOverviewCard from './ContentOverviewCard'
 import SparcHeader from './SparcHeader'
+import ContentTabCard from './ContentTabCard'
 import AboutTab from './AboutTab'
 import DropdownMultiselect from './DropdownMultiselect'
 import EventCard from './EventCard'
@@ -27,6 +28,7 @@ const Components = {
   BreadcrumbTrail,
   ContentOverviewCard,
   SparcHeader,
+  ContentTabCard,
   DropdownMultiselect,
   EventCard,
   ListCard,

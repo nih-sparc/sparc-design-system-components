@@ -16,17 +16,6 @@
           :value="item.value">
         </el-option>
       </el-select>
-      <about-tab
-        :tabs="tabs"
-        :active-tab="activeTab"
-        @tab-changed="activeTab = $event"
-      />
-      <about-tab
-        class="style2"
-        :tabs="tabs"
-        :active-tab="activeTab"
-        @tab-changed="activeTab = $event"
-      />
       <el-button
         plain
         @click="openSuccessMessage">
@@ -289,12 +278,59 @@
           </content-overview-card>
         </el-row>
       </el-col>
+      <el-col>
+      </el-col>
+      <el-col>
+        <el-row>
+          <content-tab-card
+            :tabs="contentTabCard.tabs"
+            :active-tab-id="contentTabCard.activeTabId"
+            @tab-changed="tabChanged"
+          />
+          <content-tab-card
+            :tabs="contentTabCard.tabs"
+            :active-tab-id="contentTabCard.activeTabId"
+            linkComponent="router-link"
+            @tab-changed="tabChanged"
+          >
+            <div
+              v-for="tab in contentTabCard.tabs"
+              :key="tab.id"
+            >
+              <div
+                v-show="contentTabCard.activeTabId === tab.id" 
+              >
+                Content for {{tab.label}} goes here!
+              </div>
+            </div>
+          </content-tab-card>
+          <content-tab-card
+            class="style2"
+            :tabs="contentTabCard.tabs"
+            :active-tab-id="contentTabCard.activeTabId"
+            linkComponent="router-link"
+            @tab-changed="tabChanged"
+          >
+            <div
+              v-for="tab in contentTabCard.tabs"
+              :key="tab.id"
+            >
+              <div
+                v-show="contentTabCard.activeTabId === tab.id" 
+              >
+                Content for {{tab.label}} goes here!
+              </div>
+            </div>
+          </content-tab-card>
+        </el-row>
+      </el-col>
     </div>
   </div>
 </template>
 
 <script>
 import { successMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
+
 export default {
   name: 'App',
 
@@ -319,28 +355,6 @@ export default {
       }],
       value: '',
       activeTab: 'organs',
-      tabs: [
-        {
-          label: 'Datasets',
-          id: 'datasets'
-        },
-        {
-          label: 'Organs',
-          id: 'organs'
-        },
-        {
-          label: 'Images',
-          id: 'images'
-        },
-        {
-          label: 'Projects',
-          id: 'projects'
-        },
-        {
-          label: 'Simulations',
-          id: 'simulations'
-        }
-      ],
       pageSize: 10,
       pageCount: 100,
       radioData: [
@@ -754,7 +768,23 @@ export default {
           title: 'Institution',
           value: 'University of California Los Angeles'
         }],
-      }
+      },
+      contentTabCard: {
+        tabs: [{
+          label: 'Team Information', 
+          id: 'Team Information'
+        },
+        {
+          label: 'Diseases', 
+          id: 'Diseases'
+        },
+        {
+          label: 'Datasets', 
+          id: 'Datasets',
+          href: '/#'
+        }],
+        activeTabId: "Team Information"
+      },
     }
   },
   methods: {
@@ -764,6 +794,9 @@ export default {
     updatePageSize: function(limit) {
       this.pageSize = limit === 'View All' ?  100 : limit
       this.pageCount = limit === 'View All' ?  100 : limit
+    },
+    tabChanged(newTab) {
+      this.contentTabCard.activeTabId = newTab.id
     },
     openSuccessMessage() {
       this.$message(successMessage(`Success!`))

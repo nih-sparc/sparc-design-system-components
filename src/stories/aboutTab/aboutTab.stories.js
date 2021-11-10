@@ -1,4 +1,4 @@
-import AboutTab from '@/components/AboutTab/src/AboutTab.vue'
+import ContentTabCard from '@/components/ContentTabCard/src/ContentTabCard.vue'
 
 export default {
   title: 'Components/AboutTab',
@@ -7,20 +7,25 @@ export default {
 
 const createDemo = (aboutTabItem) => {
   return {
-    components: { AboutTab },
+    components: { ContentTabCard },
     data() {
       return {
         tabs: aboutTabItem.tabs,
-        activeTab: aboutTabItem.activeTab,
+        activeTabId: aboutTabItem.activeTabId,
         style: aboutTabItem.styleClass
       }
     },
+    methods: {
+      tabChanged(newTab) {
+        this.activeTabId = newTab.id
+      }
+    },
     template: `
-      <about-tab
+      <content-tab-card
         :class="style"
         :tabs="tabs"
-        :active-tab="activeTab"
-        @tab-changed="activeTab = $event"
+        :active-tab-id="activeTabId"
+        @tab-changed="tabChanged"
       />
     `
   }
@@ -28,7 +33,7 @@ const createDemo = (aboutTabItem) => {
 
 export const AboutTabStyleOne = () => createDemo(
   {
-    activeTab: 'organs',
+    activeTabId: 'organs',
     tabs: [
       {
         label: 'Datasets',
@@ -56,7 +61,7 @@ export const AboutTabStyleOne = () => createDemo(
 
 export const AboutTabStyleTwo = () => createDemo(
   {
-    activeTab: 'organs',
+    activeTabId: 'organs',
     tabs: [
       {
         label: 'Datasets',
