@@ -1,5 +1,4 @@
 import ContentTabCard from '@/components/ContentTabCard/src/ContentTabCard.vue'
-import './demo-styles.scss';
 
 export default {
   title: 'Components/ContentTabCard',
