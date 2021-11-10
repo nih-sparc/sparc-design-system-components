@@ -10,7 +10,6 @@ import BreadcrumbTrail from './BreadcrumbTrail'
 import ContentOverviewCard from './ContentOverviewCard'
 import SparcHeader from './SparcHeader'
 import ContentTabCard from './ContentTabCard'
-import AboutTab from './AboutTab'
 import DropdownMultiselect from './DropdownMultiselect'
 import EventCard from './EventCard'
 import ListCard from './ListCard';
@@ -34,7 +33,6 @@ const Components = {
   ListCard,
   MultiSelect,
   LargeModal,
-  AboutTab,
   Pagination,
   PaginationMenu,
   SparcCheckbox,
