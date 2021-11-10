@@ -16,19 +16,84 @@
           :value="item.value">
         </el-option>
       </el-select>
-      <div style="background: #292b66; padding: 2em;">
-        <tab-nav
-          class="style2"
-          :tabs="tabs"
-          :active-tab="activeTab"
-          @set-active-tab="activeTab = $event"
-        />
+      <el-button
+        plain
+        @click="openSuccessMessage">
+        Show Success Notification
+      </el-button>
+      <el-button
+        plain
+        @click="openFailMessage">
+        Show Failure Notification
+      </el-button>
+      <el-button
+        plain
+        @click="openNotification">
+        Show Notification
+      </el-button>
+      <el-button
+        plain
+        @click="openNotificationWithIcon">
+        Show Notification with Icon
+      </el-button>
+      <div style="margin-top: 1rem;">
+        <large-modal
+          :visible="dialogVisible"
+          @close-download-dialog="dialogVisible = false"
+        >
+          <div slot="optionalContent">
+            <h1>Direct download</h1>
+            <div>
+              <p>You can download the raw files and metadata directly to your computer as a zip archive free of charge.</p>
+              <p class="download-container__download-dataset-size">
+                Dataset Size: 17.43 GB
+              </p>
+              <el-button class="download-button">Download</el-button>
+            </div>
+          </div>
+          <div slot="mainContent">
+            <h1>Download from AWS</h1>
+            <p>
+              Raw files and metadata are stored in an AWS S3 Requester Pays bucket.
+              You can learn more about downloading data from AWS on our
+              <a href="/#" target="_blank">Help Page</a>.
+            </p>
+            <div>
+              <p>*Requester pays means that any costs associated with downloading the data will be charged to your AWS account.
+                For transfer pricing information, visit the <a href="https://aws.amazon.com/s3/pricing/" target="blank">AWS Pricing documentation.</a>
+              </p>
+              <div>
+              <el-button class="secondary" @click="dialogVisible = false">
+                Close
+              </el-button>
+              </div>
+            </div>
+          </div>
+        </large-modal>
       </div>
-      <tab-nav
-        :tabs="tabs"
-        :active-tab="activeTab"
-        @set-active-tab="activeTab = $event"
-      />
+      <el-button
+        plain
+        @click="dialogVisible = true">
+        Open Large Modal
+      </el-button>
+      <el-popover
+        class="popover"
+        placement="top-start"
+        trigger="click" 
+      >
+        <div>
+          <p>Phrenic Nerve</p>
+          <p><b>COMPONENTS</b></p>
+          <p>Non-autonomic peripheral</p>
+          <div style="margin-bottom: 5px;">
+            <el-button class="extra-small">View Source</el-button>
+          </div>
+          <div>
+            <el-button class="extra-small">Explore Data</el-button>
+          </div>
+        </div>
+        <el-button slot="reference">Hover to activate</el-button>
+      </el-popover>
       <pagination
         :total-count="pageCount"
         :selected="3"
@@ -43,6 +108,16 @@
           v-for="item in radioData"
           v-bind:key="item.label"
           v-model="radioVal"
+          :label="item.label"
+          :disabled="item.disabled || false"
+          :display="item.display"
+        />
+      </div>
+      <div class="checkbox-group">
+        <sparc-checkbox
+          v-for="item in checkboxData"
+          v-bind:key="item.label"
+          v-model="checkboxVals"
           :label="item.label"
           :disabled="item.disabled || false"
           :display="item.display"
@@ -209,6 +284,49 @@
             :title="iconCardData.title"
             :icons="iconCardData.icons"
           />
+      </el-col>
+      <el-col>
+        <el-row>
+          <content-tab-card
+            :tabs="contentTabCard.tabs"
+            :active-tab-id="contentTabCard.activeTabId"
+            @tab-changed="tabChanged"
+          />
+          <content-tab-card
+            :tabs="contentTabCard.tabs"
+            :active-tab-id="contentTabCard.activeTabId"
+            linkComponent="router-link"
+            @tab-changed="tabChanged"
+          >
+            <div
+              v-for="tab in contentTabCard.tabs"
+              :key="tab.id"
+            >
+              <div
+                v-show="contentTabCard.activeTabId === tab.id" 
+              >
+                Content for {{tab.label}} goes here!
+              </div>
+            </div>
+          </content-tab-card>
+          <content-tab-card
+            class="style2"
+            :tabs="contentTabCard.tabs"
+            :active-tab-id="contentTabCard.activeTabId"
+            linkComponent="router-link"
+            @tab-changed="tabChanged"
+          >
+            <div
+              v-for="tab in contentTabCard.tabs"
+              :key="tab.id"
+            >
+              <div
+                v-show="contentTabCard.activeTabId === tab.id" 
+              >
+                Content for {{tab.label}} goes here!
+              </div>
+            </div>
+          </content-tab-card>
         </el-row>
       </el-col>
     </div>
@@ -216,6 +334,8 @@
 </template>
 
 <script>
+import { successMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
+
 export default {
   name: 'App',
 
@@ -239,17 +359,7 @@ export default {
         label: 'Option5'
       }],
       value: '',
-      activeTab: 'upcoming',
-      tabs: [
-        {
-          label: 'Upcoming',
-          type: 'upcoming'
-        },
-        {
-          label: 'Past',
-          type: 'past'
-        }
-      ],
+      activeTab: 'organs',
       pageSize: 10,
       pageCount: 100,
       radioData: [
@@ -275,7 +385,32 @@ export default {
           display: "five"
         }
       ],
+      checkboxData: [
+        {
+          label: 1,
+          display: "one"
+        },
+        {
+          label: 2,
+          display: "two",
+          disabled: true
+        },
+        {
+          label: 3,
+          display: "three"
+        },
+        {
+          label: 4,
+          display: "four"
+        },
+        {
+          label: 5,
+          display: "five"
+        }
+      ],
+      dialogVisible: false,
       radioVal: '',
+      checkboxVals: [],
       tooltipDirs: [
         'top-left',
         'top-center',
@@ -713,7 +848,23 @@ export default {
           linkComponent: 'router-link',
           url: '/stomach'
         }]
-      }
+      },
+      contentTabCard: {
+        tabs: [{
+          label: 'Team Information', 
+          id: 'Team Information'
+        },
+        {
+          label: 'Diseases', 
+          id: 'Diseases'
+        },
+        {
+          label: 'Datasets', 
+          id: 'Datasets',
+          href: '/#'
+        }],
+        activeTabId: "Team Information"
+      },
     }
   },
   methods: {
@@ -723,6 +874,21 @@ export default {
     updatePageSize: function(limit) {
       this.pageSize = limit === 'View All' ?  100 : limit
       this.pageCount = limit === 'View All' ?  100 : limit
+    },
+    tabChanged(newTab) {
+      this.contentTabCard.activeTabId = newTab.id
+    },
+    openSuccessMessage() {
+      this.$message(successMessage(`Success!`))
+    },
+    openFailMessage() {
+      this.$message(failMessage(`Failure.`))
+    },
+    openNotification() {
+      this.$notify(informationNotification('Notification Title', 'This is a notification.'))
+    },
+    openNotificationWithIcon() {
+      this.$notify(iconInformationNotification('Notification Title', 'This is a notification with an icon.'))
     }
   }
 }
@@ -733,6 +899,13 @@ export default {
   padding-top: 1em;
 }
 .radio-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.checkbox-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -765,8 +938,6 @@ export default {
 .metadata-content {
   margin-right: 2rem;
   margin-bottom: 1rem;
-  @media (max-width: 48em) {
-  }
 }
 .metadata-title {
   font-weight: 500;

@@ -1,0 +1,27 @@
+@import '../_variables.scss';
+
+.el-notification{
+  font-family: $font-family;
+  font-size: 1em;
+  .el-notification__icon {
+    padding-top: 5px;
+    padding-right: 5px;
+    @media screen and (max-width: 767px) {
+      min-width: 250px;
+    }
+    &.hide-icon {
+      display: none;
+    }
+    &.about-icon::after {
+      background-color: blue;
+      width: 32px;
+      height: 32px;
+      display: inline-block;
+      content: '';
+      -webkit-mask: url("data:image/svg+xml,%3Csvg id='icons' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctitle%3EDataPortal-Icons%3C/title%3E%3Cpath d='M12,5a7,7,0,1,1-7,7,7.008,7.008,0,0,1,7-7m0-2a9,9,0,1,0,9,9,9,9,0,0,0-9-9Z'/%3E%3Cpath d='M12,7.148a.9.9,0,1,0,.9.9.9.9,0,0,0-.9-.9Z'/%3E%3Cpath d='M12,17.148a1,1,0,0,1-1-1v-5.4a1,1,0,1,1,2,0v5.4A1,1,0,0,1,12,17.148Z'/%3E%3C/svg%3E");
+      mask: url("data:image/svg+xml,%3Csvg id='icons' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctitle%3EDataPortal-Icons%3C/title%3E%3Cpath d='M12,5a7,7,0,1,1-7,7,7.008,7.008,0,0,1,7-7m0-2a9,9,0,1,0,9,9,9,9,0,0,0-9-9Z'/%3E%3Cpath d='M12,7.148a.9.9,0,1,0,.9.9.9.9,0,0,0-.9-.9Z'/%3E%3Cpath d='M12,17.148a1,1,0,0,1-1-1v-5.4a1,1,0,1,1,2,0v5.4A1,1,0,0,1,12,17.148Z'/%3E%3C/svg%3E");
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+  }
+}
