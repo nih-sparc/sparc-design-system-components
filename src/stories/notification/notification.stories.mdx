@@ -15,11 +15,15 @@ While notifications are an effective method of communicating with users, they ar
 #### Code
 
 ```js
-import { informationNotification } from "@/utils/notificationMessages"
-
 data() {
   return {
-    notification : informationNotification('Notification Title', 'This is a notification.')
+    notification : {
+      title: 'Notification Title',
+      message: 'This is a notification.',
+      showClose: true,
+      iconClass: 'hide-icon',
+      duration: 5000
+    }
   }
 },
 methods() {
@@ -46,11 +50,15 @@ The icon is used to inform the users of the type of notification, such as a new 
 #### Code
 
 ```js
-import { iconInformationNotification } from "@/utils/notificationMessages"
-
 data() {
   return {
-    notification : iconInformationNotification('Icon Notification Title', 'This is a notification with an icon.')
+    notification : {
+      title: 'Icon Notification Title',
+      message: 'This is a notification with an icon.',
+      showClose: true,
+      iconClass: 'about-icon',
+      duration: 5000
+    }
   }
 },
 methods() {
@@ -77,11 +85,15 @@ Success messages are used to indicate a completion of a task, such as when a cit
 #### Code
 
 ```js
-import { successMessage } from "@/utils/notificationMessages"
-
 data() {
   return {
-    notification : successMessage('Success!')
+    notification : {
+      message: 'Success!',
+      showClose: true,
+      iconClass: 'el-icon-circle-check',
+      customClass: 'el-message--success',
+      duration: 5000
+    }
   }
 },
 methods() {
@@ -108,11 +120,15 @@ Error messages are a response to a technical error or failure.
 #### Code
 
 ```js
-import { failMessage } from "@/utils/notificationMessages"
-
 data() {
   return {
-    notification : failMessage('Failure.')
+    notification : {
+      message: 'Failure.',
+      showClose: true,
+      iconClass: 'el-icon-circle-close',
+      customClass: 'el-message--error',
+      duration: 5000
+    }
   }
 },
 methods() {
