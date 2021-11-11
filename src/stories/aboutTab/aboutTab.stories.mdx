@@ -4,14 +4,16 @@ import * as stories from './aboutTab.stories.js';
 <Meta title="Components/About Tabs" />
 
 # About Tabs
-Tabs are used to quickly navigate between views within the same context. The views are used to group similar information on the same page.
+About tabs are used to quickly navigate between views within the same context. The views are used to group similar information on the same page.
+
+About tabs make use of the content tab card, but leave the available data slot empty.
 
 ## Properties
 The About Tab component accepts the following properties:
 
 `tabs`: The tabs associated with the components. Array. Required.
 
-`activeTab`: The currently active tab. String. Optional.
+`activeTabId`: The id of the active tab. String. Required.
 
 ### About Tab Style One
 
@@ -22,7 +24,7 @@ The About Tab component accepts the following properties:
 ```js
 data() {
   return {
-    activeTab: 'organs',
+    activeTabId: 'organs',
     tabs: [
       {
         label: 'Datasets',
@@ -46,14 +48,19 @@ data() {
       }
     ]
   }
+},
+methods: {
+  tabChanged(newTab) {
+    this.activeTabId = newTab.id
+  }
 }
 ```
 
 ```html
-<tab-nav
+<content-tab-card
   :tabs="tabs"
-  :active-tab="activeTab"
-  @tab-changed="activeTab = $event"
+  :active-tab-id="activeTabId"
+  @tab-changed="tabChanged"
 />
 ```
 
@@ -66,7 +73,7 @@ data() {
 ```js
 data() {
   return {
-    activeTab: 'organs',
+    activeTabId: 'organs',
     tabs: [
       {
         label: 'Datasets',
@@ -94,10 +101,10 @@ data() {
 ```
 
 ```html
-<tab-nav
-  class='style2'
+<content-tab-card
+  :class="style2"
   :tabs="tabs"
-  :active-tab="activeTab"
-  @tab-changed="activeTab = $event"
+  :active-tab-id="activeTabId"
+  @tab-changed="tabChanged"
 />
 ```
