@@ -284,6 +284,7 @@
             :title="iconCardData.title"
             :icons="iconCardData.icons"
           />
+        </el-row>
       </el-col>
       <el-col>
         <el-row>
@@ -780,73 +781,73 @@ export default {
           title: 'Bladder',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/bladder'
+          href: '/bladder'
         },
         {
           title: 'Colon',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/colon'
+          href: '/colon'
         },
         {
           title: 'Esophogus',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/esophogus'
+          href: '/esophogus'
         },
         {
           title: 'Female Reproductive System',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/female-reproductive-system'
+          href: '/female-reproductive-system'
         },
         {
           title: 'Heart',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/heart'
+          href: '/heart'
         },
         {
           title: 'Kidney',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/kidney'
+          href: '/kidney'
         },
         {
           title: 'Liver',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/liver'
+          href: '/liver'
         },
         {
           title: 'Lungs',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/lungs'
+          href: '/lungs'
         },
         {
           title: 'Male Reproductive System',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/male-reproductive-system'
+          href: '/male-reproductive-system'
         },
         {
           title: 'Small Intestine',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/small-intestine'
+          href: '/small-intestine'
         },
         {
           title: 'Spleen',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/spleen'
+          href: '/spleen'
         },
         {
           title: 'Stomach',
           image: 'https://via.placeholder.com/736',
           linkComponent: 'router-link',
-          url: '/stomach'
+          href: '/stomach'
         }]
       },
       contentTabCard: {

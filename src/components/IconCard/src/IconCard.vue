@@ -1,12 +1,12 @@
 <template>
-  <div class="icon-card container">
+  <div class="icon-card">
     <h2>{{title}}</h2>
     <div class="data-wrap">
       <component
         v-for="icon in icons"
         :is="icon.linkComponent"
         class="icon-card__item"
-        :to="icon.url"
+        :to="icon.href"
         :key="icon.title"
       >
         <img
