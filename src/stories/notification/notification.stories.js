@@ -1,13 +1,3 @@
-import { successMessage, failMessage, informationNotification, iconInformationNotification } from "../../../utils/notificationMessages"
-
-const infoNotification = informationNotification('Notification Title', 'This is a notification.')
-
-const iconInfoNotification = iconInformationNotification('Icon Notification Title', 'This is a notification with an icon.')
-
-const successNotification = successMessage('Success!')
-
-const failureNotification = failMessage('Failure.')
-
 export default {
   title: 'Components/Notification',
   includeStories: []
@@ -16,7 +6,13 @@ export default {
 export const InformationNotification = () => ({
   data() {
     return {
-      notification : infoNotification
+      notification : {
+        title: 'Notification Title',
+        message: 'This is a notification.',
+        showClose: true,
+        iconClass: 'hide-icon',
+        duration: 5000
+      }
     }
   },
   methods: {
@@ -36,7 +32,13 @@ export const InformationNotification = () => ({
 export const IconInformationNotification = () => ({
   data() {
     return {
-      notification : iconInfoNotification
+      notification : {
+        title: 'Icon Notification Title',
+        message: 'This is a notification with an icon.',
+        showClose: true,
+        iconClass: 'about-icon',
+        duration: 5000
+      }
     }
   },
   methods: {
@@ -56,7 +58,13 @@ export const IconInformationNotification = () => ({
 export const SuccessNotification = () => ({
   data() {
     return {
-      notification : successNotification
+      notification : {
+        message: 'Success!',
+        showClose: true,
+        iconClass: 'el-icon-circle-check',
+        customClass: 'el-message--success',
+        duration: 5000
+      }
     }
   },
   methods: {
@@ -76,7 +84,13 @@ export const SuccessNotification = () => ({
 export const FailureNotification = () => ({
   data() {
     return {
-      notification : failureNotification
+      notification : {
+        message: 'Failure.',
+        showClose: true,
+        iconClass: 'el-icon-circle-close',
+        customClass: 'el-message--error',
+        duration: 5000
+      }
     }
   },
   methods: {
