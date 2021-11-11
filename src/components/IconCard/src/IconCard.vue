@@ -63,11 +63,8 @@ h2 {
   color: #000;
   margin: 1rem 2rem;
   text-decoration: none;
-  width: 70px;
-  @media (min-width: 768px) {
-    width: 128px;
-    margin: 1.5625em 2rem;
-  }
+  width: 12%;
+  min-width: 70px;
   &:hover,
   &:focus {
     opacity: 0.9;
@@ -76,7 +73,7 @@ h2 {
     background: #fff;
     border-radius: 50%;
     display: block;
-    height: 70px;
+    height: auto;
     margin-bottom: 8px;
     width: 100%;
     @media (min-width: 768px) {
