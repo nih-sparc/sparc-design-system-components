@@ -9,7 +9,8 @@ import * as stories from './contentTabCard.stories.js';
 
 The Content Tab Card component accepts the following properties:
 
-`tabs`: The tabs associated with the content tab card. Array. Required.
+`tabs`: The tabs associated with the content tab card. Array. Required. The tabs data being passed in must have a label and id property. 
+An optional href property may be assigned to a tab as well in order to redirect the user to that href when the tab is clicked.
 
 `activeTabId`: The id of the active tab. String. Required.
 
@@ -18,6 +19,12 @@ Setting this property will enable the use of routing using the routeName propert
 
 `routeName`: The name of the property to be used for routing purposes. This property will only be applicable when a linkComponent is set. Defaults to 'tab'.
 i.e. If a link component is set and the routeName is set to 'selectedExampleTab' and a user selects a tab with an id of 'exampleId' then the query '/?selectedExampleTab=exampleId' will be added to the route path. String. Optional
+
+Content Tab Card contains an optional slot, which can be used to dynamically show content based off the active tab.
+
+## Events
+
+`tab-changed`: Will fire when a user selects a new tab. Returns the new selected tab.
 
 ### Content Tab Card
 

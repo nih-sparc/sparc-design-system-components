@@ -15,6 +15,9 @@ The About Tab component accepts the following properties:
 
 `activeTabId`: The id of the active tab. String. Required.
 
+## Events
+`tab-changed`: Fire when the user selects a new tab. Returns the new selected tab.
+
 ### About Tab Style One
 
 <Story name="Style One">{stories.AboutTabStyleOne()}</Story>
@@ -96,6 +99,11 @@ data() {
         id: 'simulations'
       }
     ]
+  }
+},
+methods: {
+  tabChanged(newTab) {
+    this.activeTabId = newTab.id
   }
 }
 ```
