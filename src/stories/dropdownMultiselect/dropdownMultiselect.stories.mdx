@@ -8,9 +8,13 @@ import * as stories from './dropdownMultiselect.stories.js';
 ## Properties
 The dropdown multiselect component accepts the following properties:
 
-`category`: The category associated with the dropdown multiselect. Object. Required.
+`category`: The category associated with the dropdown multiselect. Object. Required. The category object must have a label, id, and data property assigned. 
+Any nested parent data must have a children property where their childrens label and id are assigned.
 
-`tooltip`: The tooltip associated with the dropdown category. String. Not Required. Setting this will cause the help icon to appear next to the category title and hovering over it will show the tooltip.
+`tooltip`: The tooltip associated with the dropdown category. String. Optional. Setting this will cause the help icon to appear next to the category title and hovering over it will show the tooltip.
+
+## Events
+`selection-change`: Will fire when a user makes a selection change. Returns an array of selections.
 
 ### One Option Dropdown Multiselect
 

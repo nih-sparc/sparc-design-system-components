@@ -45,6 +45,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../../assets/_variables.scss';
 .pagination {
   padding-top: 1em;
   text-align: center;
@@ -60,6 +61,15 @@ export default {
   li.more,
   li.number {
     background: none;
+  }
+
+  li.number.active {
+    border-bottom: 2px solid $purple;
+  }
+
+  .el-pager li {
+    min-width: 0;
+    margin: 0 .5em;
   }
 }
 </style>

@@ -13,10 +13,173 @@ As GazelleCX completes a broader content strategy and analysis, it is likely tha
 
 When the table content is too wide for the container, the information will scroll to the right.
 
-## Table
+We directly utilize the Element UI el-select component for this which requires a bound data value to be passed in.
 
 <Story name='Primary' height='60px'>{stories.Primary()}</Story>
+
+### Code
+
+```js
+data() {
+  return {
+    titleColumnWidth: 300,
+    tableData: [{
+      "id": 76,
+      "sourceDatasetId": 699,
+      "name": "Generic mouse colon scaffold",
+      "description": "Annotated mouse colon scaffold available for registration of segmented neural anatomical-functional mapping of enteric neural circuits.",
+      "ownerId": 670,
+      "ownerFirstName": "Mabelle",
+      "ownerLastName": "Lin",
+      "ownerOrcid": "0000-0002-6388-2181",
+      "organizationName": "SPARC Consortium",
+      "organizationId": 367,
+      "license": "Creative Commons Attribution",
+      "tags": ["mesenteric zone", "colon", "mouse"],
+      "version": 2,
+      "revision": null,
+      "size": 3848187,
+      "modelCount": [
+        { "modelName": "researcher", "count": 3 },
+        { "modelName": "subject", "count": 0 },
+        { "modelName": "term", "count": 0 },
+        { "modelName": "award", "count": 0 },
+        { "modelName": "sample", "count": 0 },
+        { "modelName": "protocol", "count": 0 },
+        { "modelName": "summary", "count": 1 }
+      ],
+      "fileCount": 28,
+      "recordCount": 4,
+      "uri": "s3://blackfynn-discover-use1/76/2/",
+      "arn": "arn:aws:s3:::blackfynn-discover-use1/76/2/",
+      "status": "PUBLISH_SUCCEEDED",
+      "doi": "10.26275/dwly-naxx",
+      "banner": "https://assets.discover.blackfynn.com/dataset-assets/76/2/banner.jpg",
+      "readme": "https://assets.discover.blackfynn.com/dataset-assets/76/2/readme.md",
+      "contributors": [
+        {
+          "firstName": "Mabelle",
+          "middleInitial": null,
+          "lastName": "Lin",
+          "degree": null,
+          "orcid": "0000-0002-6388-2181"
+        },
+        {
+          "firstName": "Richard",
+          "middleInitial": null,
+          "lastName": "Christie",
+          "degree": null,
+          "orcid": null
+        },
+        {
+          "firstName": "Peter",
+          "middleInitial": null,
+          "lastName": "Hunter",
+          "degree": null,
+          "orcid": null
+        }
+      ],
+      "sponsorship": {
+        "title": "NIH SPARC Program",
+        "imageUrl": "https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg](https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg",
+        "markup": "This dataset is part of the NIH SPARC program and available on the <a href=http://sparc.science/datasets/76>SPARC Portal</a>"
+      },
+      "blackfynnSchemaVersion": "4.0",
+      "createdAt": "2020-07-17T15:12:08.675733Z",
+      "updatedAt": "2020-07-17T15:20:26.575138Z",
+      "firstPublishedAt": "2020-04-22T22:23:20.645904Z",
+      "versionPublishedAt": "2020-07-17T15:12:08.675733Z",
+      "revisedAt": null,
+      "embargo": false
+    },
+    ...ect (Additional data objects here)
+  }]
+}
+```
+
+```html
+<el-table
+  :data="tableData"
+  :default-sort = "{prop: 'name', order: 'descending'}"
+  empty-text="No Results"
+>
+  <el-table-column
+    :fixed="true"
+    prop="name"
+    label="Title"
+    sortable
+    :width="titleColumnWidth"
+  >
+    <template slot-scope="scope">
+      <a href="#">{{ scope.row.name }}</a>
+    </template>
+  </el-table-column>
+  <el-table-column prop="banner" label="Image" width="160">
+    <template slot-scope="scope">
+      <img
+        :src="scope.row.banner"
+        alt="Banner image"
+        height="128"
+        width="128"
+      />
+    </template>
+  </el-table-column>
+  <el-table-column width="60" />
+  <el-table-column prop="description" label="Description" :width="400" sortable />
+  <el-table-column prop="createdAt" label="Last Published" width="200" sortable>
+    <template slot-scope="scope">
+      {{ scope.row.createdAt }}
+    </template>
+  </el-table-column>
+  <el-table-column prop="size" label="Size" width="150" sortable>
+    <template slot-scope="scope">
+      {{ scope.row.size }}
+    </template>
+  </el-table-column>
+</el-table>
+```
 
 ## Table (default HTML table or rendered by markdown)
 
 <Story name='HTML Table' height='60px'>{stories.HTMLTable()}</Story>
+
+### Code
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th align="left">Size</th>
+      <th align="left">Variable</th>
+      <th align="left">Width (minimum)</th>
+      <th align="left">Total Columns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">Mobile</td>
+      <td align="left"><code>sm</code></td>
+      <td align="left"><code>20rem</code></td>
+      <td align="left">4</td>
+    </tr>
+    <tr>
+      <td align="left">Tablet</td>
+      <td align="left"><code>md</code></td>
+      <td align="left"><code>47rem</code></td>
+      <td align="left">8</td>
+    </tr>
+    <tr>
+      <td align="left">Desktop</td>
+      <td align="left"><code>lg</code></td>
+      <td align="left"><code>64rem</code></td>
+      <td align="left">16</td>
+    </tr>
+    <tr>
+      <td align="left">Large Display</td>
+      <td align="left"><code>xlg</code></td>
+      <td align="left"><code>120rem</code></td>
+      <td align="left">16</td>
+    </tr>
+  </tbody>
+</table>
+```

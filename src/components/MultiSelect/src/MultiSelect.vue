@@ -174,7 +174,7 @@ export default {
       const option = this.getOptionSelected()
       this.$nextTick(() => {
         this.setShowAllNodeStatus(option)
-        this.$emit('SelectionChanged', this.selectedArray)
+        this.$emit('selection-changed', this.selectedArray)
         this.previouslySelectedArray = [...this.selectedArray]
       })   
     },
