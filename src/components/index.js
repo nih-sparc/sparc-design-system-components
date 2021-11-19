@@ -4,7 +4,7 @@ import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
 import SvgIcon from 'vue-svgicon'
 
-import '@/assets/styles.scss';
+import '../assets/styles.scss';
 
 import BreadcrumbTrail from './BreadcrumbTrail'
 import ContentOverviewCard from './ContentOverviewCard'
@@ -22,7 +22,7 @@ import SparcCheckbox from './SparcCheckbox'
 import SparcRadio from './SparcRadio'
 import SparcTooltip from './SparcTooltip'
 
-import '@/assets/icons'
+import '../assets/icons'
 
 const Components = {
   BreadcrumbTrail,

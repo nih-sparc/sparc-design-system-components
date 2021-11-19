@@ -19,7 +19,7 @@ export default {
 
   computed: {
     logoSrc: function() {
-      return require (`@/assets/img/sparc-logo/sparc-${this.secondary ? 'alt-' : ''}logo-${this.type}.svg`)
+      return require (`../../assets/img/sparc-logo/sparc-${this.secondary ? 'alt-' : ''}logo-${this.type}.svg`)
     }
   }
 }
