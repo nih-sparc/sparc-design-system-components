@@ -357,6 +357,7 @@ export default {
   }
   h3 {
     display: inline-block;
+    font-size: 1.25em;
   }
 }
 </style>
