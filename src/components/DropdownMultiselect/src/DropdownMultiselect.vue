@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown-multiselect-border">
+  <div class="sparc-design-system-component-dropdown-multiselect">
     <dropdown-label
       :label="category.label"
       :tooltip="tooltip"
@@ -211,32 +211,34 @@ export default {
 <style lang="scss">
 @import '../../../assets/_variables.scss';
 
-.capitalize {
-  text-transform: capitalize;
-}
-.custom-tree-node {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  flex-grow: 1;
-}
-.light-gray-background .el-tree {
-  background: rgb(250, 251, 252);
-}
-.show-all-node .el-checkbox__label {
-  font-size: 16px;
-  font-weight: normal;
-}
-.el-tree-node__expand-icon.el-icon-caret-right {
-  order: 1;
-  text-align: right;
-}
-.el-tree-node__content {
-  margin-left: 1.5rem !important;
-  margin-right: 1rem !important;
-  .el-checkbox__input.is-focus:not(.is-checked) {
-    .el-checkbox__inner {
-      border-color: $lineColor1;
-    } 
+.sparc-design-system-component-dropdown-multiselect {
+  .capitalize {
+    text-transform: capitalize;
+  }
+  .custom-tree-node {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex-grow: 1;
+  }
+  .light-gray-background .el-tree {
+    background: rgb(250, 251, 252);
+  }
+  .show-all-node .el-checkbox__label {
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .el-tree-node__expand-icon.el-icon-caret-right {
+    order: 1;
+    text-align: right;
+  }
+  .el-tree-node__content {
+    margin-left: 1.5rem !important;
+    margin-right: 1rem !important;
+    .el-checkbox__input.is-focus:not(.is-checked) {
+      .el-checkbox__inner {
+        border-color: $lineColor1;
+      }
+    }
   }
 }
 </style>
@@ -262,7 +264,7 @@ export default {
   padding-bottom: 0.5rem;
 }
 
-.dropdown-multiselect-border {
+.sparc-design-system-component-dropdown-multiselect {
   background-color: white;
   border: 1px solid #dbdfe6;
   border-top: none;

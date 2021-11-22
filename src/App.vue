@@ -2,6 +2,11 @@
   <div id="app">
     <SparcHeader linkComponent="router-link" :currentPath="$route.name"/>
     <div class="content-body">
+      <breadcrumb-trail
+        :breadcrumb="breadcrumbs"
+        link-component="router-link"
+        title="Level 3"
+      />
       <el-button>hi</el-button>
       <el-date-picker
         v-model="value1"
@@ -336,13 +341,22 @@
 
 <script>
 import { successMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
+import BreadcrumbTrail from './components/BreadcrumbTrail/src/BreadcrumbTrail.vue'
 
 export default {
+  components: { BreadcrumbTrail },
   name: 'App',
 
   data() {
     return {
       value1: '',
+      breadcrumbs: [{
+        label: "Home",
+        to: "/#"
+      }, {
+        label: "Level 2",
+        to: "/#"
+      }],
       options: [{
         value: 'Option1',
         label: 'Option1'

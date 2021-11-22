@@ -32,7 +32,7 @@
  * make sure that `table` children inside of an
  * .el-table don't also get these styles applied
  */
-table:not([class^="el-table__"], .el-date-table) {
+table:not([class^="el-table__"]) {
   @extend .el-table;
   border: 1px solid #dbdfe6;
   border-spacing: 0;
@@ -61,4 +61,9 @@ thead {
 }
 td {
   vertical-align: top;
+}
+
+.markdown-table-wrap {
+  overflow: scroll;
+  width: 100%;
 }

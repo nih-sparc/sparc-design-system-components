@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div v-show="isFilterApplied" class="multilevel-select-filter">
+    <div v-if="isFilterApplied" class="multilevel-select-filter">
       <svgicon name="filterApplied" height="20" width="20" />
-      <h3>
-        Filter applied
-      </h3>
+      <h3>Filter applied</h3>
     </div>
-    <h3 v-show="!isFilterApplied" class="multilevel-select-filter">Show all</h3>
+    <div v-else class="multilevel-select-filter">
+      <h3>Show all</h3>
+    </div>
     <el-cascader
       v-model="selectedArray"
       placeholder
@@ -14,7 +14,7 @@
       :class="`hide-filter`"
       @change="onSelectionChange"
       :options="options"
-      :popper-class="`${isMultilevel ? 'multilevel-select' : 'singlelevel-select'}`"
+      :popper-class="`${isMultilevel ? 'sparc-design-system-multilevel-select' : 'sparc-design-system-singlelevel-select'}`"
       :props="props"
       ref="cascader"
     >
@@ -300,27 +300,27 @@ export default {
 
 <style lang="scss">
 @import '../../../assets/_variables.scss';
-.singlelevel-select .el-cascader-menu:first-child .el-cascader-node:first-child {
+.sparc-design-system-singlelevel-select .el-cascader-menu:first-child .el-cascader-node:first-child {
   border-bottom: 1px solid #e4e7ed;
 }
 
-.multilevel-select li[aria-haspopup=true] > .el-checkbox {
+.sparc-design-system-multilevel-select li[aria-haspopup=true] > .el-checkbox {
   display: none;
 }
-.multilevel-select li[aria-haspopup=true] > .el-cascader-node__label {
+.sparc-design-system-multilevel-select li[aria-haspopup=true] > .el-cascader-node__label {
   padding: 0;
 }
 
-.multilevel-select .el-cascader-menu:nth-child(2) .el-cascader-node:first-child {
+.sparc-design-system-multilevel-select .el-cascader-menu:nth-child(2) .el-cascader-node:first-child {
   border-bottom: 1px solid #e4e7ed;
 }
 
-.multilevel-select .el-cascader-menu:nth-child(2) .el-cascader-menu__list,
-.singlelevel-select .el-cascader-menu:first-child .el-cascader-menu__list {
+.sparc-design-system-multilevel-select .el-cascader-menu:nth-child(2) .el-cascader-menu__list,
+.sparc-design-system-singlelevel-select .el-cascader-menu:first-child .el-cascader-menu__list {
   padding: 6px;
 }
 
-.singlelevel-select, .multilevel-select {
+.sparc-design-system-singlelevel-select, .sparc-design-system-multilevel-select {
   .el-cascader-node .el-checkbox__input.is-focus:not(.is-checked) {
     .el-checkbox__inner {
       border-color: $lineColor1;
@@ -358,6 +358,7 @@ export default {
   h3 {
     display: inline-block;
     font-size: 1.25em;
+    font-weight: normal;
   }
 }
 </style>

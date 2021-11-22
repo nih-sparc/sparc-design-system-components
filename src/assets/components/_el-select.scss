@@ -33,12 +33,3 @@
   font-size: 14px;
   font-weight: bold;
 }
-
-// HACK: The only way to edit the icon in the select
-// input box is to directly change the content value
-// of the <i> tag.
-.el-icon-arrow-up {
-  &::before {
-    content: ''
-  }
-}

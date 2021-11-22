@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination">
+  <div class="sparc-design-system-pagination">
     <el-pagination
       :page-size="pageSize"
       :page-count="pageCount"
@@ -46,21 +46,21 @@ export default {
 
 <style lang="scss">
 @import '../../../assets/_variables.scss';
-.pagination {
+.sparc-design-system-pagination {
   padding-top: 1em;
   text-align: center;
 
   button.btn-prev {
-    background: none;
+    background: transparent;
   }
 
   button.btn-next {
-    background: none;
+    background: transparent;
   }
 
   li.more,
   li.number {
-    background: none;
+    background: transparent;
   }
 
   li.number.active {
