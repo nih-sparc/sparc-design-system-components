@@ -2,7 +2,7 @@
   <el-dialog
     :visible="visible"
     :show-close="false"
-    class="large-modal-dialog"
+    class="sparc-design-system-large-modal-dialog"
     @close="closeDialog"
   >
     <div class="dialog-container">
@@ -50,7 +50,7 @@ export default {
 
 <style lang="scss">
 @import '../../../assets/_variables.scss';
-.large-modal-dialog {
+.sparc-design-system-large-modal-dialog {
   button:hover {
     box-shadow: none;
   }
@@ -74,7 +74,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
 
-.large-modal-dialog {
+.sparc-design-system-large-modal-dialog {
   .dialog-container {
     display: flex;
     word-break: normal;

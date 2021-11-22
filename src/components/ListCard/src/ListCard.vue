@@ -1,6 +1,6 @@
 <template>
   <el-table
-    class="list-card-table"
+    class="sparc-design-system-list-card-table"
     :data="data"
     :show-header="false"
     empty-text="No Results"
@@ -56,14 +56,14 @@ export default {
 }
 </script>
 <style lang="scss">
-.list-card-table::before {
+.sparc-design-system-list-card-table::before {
   display: none;
 }
-.list-card-table td.el-table__cell {
+.sparc-design-system-list-card-table td.el-table__cell {
   border: none;
   padding: 0;
 }
-.list-card-table tbody {
+.sparc-design-system-list-card-table tbody {
   tr:not(:last-child)>td .cell::after {
     content: "";
     border-bottom: 2px solid #D8D8D8;
@@ -89,7 +89,7 @@ export default {
 </style>
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
-  .list-card-table {
+  .sparc-design-system-list-card-table {
     border: 1px solid #DBDFE6;
   }
   .section-container {

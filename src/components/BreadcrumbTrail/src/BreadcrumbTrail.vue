@@ -1,5 +1,5 @@
 <template>
-  <div class="breadcrumb">
+  <div class="design-system-component-breadcrumb">
     <div v-for="item in breadcrumb" :key="item.label" class="breadcrumb-link">
       <template v-if="linkComponent === 'nuxt-link' || linkComponent === 'router-link'">
         <component :is="linkComponent" :to="item.to">
@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss">
 @import '../../../assets/_variables.scss';
-.breadcrumb {
+.design-system-component-breadcrumb {
   align-items: flex-start;
   background: $lineColor2;
   color: $darkBlue;

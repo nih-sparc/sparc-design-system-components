@@ -9,8 +9,7 @@
   &__inner {
     border-color: $lightGrey;
     color: $grey;
-    font-size: 1rem;
-    padding: 0 0.938rem;
+    padding: 0 0.8rem;
     &:hover {
       border-color: $lightGrey !important;
     }
@@ -46,7 +45,7 @@
   padding: 0 0.75rem;
 }
 .el-input--suffix .el-input__inner {
-  padding-right: 2.25rem;
+  padding-right: 2rem;
 }
 .el-form-item.is-error {
   .el-input__inner,
