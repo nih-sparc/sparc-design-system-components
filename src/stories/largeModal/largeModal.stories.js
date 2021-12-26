@@ -20,7 +20,7 @@ export const Primary = () => {
           @close-download-dialog="dialogVisible = false"
         >
           <div class="content" slot="optionalContent">
-            <h1>Direct download</h1>
+            <h1 class="mt-0">Direct download</h1>
             <div>
               <p>You can download the raw files and metadata directly to your computer as a zip archive free of charge.</p>
               <p class="download-container__download-dataset-size">
@@ -30,7 +30,7 @@ export const Primary = () => {
             </div>
           </div>
           <div class="content" slot="mainContent">
-            <h1>Download from AWS</h1>
+            <h1 class="mt-0">Download from AWS</h1>
             <p>
               Raw files and metadata are stored in an AWS S3 Requester Pays bucket.
               You can learn more about downloading data from AWS on our

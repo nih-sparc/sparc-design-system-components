@@ -1,95 +1,209 @@
 @import './_variables';
 
 body {
-  background-color: #F7FAFF;
-  font-family: $font-family;
-  line-height: 1.5rem;
-  margin: 0;
+  font-family:$font-family;
+  font-size:1em;
+  line-height:1.5rem;
+  font-weight:400;
+  color:$grey;
+  margin:0;
 }
 
-h1 {
-  font-size: 2em;
-  margin: 0;
-  line-height: 2.75rem;
-  padding: 0;
+.heading1 {
+  font-size:2em;
+  font-weight:500;
+  line-height:2.75rem;
+  color:$grey;
 }
 
-h2 {
-  font-size: 1.5em;
-  line-height: 2.25rem;
-  margin: 0 0 1rem;
-  padding: 0;
+.heading2 {
+  font-size:1.5em;
+  font-weight:500;
+  line-height:2.25rem;
+  color:$grey;
 }
 
-h3, h4 {
-  font-size: 1em;
-  line-height: 1.875rem;
-  margin: 0 0 0.5rem;
-  padding: 0;
-}
-
-h5, h6 {
-  font-size: 1em;
-  font-weight: normal;
-  line-height: 1.75rem;
-  margin: 0 0 0.5rem;
-  padding: 0;
-}
-
-a {
-  color: $app-primary-color;
-  &:not(.underline) {
-    text-decoration: none;
-  }
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
-}
-
-p {
-  margin: 0 0 1rem;
-}
-
-hr {
-  margin: 0 0 1rem;
-}
-
-input {
-  color: $input-text;
-  font-family: $font-family;
-  font-size: inherit;
-}
-
-.btn-link {
-  display: inline-block;
-  text-decoration: none;;
+.heading3 {
+  font-size:1em;
+  font-weight:500;
+  line-height:1.875rem;
+  color:$grey;
 }
 
 .nav1 {
-  font-size:16px;
-  line-height:32px;
+  font-size:1em;
   font-weight:500;
-  color: $darkBlue;
+  line-height:2rem;
+  color:$darkBlue;
 }
 
 .nav2 {
-  font-size:14px;
-  line-height:32px;
+  font-size:.875em;
   font-weight:500;
-  color: $darkBlue;
+  line-height:2rem;
+  color:$darkBlue;
+}
+
+.nav3 {
+  font-size:.875em;
+  font-weight:500;
+  line-height:16px;
+  color:$darkBlue;
+}
+
+.nav4 {
+  font-size:.875em;
+  font-weight:500;
+  line-height:1rem;
+  color:$darkBlue;
 }
 
 .nav5 {
-  font-size:12px;
-  line-height:24px;
+  font-size:.75em;;
   font-weight:400;
-  color: $cochlear;
+  line-height:1.5rem;
+  color:$cochlear;
 }
 
 .nav6 {
-  font-size:12px;
-  line-height:24px;
+  font-size:.75em;;
+  line-height:1.5rem;
   font-weight:400;
-  color: $darkBlue;
+  color:$darkBlue;
+}
+
+.body1 {
+  font-size:1em;
+  line-height:1.5rem;
+  font-weight:400;
+  color:$grey;
+}
+
+.body2 {
+  font-size:1em;
+  line-height:1.5rem;
+  font-weight:400;
+  color:$cochlear;
+}
+
+.body4 {
+  font-size:.875em;
+  line-height:1.25rem;
+  font-weight:400;
+  color:$lightGrey;
+}
+
+.label1 {
+  font-size:.875em;
+  line-height:1.5rem;
+  font-weight:400;
+  color:$grey;
+}
+
+.label2 {
+  font-size:.875em;
+  line-height:1.5rem;
+  font-weight:500;
+  color:$grey;
+}
+
+.label3 {
+  font-size:.875em;
+  line-height:1.5rem;
+  font-weight:500;
+  color:$darkBlue;
+}
+
+.label4 {
+  font-size:1em;
+  line-height:1.5rem;
+  font-weight:600;
+  color:$grey;
+}
+
+.tab1 {
+  font-size:1.125em;;
+  line-height:1.5rem;
+  font-weight:500;
+  color:$purple;
+}
+
+.tab2 {
+  font-size:1.125em;;
+  line-height:1.5rem;
+  font-weight:400;
+  color:$grey;
+}
+
+.tab3 {
+  font-size:1.125em;;
+  line-height:1.5rem;
+  font-weight:500;
+  color:$cochlear;
+  background-color:$darkBlue;
+}
+
+.tab4 {
+  font-size:1.125em;;
+  line-height:1.5rem;
+  font-weight:400;
+  color:$cochlear;
+  background-color:$darkBlue;
+}
+
+.tab5 {
+  font-size:1em;
+  line-height:1.5rem;
+  font-weight:500;
+  color:$purple;
+}
+
+.link1 {
+  font-size:1em;
+  line-height:1.5rem;
+  font-weight:500;
+  color:$purple;
+}
+
+.link1:hover {
+  text-decoration:underline;
+}
+
+.highlighted {
+  background-color:#D8D8D8;
+}
+
+.link2 {
+  font-size:1em;
+  line-height:1.5rem;
+  font-weight:400;
+  color:$purple;
+}
+
+.link2:hover {
+  text-decoration:underline;
+}
+
+.link3 {
+  font-size:1em;
+  line-height:1.5rem;
+  font-weight:400;
+  color:$grey;
+}
+
+.link3:hover {
+  text-decoration:underline;
+}
+
+.link4 {
+  font-size:1.5em;
+  line-height:2rem;
+  font-weight:400;
+  color:$cochlear;
+  text-decoration:underline;
+}
+
+.link4:hover {
+  color:$lineColor1;
+  text-decoration:underline;
 }

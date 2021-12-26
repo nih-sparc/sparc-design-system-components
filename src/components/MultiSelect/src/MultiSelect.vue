@@ -344,11 +344,11 @@ export default {
   color: $mediumGrey;
   position: absolute;
   z-index: 1;
-  padding-left: .938rem;
-  padding-top: .3rem;
+  padding-left: 1rem;
+  padding-top: .5rem;
   margin-bottom: 0;
   margin-right: 2rem;
-  min-width: 8.48rem;
+  white-space: nowrap;
   pointer-events: none;
   display: inline-block;
   svg {
@@ -358,6 +358,7 @@ export default {
   h3 {
     display: inline-block;
     font-size: 1.25em;
+    margin: 0;
     font-weight: normal;
   }
 }

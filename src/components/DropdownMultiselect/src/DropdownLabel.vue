@@ -98,6 +98,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0;
+  margin-top: 0;
   padding: 0.5rem 1rem;
   font-weight: 500;
   align-items: center;
