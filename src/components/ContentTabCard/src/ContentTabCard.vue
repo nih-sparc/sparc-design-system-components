@@ -1,43 +1,36 @@
 <template>
-  <div name="details-tabs">
-    <div class="details-tabs__container">
-      <el-row type="flex">
-        <el-col class="details-tabs__types-container" :span="24">
-          <ul class="details-tabs__container--types">
-            <li v-for="tab in tabs" :key="tab.label">
-              <!-- Expect this to be either nuxt-link or router-link -->
-              <component v-if="linkComponent"
-                :is="linkComponent"
-                :to="{ query: queryParams(tab.id) }"
-                @click.native="$emit('tab-changed', tab)"
-                :class="{ active: tab.id === activeTabId }"
-                class="details-tabs__container--button"
-              >
-                {{ tab.label }}
-              </component>
-              <a v-else-if="tab.href"
-                class="details-tabs__container--button"
-                :class="{ active: tab.id === activeTabId }"
-                :href="tab.href"
-                target="_blank"
-              >
-                {{ tab.label }}
-              </a>
-              <a
-                v-else
-                class="details-tabs__container--button"
-                :class="{ active: tab.id === activeTabId }"
-                @click.prevent="$emit('tab-changed', tab)"
-              >
-                {{ tab.label }}
-              </a>
-            </li>
-          </ul>
-        </el-col>
-      </el-row>
-      <div class="details-tabs__container--data">
-        <slot />
-      </div>
+  <div>
+    <el-row :class="[tabStyle, 'tabs-container p-16']">
+      <el-col class="tabs-column">
+        <span :class="[tabStyle, 'link-container']" v-for="tab in tabs" :key="tab.label">
+          <!-- Expect this to be either nuxt-link or router-link -->
+          <component v-if="linkComponent"
+            :is="linkComponent"
+            :to="{ query: queryParams(tab.id) }"
+            @click.native="$emit('tab-changed', tab)"
+            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link px-8']"
+          >
+            {{ tab.label }}
+          </component>
+          <a v-else-if="tab.href"
+            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link px-8']"
+            :href="tab.href"
+            target="_blank"    
+          >
+            {{ tab.label }}
+          </a>
+          <a
+            v-else
+            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link px-8']"
+            @click.prevent="$emit('tab-changed', tab)"
+          >
+            {{ tab.label }}
+          </a>
+        </span>
+      </el-col>
+    </el-row>
+    <div class="content px-16 pb-16">
+      <slot />
     </div>
   </div>
 </template>
@@ -61,8 +54,25 @@ export default {
     routeName: {
       type: String,
       default: 'tab'
+    },
+    tabStyle: {
+      type: String,
+      default: 'style1'
     }
-    
+  },
+  computed: {
+    tabClass: function() {
+      switch(this.tabStyle) {
+        case 'style1':
+          return 'tab2'
+        case 'style2':
+          return 'tab4'
+        case 'style3':
+          return 'body1'
+        default:
+          return ''
+      }
+    }
   },
   methods: {
     queryParams(tabId) {
@@ -74,86 +84,64 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
-.details-tabs__container--types {
-  margin: 1em;
-  flex-wrap: wrap;
-}
-.details-tabs__container--data {
-  overflow: auto;
-  padding: 1em 3em;
-  @media (max-width: 48em) {
-    padding: 1em;
+.tab-link {
+  text-decoration: none;
+  flex-wrap: nowrap;
+  cursor: pointer;
+  &.style1, &.style3 {
+    border-bottom: 2px solid $lineColor1;
   }
-}
-.details-tabs__container--data:empty {
-  display: none;
-}
-.details-tabs {
-  &__container {
-    background: white;
-
-    &--types {
-      border-bottom: 2px solid #dbdfe6;
-      display: flex;
-      list-style: none;
-      padding: 0;
-      li {
-        margin: 0 2em;
-        transform: translateY(2px);
-      }
+  &.style1, &.style2 {
+    margin-right: 2rem;
+  }
+  &.style3 {
+    margin-right: .5rem;
+  }
+  &:hover, &.active {
+    &.style1, &.style3 {
+      border-bottom: 2px solid $purple;
+      color: $purple;
     }
-
-    &--button {
-      background: none;
-      border: none;
-      color: $darkBlue;
-      cursor: pointer;
-      display: block;
-      font-size: 1.375em;
-      font-weight: normal;
-      outline: none;
-      padding: 0.5rem;
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      &:hover,
-      &.active {
-        color: $purple;
-        border-bottom: 2px solid $purple;
-      }
+    &.style2 {
+      border-bottom: 2px solid white;
+      font-weight: 500;
     }
+  } 
+}
+.link-container {
+  position: relative;
+}
+.tabs-column {
+  .link-container:last-child > .tab-link {
+    margin-right: 0;
   }
 }
-
-.style2 {
-  .details-tabs__container--types {
-    margin: 0;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+.link-container.style1:not(:first-child):after {
+  content: '';
+  width: 2rem;
+  display: inline-block;
+  border-bottom: 2px solid $lineColor1;
+  position: absolute;
+  left: -2rem;
+  top: 1.2rem;
+}
+.link-container.style3:not(:first-child):after {
+  content: '';
+  width: .5rem;
+  display: inline-block;
+  border-bottom: 2px solid $lineColor1;
+  position: absolute;
+  left: -.5rem;
+  top: 1.125rem;
+}
+.tabs-container {
+  white-space: nowrap;
+  width: fit-content;
+  &.style2 {
+    background-color: $darkBlue;
   }
-  .details-tabs {
-    &__container {
-      &--types {
-        border-bottom: none;
-        background-color: $darkBlue;
-        padding-left: 3rem;
-        padding-top: .5rem;
-        padding-bottom: 1rem;
-        li {
-          &:first-child {
-            margin-left: 0;
-          }
-        }
-      }
-
-      &--button {
-        color: white;
-        &:hover,
-        &.active {
-          color: white;
-          border-bottom: 2px solid white;
-        }
-      }
-    }
-  }
+}
+.content {
+  white-space: nowrap;
 }
 </style>

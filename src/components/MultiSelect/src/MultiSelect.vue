@@ -2,16 +2,14 @@
   <div>
     <div v-if="isFilterApplied" class="multilevel-select-filter">
       <svgicon name="filterApplied" height="20" width="20" />
-      <h3>Filter applied</h3>
+      <div class="placeholder-text">Filter applied</div>
     </div>
     <div v-else class="multilevel-select-filter">
-      <h3>Show all</h3>
+      <div class="placeholder-text">Show all</div>
     </div>
     <el-cascader
       v-model="selectedArray"
-      placeholder
       collapse-tags
-      :class="`hide-filter`"
       @change="onSelectionChange"
       :options="options"
       :popper-class="`${isMultilevel ? 'sparc-design-system-multilevel-select' : 'sparc-design-system-singlelevel-select'}`"
@@ -327,12 +325,6 @@ export default {
     } 
   }
 }
-
-.hide-filter .el-cascader__tags{
-  span {
-    display: none;
-  }
-}
 </style>
 
 <style lang="scss" scoped>
@@ -341,7 +333,7 @@ export default {
   padding: 0;
 }
 .multilevel-select-filter {
-  color: $mediumGrey;
+  color: $lightGrey;
   position: absolute;
   z-index: 1;
   padding-left: 1rem;
@@ -355,11 +347,16 @@ export default {
     margin-top: -.25rem;
     margin-right: .25rem;
   }
-  h3 {
+  .placeholder-text {
     display: inline-block;
-    font-size: 1.25em;
+    font-size: 1em;
     margin: 0;
     font-weight: normal;
+  }
+}
+::v-deep .el-cascader__tags{
+  span {
+    display: none;
   }
 }
 </style>

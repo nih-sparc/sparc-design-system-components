@@ -1,18 +1,18 @@
 import ContentTabCard from '@/components/ContentTabCard/src/ContentTabCard.vue'
 
 export default {
-  title: 'Components/AboutTab',
+  title: 'Components/Tab',
   includeStories: []
 }
 
-const createDemo = (aboutTabItem) => {
+const createDemo = (tabItem) => {
   return {
     components: { ContentTabCard },
     data() {
       return {
-        tabs: aboutTabItem.tabs,
-        activeTabId: aboutTabItem.activeTabId,
-        style: aboutTabItem.styleClass
+        tabs: tabItem.tabs,
+        activeTabId: tabItem.activeTabId,
+        style: tabItem.styleClass
       }
     },
     methods: {
@@ -22,16 +22,16 @@ const createDemo = (aboutTabItem) => {
     },
     template: `
       <content-tab-card
-        :class="style"
         :tabs="tabs"
         :active-tab-id="activeTabId"
+        :tab-style="style"
         @tab-changed="tabChanged"
       />
     `
   }
 }
 
-export const AboutTabStyleOne = () => createDemo(
+export const TabStyleOne = () => createDemo(
   {
     activeTabId: 'organs',
     tabs: [
@@ -59,7 +59,7 @@ export const AboutTabStyleOne = () => createDemo(
   }
 )
 
-export const AboutTabStyleTwo = () => createDemo(
+export const TabStyleTwo = () => createDemo(
   {
     activeTabId: 'organs',
     tabs: [
@@ -85,5 +85,34 @@ export const AboutTabStyleTwo = () => createDemo(
       }
     ],
     styleClass: 'style2'
+  }
+)
+
+export const TabStyleThree = () => createDemo(
+  {
+    activeTabId: 'organs',
+    tabs: [
+      {
+        label: 'Datasets',
+        id: 'datasets'
+      },
+      {
+        label: 'Organs',
+        id: 'organs'
+      },
+      {
+        label: 'Images',
+        id: 'images'
+      },
+      {
+        label: 'Projects',
+        id: 'projects'
+      },
+      {
+        label: 'Simulations',
+        id: 'simulations'
+      }
+    ],
+    styleClass: 'style3'
   }
 )
