@@ -45,6 +45,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../assets/_variables.scss';
+::v-deep .el-radio__label {
+  color: $grey;
+}
 ::v-deep .el-radio__input {
   &.is-disabled {
     &.is-checked {

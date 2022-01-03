@@ -1,11 +1,15 @@
 @import '../_variables.scss';
-
 .el-select {
   &.secondary {
     .el-input {
       input {
         border-color: lightgray;
       }
+    }
+  }
+  .el-input {
+    .el-input__inner {
+      font-size: 1rem;
     }
   }
   .el-input {
@@ -30,6 +34,6 @@
 
 .el-select-group__title {
   color: $mediumGrey;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: bold;
 }

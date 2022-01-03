@@ -1,7 +1,7 @@
 <template>
   <div :class="{ disabled: disabled }">
     <hr />
-    <h2 class="title">
+    <div class="title">
       <span>
         {{ label }}
         <el-tooltip placement="top-start" transition="none">
@@ -18,7 +18,7 @@
         width="15"
         @click="onArrowClicked"
       />
-    </h2>
+    </div>
     <div v-show="showContent" class="label-content-container">
       <slot />
     </div>
@@ -88,17 +88,12 @@ export default {
   background-color: rgb(250, 251, 252);
 }
 
-h2 {
-  font-size: 1.25rem;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
 .title {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0;
   margin-top: 0;
+  font-size: 1em;
   padding: 0.5rem 1rem;
   font-weight: 500;
   align-items: center;

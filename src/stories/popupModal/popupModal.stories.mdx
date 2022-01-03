@@ -20,28 +20,74 @@ We directly utilize the Element UI el-popover component which contains a slot to
 ```js
 data() {
   return {
-    placement: 'top-start',
-    trigger: 'hover'
+    trigger: 'hover',
+    modalPlacements: [
+      [
+        'top-start',
+        'top',
+        'top-end'
+      ],
+      [
+        'left-start',
+        'left',
+        'left-end'
+      ],
+      [
+        'bottom-start',
+        'bottom',
+        'bottom-end'
+      ],
+      [
+        'right-start',
+        'right',
+        'right-end'
+      ]
+    ]
   }
 }
 ```
 
 ```html
-<el-popover
-  :placement="placement"
-  :trigger="trigger" 
->
-  <div>
-    <p>Phrenic Nerve</p>
-    <p><b>COMPONENTS</b></p>
-    <p>Non-autonomic peripheral</p>
-    <div style="margin-bottom: 5px;">
-      <el-button class="extra-small">View Source</el-button>
-    </div>
-    <div>
-      <el-button class="extra-small">Explore Data</el-button>
-    </div>
-  </div>
-  <el-button slot="reference">Hover to activate</el-button>
-</el-popover>
+<div>
+  <el-row v-for="placements in modalPlacements" class="mb-16" type="flex" justify="center">
+    <el-popover
+      class="mr-16"
+      v-for="placement in placements" 
+      :key="placement" 
+      :placement="placement"
+      :trigger="trigger" 
+    >
+      <div>
+        Phrenic Nerve</br>
+        <b>COMPONENTS</b></br>
+        Non-autonomic peripheral</br>
+        <div style="margin-bottom: 5px;">
+          <el-button class="extra-small">View Source</el-button>
+        </div>
+        <div>
+          <el-button class="extra-small">Explore Data</el-button>
+        </div>
+      </div>
+      <el-button slot="reference">{{placement}}</el-button>
+    </el-popover>
+  </el-row>
+</div>
+```
+
+#### Placement
+The placement of the popup can be customized with the following positions passed into the `placement` property.
+
+```js
+'top-start'
+'top'
+'top-end'
+'left-start'
+'left'
+'left-end'
+'bottom-start'
+'bottom'
+'bottom-end'
+'right-start'
+'right'
+'right-end'
 ```

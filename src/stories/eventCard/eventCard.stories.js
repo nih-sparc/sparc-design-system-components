@@ -61,6 +61,7 @@ const createDemo = (event) => {
             :startDate="startDate"
             :endDate="endDate"
             :location="location"
+            :url="url"
           />
         </el-col>
       </el-row>

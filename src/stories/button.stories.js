@@ -98,6 +98,8 @@ export const Icons = () => ({
         circle
       >
         <svgicon
+          width="36px"
+          height="36px"
           :name="icon"
           color="transparent #fff"
         />

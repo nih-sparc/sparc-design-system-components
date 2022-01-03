@@ -1,26 +1,28 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
-import * as stories from './aboutTab.stories.js';
+import * as stories from './tab.stories.js';
 
-<Meta title="Components/About Tabs" />
+<Meta title="Components/Tabs" />
 
-# About Tabs
-About tabs are used to quickly navigate between views within the same context. The views are used to group similar information on the same page.
+# Tabs
+Tabs are used to quickly navigate between views within the same context. The views are used to group similar information on the same page.
 
-About tabs make use of the content tab card, but leave the available data slot empty.
+Tabs make use of the content tab card, but leave the available data slot empty.
 
 ## Properties
-The About Tab component accepts the following properties:
+The Tab component accepts the following properties:
 
 `tabs`: The tabs associated with the components. Array. Required.
 
 `activeTabId`: The id of the active tab. String. Required.
 
+`tabStyle`: The type of style that you want to be applied. String. Optional. The options are: 'style1', 'style2', and 'style3'. Defaults to 'style1'
+
 ## Events
 `tab-changed`: Fire when the user selects a new tab. Returns the new selected tab.
 
-### About Tab Style One
+### Tab Style One
 
-<Story name="Style One">{stories.AboutTabStyleOne()}</Story>
+<Story name="Style One">{stories.TabStyleOne()}</Story>
 
 #### Code
 
@@ -67,9 +69,9 @@ methods: {
 />
 ```
 
-### About Tab Style Two
+### Tab Style Two
 
-<Story name="Style Two">{stories.AboutTabStyleTwo()}</Story>
+<Story name="Style Two">{stories.TabStyleTwo()}</Story>
 
 #### Code
 
@@ -110,9 +112,59 @@ methods: {
 
 ```html
 <content-tab-card
-  :class="style2"
   :tabs="tabs"
   :active-tab-id="activeTabId"
+  tab-style="style2"
+  @tab-changed="tabChanged"
+/>
+```
+
+### Tab Style Three
+
+<Story name="Style Three">{stories.TabStyleThree()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    activeTabId: 'organs',
+    tabs: [
+      {
+        label: 'Datasets',
+        id: 'datasets'
+      },
+      {
+        label: 'Organs',
+        id: 'organs'
+      },
+      {
+        label: 'Images',
+        id: 'images'
+      },
+      {
+        label: 'Projects',
+        id: 'projects'
+      },
+      {
+        label: 'Simulations',
+        id: 'simulations'
+      }
+    ]
+  }
+},
+methods: {
+  tabChanged(newTab) {
+    this.activeTabId = newTab.id
+  }
+}
+```
+
+```html
+<content-tab-card
+  :tabs="tabs"
+  :active-tab-id="activeTabId"
+  tab-style="style3"
   @tab-changed="tabChanged"
 />
 ```
