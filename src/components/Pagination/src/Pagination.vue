@@ -3,6 +3,7 @@
     <el-pagination
       :page-size="pageSize"
       :page-count="pageCount"
+      :pager-count="5"
       layout="prev, pager, next"
       :total="totalCount"
       :current-page="selected"
