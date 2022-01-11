@@ -35,8 +35,8 @@ export default [
     "arn": "arn:aws:s3:::blackfynn-discover-use1/37/2/",
     "status": "PUBLISH_SUCCEEDED",
     "doi": "10.26275/wcje-hxib",
-    "banner": "https://assets.discover.blackfynn.com/dataset-assets/37/2/banner.jpg",
-    "readme": "https://assets.discover.blackfynn.com/dataset-assets/37/2/readme.md",
+    "banner": "https://assets.discover.pennsieve.io/dataset-assets/37/2/banner.jpg",
+    "readme": "https://assets.discover.pennsieve.io/dataset-assets/37/2/readme.md",
     "contributors": [
       {
         "firstName": "Clara",
@@ -118,7 +118,7 @@ export default [
     ],
     "sponsorship": {
       "title": "NIH SPARC Program",
-      "imageUrl": "https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg",
+      "imageUrl": "https://assets.discover.pennsieve.io/dataset-assets/sponsorships/sparc_logo.svg",
       "markup": "Explore this dataset in greater detail on the <a href=http://data.sparc.science/datasets/37>SPARC Portal</a> where you will find additional resources and related datasets."
     },
     "blackfynnSchemaVersion": "4.0",
@@ -167,8 +167,8 @@ export default [
     "arn": "arn:aws:s3:::blackfynn-discover-use1/16/5/",
     "status": "PUBLISH_SUCCEEDED",
     "doi": "10.26275/z3ab-7j9y",
-    "banner": "https://assets.discover.blackfynn.com/dataset-assets/16/5/banner.jpg",
-    "readme": "https://assets.discover.blackfynn.com/dataset-assets/16/5/readme.md",
+    "banner": "https://assets.discover.pennsieve.io/dataset-assets/16/5/banner.jpg",
+    "readme": "https://assets.discover.pennsieve.io/dataset-assets/16/5/readme.md",
     "contributors": [
       {
         "firstName": "Nicole",
@@ -222,7 +222,7 @@ export default [
     ],
     "sponsorship": {
       "title": "NIH SPARC Program",
-      "imageUrl": "https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg",
+      "imageUrl": "https://assets.discover.pennsieve.io/dataset-assets/sponsorships/sparc_logo.svg",
       "markup": "Explore this dataset in greater detail on the <a href=http://data.sparc.science/datasets/16>SPARC Portal</a> where you will find additional resources and related datasets."
     },
     "blackfynnSchemaVersion": "4.0",
@@ -272,8 +272,8 @@ export default [
     "arn": "arn:aws:s3:::blackfynn-discover-use1/60/2/",
     "status": "PUBLISH_SUCCEEDED",
     "doi": "10.26275/feie-1f8u",
-    "banner": "https://assets.discover.blackfynn.com/dataset-assets/60/2/banner.jpg",
-    "readme": "https://assets.discover.blackfynn.com/dataset-assets/60/2/readme.md",
+    "banner": "https://assets.discover.pennsieve.io/dataset-assets/60/2/banner.jpg",
+    "readme": "https://assets.discover.pennsieve.io/dataset-assets/60/2/readme.md",
     "contributors": [
       {
         "firstName": "Nicole",
@@ -306,7 +306,7 @@ export default [
     ],
     "sponsorship": {
       "title": "NIH SPARC Program",
-      "imageUrl": "https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg",
+      "imageUrl": "https://assets.discover.pennsieve.io/dataset-assets/sponsorships/sparc_logo.svg",
       "markup": "This dataset is part of the NIH SPARC program and available on the <a href=http://data.sparc.science/datasets/60>SPARC Portal</a>"
     },
     "blackfynnSchemaVersion": "4.0",
@@ -356,8 +356,8 @@ export default [
     "arn": "arn:aws:s3:::blackfynn-discover-use1/65/3/",
     "status": "PUBLISH_SUCCEEDED",
     "doi": "10.26275/3bnu-puiv",
-    "banner": "https://assets.discover.blackfynn.com/dataset-assets/65/3/banner.jpg",
-    "readme": "https://assets.discover.blackfynn.com/dataset-assets/65/3/readme.md",
+    "banner": "https://assets.discover.pennsieve.io/dataset-assets/65/3/banner.jpg",
+    "readme": "https://assets.discover.pennsieve.io/dataset-assets/65/3/readme.md",
     "contributors": [
       {
         "firstName": "Nicole",
@@ -404,7 +404,7 @@ export default [
     ],
     "sponsorship": {
       "title": "NIH SPARC Program",
-      "imageUrl": "https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg",
+      "imageUrl": "https://assets.discover.pennsieve.io/dataset-assets/sponsorships/sparc_logo.svg",
       "markup": "This dataset is part of the NIH SPARC program and available on the <a href=http://sparc.science/datasets/65>SPARC Portal</a>"
     },
     "blackfynnSchemaVersion": "4.0",
@@ -457,8 +457,8 @@ export default [
     "arn": "arn:aws:s3:::blackfynn-discover-use1/61/2/",
     "status": "PUBLISH_SUCCEEDED",
     "doi": "10.26275/mzjs-m2op",
-    "banner": "https://assets.discover.blackfynn.com/dataset-assets/61/2/banner.jpg",
-    "readme": "https://assets.discover.blackfynn.com/dataset-assets/61/2/readme.md",
+    "banner": "https://assets.discover.pennsieve.io/dataset-assets/61/2/banner.jpg",
+    "readme": "https://assets.discover.pennsieve.io/dataset-assets/61/2/readme.md",
     "contributors": [
       {
         "firstName": "Nicole",
@@ -512,7 +512,7 @@ export default [
     ],
     "sponsorship": {
       "title": "NIH SPARC Program",
-      "imageUrl": "https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg",
+      "imageUrl": "https://assets.discover.pennsieve.io/dataset-assets/sponsorships/sparc_logo.svg",
       "markup": "This dataset is part of the NIH SPARC program and available on the <a href=http://data.sparc.science/datasets/61>SPARC Portal</a>"
     },
     "blackfynnSchemaVersion": "4.0",
@@ -554,8 +554,8 @@ export default [
     "arn": "arn:aws:s3:::blackfynn-discover-use1/76/2/",
     "status": "PUBLISH_SUCCEEDED",
     "doi": "10.26275/dwly-naxx",
-    "banner": "https://assets.discover.blackfynn.com/dataset-assets/76/2/banner.jpg",
-    "readme": "https://assets.discover.blackfynn.com/dataset-assets/76/2/readme.md",
+    "banner": "https://assets.discover.pennsieve.io/dataset-assets/76/2/banner.jpg",
+    "readme": "https://assets.discover.pennsieve.io/dataset-assets/76/2/readme.md",
     "contributors": [
       {
         "firstName": "Mabelle",
@@ -581,7 +581,7 @@ export default [
     ],
     "sponsorship": {
       "title": "NIH SPARC Program",
-      "imageUrl": "https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg](https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg",
+      "imageUrl": "https://assets.discover.pennsieve.io/dataset-assets/sponsorships/sparc_logo.svg](https://assets.discover.pennsieve.io/dataset-assets/sponsorships/sparc_logo.svg",
       "markup": "This dataset is part of the NIH SPARC program and available on the <a href=http://sparc.science/datasets/76>SPARC Portal</a>"
     },
     "blackfynnSchemaVersion": "4.0",
@@ -630,8 +630,8 @@ export default [
     "arn": "arn:aws:s3:::blackfynn-discover-use1/82/1/",
     "status": "PUBLISH_SUCCEEDED",
     "doi": "10.26275/pgr9-bk2e",
-    "banner": "https://assets.discover.blackfynn.com/dataset-assets/82/1/banner.jpg",
-    "readme": "https://assets.discover.blackfynn.com/dataset-assets/82/1/readme.md",
+    "banner": "https://assets.discover.pennsieve.io/dataset-assets/82/1/banner.jpg",
+    "readme": "https://assets.discover.pennsieve.io/dataset-assets/82/1/readme.md",
     "contributors": [
       {
         "firstName": "Nicole",
@@ -718,8 +718,8 @@ export default [
     "arn": "arn:aws:s3:::blackfynn-discover-use1/79/1/",
     "status": "PUBLISH_SUCCEEDED",
     "doi": "10.26275/d3wu-bg1i",
-    "banner": "https://assets.discover.blackfynn.com/dataset-assets/79/1/banner.png",
-    "readme": "https://assets.discover.blackfynn.com/dataset-assets/79/1/readme.md",
+    "banner": "https://assets.discover.pennsieve.io/dataset-assets/79/1/banner.png",
+    "readme": "https://assets.discover.pennsieve.io/dataset-assets/79/1/readme.md",
     "contributors": [
       {
         "firstName": "David",
@@ -782,8 +782,8 @@ export default [
     "arn": "arn:aws:s3:::blackfynn-discover-use1/28/2/",
     "status": "PUBLISH_SUCCEEDED",
     "doi": "10.26275/owri-mpsx",
-    "banner": "https://assets.discover.blackfynn.com/dataset-assets/28/2/banner.jpg",
-    "readme": "https://assets.discover.blackfynn.com/dataset-assets/28/2/readme.md",
+    "banner": "https://assets.discover.pennsieve.io/dataset-assets/28/2/banner.jpg",
+    "readme": "https://assets.discover.pennsieve.io/dataset-assets/28/2/readme.md",
     "contributors": [
       {
         "firstName": "Pradeep",
@@ -809,7 +809,7 @@ export default [
     ],
     "sponsorship": {
       "title": "NIH SPARC Program",
-      "imageUrl": "https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg",
+      "imageUrl": "https://assets.discover.pennsieve.io/dataset-assets/sponsorships/sparc_logo.svg",
       "markup": "Explore this dataset in greater detail on the <a href=http://data.sparc.science/datasets/28>SPARC Portal</a> where you will find additional resources and related datasets."
     },
     "blackfynnSchemaVersion": "4.0",
@@ -857,8 +857,8 @@ export default [
     "arn": "arn:aws:s3:::blackfynn-discover-use1/33/2/",
     "status": "PUBLISH_SUCCEEDED",
     "doi": "10.26275/zdxd-84xz",
-    "banner": "https://assets.discover.blackfynn.com/dataset-assets/33/2/banner.jpg",
-    "readme": "https://assets.discover.blackfynn.com/dataset-assets/33/2/readme.md",
+    "banner": "https://assets.discover.pennsieve.io/dataset-assets/33/2/banner.jpg",
+    "readme": "https://assets.discover.pennsieve.io/dataset-assets/33/2/readme.md",
     "contributors": [
       {
         "firstName": "Reizal",
@@ -933,7 +933,7 @@ export default [
     ],
     "sponsorship": {
       "title": "NIH SPARC Program",
-      "imageUrl": "https://assets.discover.blackfynn.com/dataset-assets/sponsorships/sparc_logo.svg",
+      "imageUrl": "https://assets.discover.pennsieve.io/dataset-assets/sponsorships/sparc_logo.svg",
       "markup": "Explore this dataset in greater detail on the <a href=http://sparc.science/datasets/33>SPARC Portal</a> where you will find additional resources and related datasets."
     },
     "blackfynnSchemaVersion": "4.0",

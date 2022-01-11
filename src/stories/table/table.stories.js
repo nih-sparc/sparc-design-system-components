@@ -1,14 +1,27 @@
 import datasetData from './dataset-data.js'
 
 const defaultProps = () => ({
-  titleColumnWidth: {
-    type: Number,
-    default: 300
-  },
   tableData: {
     type: Array,
     default: () => {
       return datasetData
+    }
+  },
+  tabs: {
+    type: Array,
+    default: () => {
+      return [
+        {
+          label: 'Datasets',
+          id: 'datasets'
+        }
+      ]
+    }
+  },
+  activeTabId: {
+    type: String,
+    default: () => {
+      return 'datasets'
     }
   }
 })
@@ -22,7 +35,10 @@ export default {
 export const Primary = () => ({
   props: defaultProps(),
   template: `
-    <div class="table-wrap">
+    <content-tab-card
+      :tabs="tabs"
+      :active-tab-id="activeTabId"
+    >
       <el-table
         :data="tableData"
         :default-sort = "{prop: 'name', order: 'descending'}"
@@ -33,7 +49,7 @@ export const Primary = () => ({
           prop="name"
           label="Title"
           sortable
-          :width="titleColumnWidth"
+          width="160"
         >
           <template slot-scope="scope">
             <a href="#">{{ scope.row.name }}</a>
@@ -49,20 +65,16 @@ export const Primary = () => ({
             />
           </template>
         </el-table-column>
-        <el-table-column width="60" />
-        <el-table-column prop="description" label="Description" :width="400" sortable />
-        <el-table-column prop="createdAt" label="Last Published" width="200" sortable>
-          <template slot-scope="scope">
-            {{ scope.row.createdAt }}
-          </template>
+        <el-table-column prop="description" label="Description" :min-width="400" width="auto" sortable />
+        <el-table-column width="40" />
+        <el-table-column prop="createdAt" label="Last Published" width="150" sortable>
+          Febuary 20, 2020
         </el-table-column>
-        <el-table-column prop="size" label="Size" width="150" sortable>
-          <template slot-scope="scope">
-            {{ scope.row.size }}
-          </template>
+        <el-table-column prop="size" label="Size" width="100" sortable>
+          780.29 GB
         </el-table-column>
       </el-table>
-    </div>
+    </content-tab-card>
   `
 })
 

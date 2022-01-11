@@ -101,6 +101,7 @@ export default {
     &.style1, &.style3 {
       border-bottom: 2px solid $purple;
       color: $purple;
+      font-weight: 500;
     }
     &.style2 {
       border-bottom: 2px solid white;
