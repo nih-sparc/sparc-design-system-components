@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <el-row :class="[tabStyle, 'tabs-container p-16']">
+  <div class="container">
+    <el-row :class="[tabStyle, 'tabs-container']">
       <el-col class="tabs-column">
         <span :class="[tabStyle, 'link-container']" v-for="tab in tabs" :key="tab.label">
           <!-- Expect this to be either nuxt-link or router-link -->
@@ -29,7 +29,7 @@
         </span>
       </el-col>
     </el-row>
-    <div class="content px-16 pb-16">
+    <div class="content">
       <slot />
     </div>
   </div>
@@ -84,65 +84,57 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
+.container {
+  width: fit-content;
+  min-width: 100%;
+  display: table;
+}
+
 .tab-link {
   text-decoration: none;
   flex-wrap: nowrap;
   cursor: pointer;
   &.style1, &.style3 {
-    border-bottom: 2px solid $lineColor1;
+    border-bottom: .125em solid $lineColor1;
   }
   &.style1, &.style2 {
     margin-right: 2rem;
+    padding-bottom: .12em;
   }
   &.style3 {
     margin-right: .5rem;
+    padding-bottom: .2em;
   }
   &:hover, &.active {
     &.style1, &.style3 {
-      border-bottom: 2px solid $purple;
+      border-bottom: .125em solid $purple;
       color: $purple;
       font-weight: 500;
     }
     &.style2 {
-      border-bottom: 2px solid white;
+      border-bottom: .125em solid white;
       font-weight: 500;
     }
   } 
-}
-.link-container {
-  position: relative;
 }
 .tabs-column {
   .link-container:last-child > .tab-link {
     margin-right: 0;
   }
 }
-.link-container.style1:not(:first-child):after {
-  content: '';
-  width: 2rem;
-  display: inline-block;
-  border-bottom: 2px solid $lineColor1;
-  position: absolute;
-  left: -2rem;
-  top: 1.2rem;
-}
-.link-container.style3:not(:first-child):after {
-  content: '';
-  width: .5rem;
-  display: inline-block;
-  border-bottom: 2px solid $lineColor1;
-  position: absolute;
-  left: -.5rem;
-  top: 1.125rem;
-}
 .tabs-container {
   white-space: nowrap;
-  width: fit-content;
+  display: block;
+  &.style1, &.style3 {
+    border-bottom: .125em solid $lineColor1;
+  }
   &.style2 {
     background-color: $darkBlue;
+    padding: 1.5rem;
   }
 }
 .content {
-  white-space: nowrap;
+  display: table-caption;
+  caption-side: bottom;
 }
 </style>
