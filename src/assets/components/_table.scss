@@ -13,12 +13,14 @@
     padding: 1.5rem 0 2rem;
     vertical-align: top;
   }
+  .el-table__cell {
+    vertical-align: top;
+  }
   .cell {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    word-break: normal
+    word-break: normal;
   }
   a {
+    text-decoration: none;
     color: $purple;
   }
 }
