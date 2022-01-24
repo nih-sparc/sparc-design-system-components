@@ -5,6 +5,8 @@ import iconsKeyshape_1 from './icons-keyshape-1.png';
 import iconsKeyshape_2 from './icons-keyshape-2.png';
 import iconsKeyshape_3 from './icons-keyshape-3.png';
 
+import { Icons } from '../button.stories.js'
+
 <Meta title="Components/Icons" />
 
 # Icons
@@ -81,6 +83,21 @@ Icons also visually break up the content, making it less intimidating. A well-fo
   height="36"
   color="#8300BF"
 />
+```
+
+## Icon buttons
+
+<Story name='Icons' height='60px'>{Icons()}</Story>
+
+```html
+<el-button circle>
+  <svgicon
+    name="2horpanel"
+    color="transparent #fff"
+    width="36px"
+    height="36px"
+  />
+</el-button>
 ```
 
 ## Keyshapes
