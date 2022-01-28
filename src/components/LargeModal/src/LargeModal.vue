@@ -106,14 +106,9 @@ export default {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: .25rem .25rem 0 0;
     position: absolute;
-    right: 41px;
-  }
-
-  .close-icon {
-    margin-top: 12px;
-    margin-right: -36px;
+    right: 0;
   }
 
   ::v-deep .el-dialog {
