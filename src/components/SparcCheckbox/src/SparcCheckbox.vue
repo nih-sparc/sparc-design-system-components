@@ -61,9 +61,9 @@ export default {
       }
     }
   }
-  &.is-focus:not(.is-checked) {
+  &:not(.is-checked) {
     .el-checkbox__inner {
-      border-color: $lineColor1;
+      border-color: $lightGrey;
     } 
   }
 }

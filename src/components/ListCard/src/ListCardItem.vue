@@ -9,14 +9,14 @@
       </el-col>
       <el-col :xs="image === undefined ? 24 : 20" :sm="image === undefined ? 24 : 21" :md="image === undefined ? 24 : 22" :lg="image === undefined ? 24 : 22">
         <div class="list-card-content">
-          <h3 class="mt-0">
+          <div class="body1 mt-0">
             <a
               :href="url"
               :target="openInNewTab ? '_self' : '_blank'"
             >
               {{ title }}
             </a>
-          </h3>
+          </div>
           <div v-if="image !== undefined">
             <p class="list-item__date spacing">
               {{ formattedDate }}

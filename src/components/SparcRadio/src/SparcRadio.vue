@@ -61,6 +61,11 @@ export default {
       }
     }
   }
+  &:not(.is-checked) {
+    .el-radio__inner {
+      border-color: $lightGrey;
+    } 
+  }
 }
 
 .el-radio {
