@@ -24,11 +24,11 @@
     </h3>
     <div class="upcoming-event__detail">
       <svgicon name="calendar" height="16" width="16" />
-      <p>{{ getDateRange(startDate, endDate) }}</p>
+      <div class="body1">{{ getDateRange(startDate, endDate) }}</div>
     </div>
     <div v-if="location" class="upcoming-event__detail">
       <svgicon name="map" height="16" width="16" />
-      <p>{{ location }}</p>
+      <div class="body1">{{ location }}</div>
     </div>
   </div>
 </template>

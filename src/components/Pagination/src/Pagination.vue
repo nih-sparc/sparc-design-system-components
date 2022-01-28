@@ -71,6 +71,7 @@ export default {
   .el-pager li {
     min-width: 0;
     margin: 0 .5em;
+    font-size: 14px;
   }
 }
 </style>
