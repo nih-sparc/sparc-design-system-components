@@ -17,7 +17,7 @@
       ref="cascader"
     >
       <template slot-scope="{ node, data }">
-        <span>{{ data.label }}</span>
+        <span :class="`${node.isLeaf ? 'leaf-node-label' : ''}`" @click="labelClicked(node)">{{ data.label }}</span>
         <span v-if="!node.isLeaf && numFiltersApplied(data) != 0"> ({{ numFiltersApplied(data) }}) </span>
       </template>
     </el-cascader>
@@ -101,6 +101,31 @@ export default {
     this.previouslySelectedArray = [...this.selectedArray]
   },
   methods:{
+    labelClicked(node) {
+      if (node.isDisabled || node.hasChildren) {
+        return
+      }
+      const newlySelectedArray = []
+      this.previouslySelectedArray = [...this.selectedArray]
+      if (this.selectedArray.length) {
+        this.selectedArray.forEach(n => {
+          newlySelectedArray.push(n)
+        })
+      }
+      if (!node.checked) {
+        newlySelectedArray.unshift(node.path)
+      } else {
+        if (newlySelectedArray.length) {
+          const map = newlySelectedArray.map(n => n.join(','))
+          const idx = map.findIndex(q => q === node.path.join(','))
+          if (idx > -1) {
+            newlySelectedArray.splice(idx, 1)
+          }
+        }
+      }
+      this.selectedArray = newlySelectedArray
+      this.onSelectionChange()
+    },
     addShowAllNode(option, isMultilevel) {
       const showAllNode = {
         value: option.value,
@@ -331,6 +356,10 @@ export default {
 @import '../../../assets/_variables.scss';
 .el-cascader-node__label {
   padding: 0;
+}
+.leaf-node-label {
+  display: inline-block;
+  width: 100%;
 }
 .multilevel-select-filter {
   color: $lightGrey;
