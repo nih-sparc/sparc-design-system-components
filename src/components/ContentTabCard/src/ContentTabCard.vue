@@ -1,5 +1,5 @@
 <template>
-  <div class="content-tab-card-container">
+  <div>
     <el-row :class="[tabStyle, 'tabs-container']">
       <el-col class="tabs-column">
         <span :class="[tabStyle, 'link-container']" v-for="tab in tabs" :key="tab.label">
@@ -29,7 +29,7 @@
         </span>
       </el-col>
     </el-row>
-    <div class="content">
+    <div class="pt-16">
       <slot />
     </div>
   </div>
@@ -84,11 +84,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
-.content-tab-card-container {
-  width: fit-content;
-  min-width: 100%;
-  display: table;
-}
 
 .tab-link {
   text-decoration: none;
@@ -123,7 +118,6 @@ export default {
   }
 }
 .tabs-container {
-  white-space: nowrap;
   display: block;
   &.style1, &.style3 {
     border-bottom: .125em solid $lineColor1;
@@ -134,7 +128,6 @@ export default {
   }
 }
 .content {
-  display: table-caption;
-  caption-side: bottom;
+  overflow: auto;
 }
 </style>
