@@ -1,6 +1,7 @@
 <template>
   <div class="sparc-design-system-component-dropdown-multiselect">
     <dropdown-label
+      :disabled="!enabled"
       :label="category.label"
       :tooltip="tooltip"
       :show-collapsible-arrow="!hasSingleNode"
@@ -78,6 +79,10 @@ export default {
     tooltip: {
       type: String,
       default: ''
+    },
+    enabled: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
