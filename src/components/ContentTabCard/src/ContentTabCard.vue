@@ -29,7 +29,7 @@
         </span>
       </el-col>
     </el-row>
-    <div class="pt-16">
+    <div class="content pt-16">
       <slot />
     </div>
   </div>
