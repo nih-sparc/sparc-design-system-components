@@ -83,11 +83,14 @@ export default {
     enabled: {
       type: Boolean,
       default: true
+    },
+    defaultCheckedIds: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
-      defaultCheckedIds: [],
       showAll: true,
       treeProps: {
         label: 'label'
