@@ -1,9 +1,9 @@
 <template>
   <div :class="{ disabled: disabled }">
     <hr />
-    <div class="title">
+    <div class="label-header">
       <span>
-        {{ label }}
+        <span class="label-title">{{ label }}</span>
         <el-tooltip placement="top-start" transition="none">
           <div slot="content" v-html="tooltip">{{tooltip}}</div>
           <svgicon v-if="showHelpIcon" class="purple-fill" icon="help" width="26" height="26" />
@@ -88,20 +88,24 @@ export default {
   background-color: rgb(250, 251, 252);
 }
 
-.title {
+.label-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0;
   margin-top: 0;
-  font-size: 1em;
   padding: 0.5rem 1rem;
-  font-weight: 500;
   align-items: center;
   text-transform: uppercase;
   cursor: default;
   svg {
     cursor: pointer
   }
+}
+
+.label-title {
+  font-size: 1em;
+  line-height: 1.5rem;
+  font-weight: 500;
 }
 
 .purple-fill {
