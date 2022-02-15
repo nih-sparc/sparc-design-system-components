@@ -4,6 +4,7 @@
       :disabled="!enabled"
       :label="category.label"
       :tooltip="tooltip"
+      :collapse-by-default="collapseByDefault"
       :show-collapsible-arrow="!hasSingleNode"
     >
       <hr v-show="!hasSingleNode" />
@@ -83,6 +84,10 @@ export default {
     enabled: {
       type: Boolean,
       default: true
+    },
+    collapseByDefault: {
+      type: Boolean,
+      default: false
     },
     defaultCheckedIds: {
       type: Array,
