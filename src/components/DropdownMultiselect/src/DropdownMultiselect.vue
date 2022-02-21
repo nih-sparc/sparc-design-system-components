@@ -10,7 +10,7 @@
       <hr v-show="!hasSingleNode" />
       <div v-show="!hideShowAllOption" class="show-all-node">
         <el-checkbox v-model="showAll" @change="onChangeShowAll">
-          Show all
+          <span>Show all</span>
         </el-checkbox>
         <hr />
       </div>
@@ -33,7 +33,7 @@
               show-checkbox
               check-on-click-node
               :default-expand-all="false"
-              :default-checked-keys="defaultCheckedIds"
+              :default-checked-keys="defaultCheckedKeys"
               :expand-on-click-node="false"
               :filter-node-method="filterNodes"
               :props="treeProps"
@@ -105,6 +105,13 @@ export default {
     }
   },
   computed: {
+    defaultCheckedKeys: function() {
+      // if we are not rendering the show all node then we manually select all of them by default
+      if(this.hideShowAllOption && !this.defaultCheckedIds.length) {
+        return pluck('id', this.category.data)
+      }
+      return this.defaultCheckedIds
+    },
     totalNumNodes: function() {
       let num = 0
       this.category.data.forEach(node => {
@@ -139,11 +146,7 @@ export default {
     },
   },
   mounted() {
-    // if we are not rendering the show all node then we manually select all of them by default
-    if(this.hideShowAllOption && !this.defaultCheckedIds.length) {
-      this.defaultCheckedIds = pluck('id', this.category.data)
-    }
-    if (this.defaultCheckedIds.length) {
+    if (this.defaultCheckedKeys.length) {
       this.$nextTick(() => {
         this.onCheckChange()
       })
@@ -221,44 +224,48 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
-
 .sparc-design-system-component-dropdown-multiselect {
+  background-color: white;
+  border: 1px solid #dbdfe6;
+  border-top: none;
+}
+::v-deep .el-tree-node.is-checked {
+  .custom-tree-node {
+    color: $purple;
+  }
+}
+::v-deep .custom-tree-node {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: .875rem;
+  font-weight: normal;
+  flex-grow: 1;
   .capitalize {
     text-transform: capitalize;
   }
-  .custom-tree-node {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    flex-grow: 1;
-  }
-  .light-gray-background .el-tree {
-    background: rgb(250, 251, 252);
-  }
-  .show-all-node .el-checkbox__label {
-    font-size: 16px;
-    font-weight: normal;
-  }
-  .el-tree-node__expand-icon.el-icon-caret-right {
-    order: 1;
-    text-align: right;
-  }
-  .el-tree-node__content {
-    margin-left: 1.5rem !important;
-    margin-right: 1rem !important;
-    .el-checkbox__input.is-focus:not(.is-checked) {
-      .el-checkbox__inner {
-        border-color: $lineColor1;
-      }
+}
+.light-gray-background .el-tree {
+  background: rgb(250, 251, 252);
+}
+.el-tree-node__expand-icon.el-icon-caret-right {
+  order: 1;
+  text-align: right;
+}
+.el-tree-node__content {
+  margin-left: 1.5rem !important;
+  margin-right: 1rem !important;
+  .el-checkbox__input.is-focus:not(.is-checked) {
+    .el-checkbox__inner {
+      border-color: $lineColor1;
     }
   }
 }
-</style>
-
-<style lang="scss" scoped>
-@import '../../../assets/_variables.scss';
 .show-all-node {
+  color: $purple;
+  font-size: .875rem;
+  font-weight: normal;
   .el-checkbox {
     padding-right: 0.25rem;
   }
@@ -268,21 +275,12 @@ export default {
   }
   margin: 0.5rem 1.5rem;
 }
-
 .white-background {
   background: white;
 }
-
 .padding-bottom {
   padding-bottom: 0.5rem;
 }
-
-.sparc-design-system-component-dropdown-multiselect {
-  background-color: white;
-  border: 1px solid #dbdfe6;
-  border-top: none;
-}
-
 .expand-options-container {
   color: $purple;
   font-size: 16px;
@@ -290,7 +288,6 @@ export default {
   margin: 0.25rem 1.5rem;
   cursor: pointer;
 }
-
 .scroll {
   overflow: hidden;
   max-height: 17.5rem;
