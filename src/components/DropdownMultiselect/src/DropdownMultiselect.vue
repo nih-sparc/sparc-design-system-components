@@ -231,6 +231,12 @@ export default {
   border: 1px solid #dbdfe6;
   border-top: none;
 }
+
+::v-deep .show-all-node {
+  .el-checkbox__label {
+      font-weight: normal;
+    }
+}
 ::v-deep .el-tree-node.is-checked {
   .custom-tree-node {
     color: $purple;
