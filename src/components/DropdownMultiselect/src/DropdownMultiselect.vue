@@ -92,6 +92,10 @@ export default {
     defaultCheckedIds: {
       type: Array,
       default: () => []
+    },
+    checkAllByDefault: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -106,8 +110,8 @@ export default {
   },
   computed: {
     defaultCheckedKeys: function() {
-      // if we are not rendering the show all node then we manually select all of them by default
-      if(this.hideShowAllOption && !this.defaultCheckedIds.length) {
+      // if we are not rendering the show all node then we manually select all of them by default unless the checkAllByDefault prop is set to false
+      if(this.hideShowAllOption && !this.defaultCheckedIds.length && this.checkAllByDefault) {
         return pluck('id', this.category.data)
       }
       return this.defaultCheckedIds
