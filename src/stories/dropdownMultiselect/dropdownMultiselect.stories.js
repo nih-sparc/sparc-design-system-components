@@ -6,18 +6,20 @@ export default {
   includeStories: []
 }
 
-const createDemo = (category) => {
+const createDemo = (category, visibleData) => {
   return {
     components: { DropdownMultiselect },
     data() {
       return {
         category: category,
+        visibleData: visibleData
       }
     },
     template: `
       <div class="fit-content">
         <dropdown-multiselect
           :category="category"
+          :visible-data="visibleData"
         />
       </div>
     `
@@ -259,6 +261,85 @@ export const Multilevel = () => createDemo(
       label: 'Five',
       id: '5',
     }]
+  }
+)
+
+export const VisibleDataSet = () => createDemo(
+  {
+    label: 'Data',
+    id: '0',
+    data: [
+    {
+      label: 'One',
+      id: '1',
+    },
+    {
+      label: 'Two',
+      id: '2',
+    },
+    {
+      label: 'Three',
+      id: '3',
+    },
+    {
+      label: 'Four',
+      id: '4',
+    },
+    {
+      label: 'Five',
+      id: '5',
+    },
+    {
+      label: 'Six',
+      id: '6',
+    },
+    {
+      label: 'Seven',
+      id: '7',
+    },
+    {
+      label: 'Eight',
+      id: '8',
+    },
+    {
+      label: 'Nine',
+      id: '9',
+    },
+    {
+      label: 'Ten',
+      id: '10'
+    },
+    {
+      label: 'Eleven',
+      id: '11',
+    },
+    {
+      label: 'Twelve',
+      id: '12',
+    },
+    {
+      label: 'Thirteen',
+      id: '13',
+    },
+    {
+      label: 'Fourteen',
+      id: '14',
+    },
+    {
+      label: 'Fifteen',
+      id: '15'
+    }]
+  },
+  {
+    0: {
+      One: 1,
+      Two: 2,
+      Three: 3,
+      Four: 4,
+      Five: 5,
+      Six: 6,
+      Seven: 7,
+    }
   }
 )
 
