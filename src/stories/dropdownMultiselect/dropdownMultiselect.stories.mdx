@@ -11,6 +11,18 @@ The dropdown multiselect component accepts the following properties:
 `category`: The category associated with the dropdown multiselect. Object. Required. The category object must have a label, id, and data property assigned. 
 Any nested parent data must have a children property where their childrens label and id are assigned.
 
+`enabled`: When set to false, disallows the user from interacting with the dropdown. Boolean. Optional. Default value is true.
+
+`collapseByDefault`: When set to true, collapses the dropdown by default. Boolean. Optional. Default value is false.
+
+`defaultCheckedIds`: The ids of any nodes that should be checked by default. Array. Optional.
+
+`checkAllByDefault`: When the 'show all' option is not displayed, setting this to false will stop the dropdown from selecting all the options by default. Boolean. Optional. Default value is true.
+
+`visibleData`: The data that you want to be shown. Object. Optional. Setting this property is not reccomended for normal use cases and is available for the
+sole purpose of allowing the sparc portal's 'data' and 'models and simulations' tabs share a dropdown. If not set, all the data will be shown as expected.
+The visible data must have the categories id as a property on the object. Inside this object you can then specify the label of every selection that should be visible as a property of the object.
+
 `tooltip`: The tooltip associated with the dropdown category. String. Optional. Setting this will cause the help icon to appear next to the category title and hovering over it will show the tooltip.
 
 ## Events
@@ -311,6 +323,102 @@ data() {
 ```html
 <dropdown-multiselect
   :category="category"  
+/>
+```
+
+### Setting Visible Data on Dropdown Multiselect
+
+<Story name="Visible Data Set">{stories.VisibleDataSet()}</Story>
+
+#### Code
+
+```js
+data() {
+  return {
+    category: {
+      label: 'Data',
+      id: '0',
+      data: [
+      {
+        label: 'One',
+        id: '1',
+      },
+      {
+        label: 'Two',
+        id: '2',
+      },
+      {
+        label: 'Three',
+        id: '3',
+      },
+      {
+        label: 'Four',
+        id: '4',
+      },
+      {
+        label: 'Five',
+        id: '5',
+      },
+      {
+        label: 'Six',
+        id: '6',
+      },
+      {
+        label: 'Seven',
+        id: '7',
+      },
+      {
+        label: 'Eight',
+        id: '8',
+      },
+      {
+        label: 'Nine',
+        id: '9',
+      },
+      {
+        label: 'Ten',
+        id: '10'
+      },
+      {
+        label: 'Eleven',
+        id: '11',
+      },
+      {
+        label: 'Twelve',
+        id: '12',
+      },
+      {
+        label: 'Thirteen',
+        id: '13',
+      },
+      {
+        label: 'Fourteen',
+        id: '14',
+      },
+      {
+        label: 'Fifteen',
+        id: '15'
+      }]
+    }
+  }
+  visibleData: {
+    0: {
+      One: 1,
+      Two: 2,
+      Three: 3,
+      Four: 4,
+      Five: 5,
+      Six: 6,
+      Seven: 7,
+    }
+  }
+}
+```
+
+```html
+<dropdown-multiselect
+  :category="category" 
+  :visible-data="visibleData" 
 />
 ```
 

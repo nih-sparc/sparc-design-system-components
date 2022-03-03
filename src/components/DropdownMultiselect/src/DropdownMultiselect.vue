@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { pluck } from 'ramda'
+import { pluck, propOr } from 'ramda'
 import DropdownLabel from './DropdownLabel.vue'
 
 const tooltipDelay = 800
@@ -74,6 +74,10 @@ export default {
 
   props: {
     category: {
+      type: Object,
+      default: () => {}
+    },
+    visibleData: {
       type: Object,
       default: () => {}
     },
@@ -109,27 +113,80 @@ export default {
     }
   },
   computed: {
+    allVisibleDataIds: function() {
+      return Object.keys(propOr({}, this.category.id, this.visibleData))
+    },
+    visibleCheckedNodes: function() {
+      const allCheckedNodes = this.$refs.tree.getCheckedNodes()
+      if (this.visibleData === undefined) {
+        return allCheckedNodes
+      }
+      else {
+        return allCheckedNodes.filter(checkedNode => {
+          return this.allVisibleDataIds.includes(checkedNode.label)
+        })
+      }
+    },
+    notVisibleCheckedNodes: function() {
+      const allCheckedNodes = this.$refs.tree.getCheckedNodes()
+      if (this.visibleData === undefined) {
+        return {}
+      }
+      else {
+        return allCheckedNodes.filter(checkedNode => {
+          return !this.allVisibleDataIds.includes(checkedNode.label)
+        })
+      }
+    },
     defaultCheckedKeys: function() {
       // if we are not rendering the show all node then we manually select all of them by default unless the checkAllByDefault prop is set to false
       if(this.hideShowAllOption && !this.defaultCheckedIds.length && this.checkAllByDefault) {
-        return pluck('id', this.category.data)
+        if (this.visibleData === undefined) {
+          return pluck('id', this.category.data)
+        }
+        else {
+          let visibleDefaultIds = []
+          this.category.data.forEach(item => {
+            if (this.allVisibleDataIds.includes(item.label)) {
+              visibleDefaultIds.push(item.id)
+            }
+          })
+          return visibleDefaultIds
+        }
       }
       return this.defaultCheckedIds
     },
-    totalNumNodes: function() {
+    totalVisibleNodes: function() {
       let num = 0
       this.category.data.forEach(node => {
-        if (node.children !== undefined) {
-          node.children.forEach(() => {
-            num += 1
-          })
+        if (this.visibleData === undefined) {
+          if (node.children !== undefined) {
+            node.children.forEach(() => {
+              num += 1
+            })
+          }
+          num += 1
         }
-        num += 1
+        else {
+          if (this.allVisibleDataIds.includes(node.label)) {
+            if (node.children !== undefined) {
+              node.children.forEach(() => {
+                num += 1
+              })
+            }
+            num += 1
+          }
+        }
       })
       return num
     },
     numFirstLevelNodes: function() {
-      return this.category.data.length
+      if (this.visibleData === undefined) {
+        return this.category.data.length
+      }
+      else {
+        return this.allVisibleDataIds.length
+      }
     },
     hasSingleNode: function() {
       return this.numFirstLevelNodes === 1
@@ -148,6 +205,12 @@ export default {
       }
       this.$refs.tree.filter(expanded)
     },
+    allVisibleDataIds(val) {
+      this.$refs.tree.filter(val)
+    },
+    'visibleData': function() {
+      this.setShowAll();
+    }
   },
   mounted() {
     if (this.defaultCheckedKeys.length) {
@@ -155,7 +218,7 @@ export default {
         this.onCheckChange()
       })
     }
-    if (this.showExpandOptionsContainer) {
+    if (this.showExpandOptionsContainer || this.visibleData !== undefined) {
       this.$refs.tree.filter(this.optionsExpanded)
     }
   },
@@ -179,12 +242,38 @@ export default {
     },
     // eslint-disable-next-line no-unused-vars
     filterNodes: function(expanded, data, node) {
-      if (expanded) return true;
-      if (this.numOptionsShown < 5) {
-        this.numOptionsShown += 1
-        return true
+      if (this.visibleData === undefined) {
+        if (expanded) return true;
+        if (this.numOptionsShown < 5) {
+          this.numOptionsShown += 1
+          return true
+        }
+        return false
       }
-      return false
+      else {
+        if (this.showExpandOptionsContainer) {
+          if (expanded) {
+            return this.allVisibleDataIds.includes(data.label)
+          }
+          else {
+            if (this.allVisibleDataIds.includes(data.label) && this.numOptionsShown < 5)
+            {
+              this.numOptionsShown += 1
+              return true
+            }
+            return false
+          }
+        }
+        if (this.hideShowAllOption && this.numOptionsShown < 5) {
+          if (this.allVisibleDataIds.includes(data.label))
+          {
+            this.numOptionsShown += 1
+            return true
+          }
+          return false
+        }
+        return this.allVisibleDataIds.includes(data.label)
+      }
     },
     onChangeShowAll: function(value) {
       if (value) {
@@ -204,7 +293,13 @@ export default {
       return this.$refs.tree.getCheckedNodes()
     },
     uncheckAll: function() {
-      this.$refs.tree.setCheckedKeys([])
+      if (this.visibleData === undefined)
+      {
+        this.$refs.tree.setCheckedKeys([])
+        return
+      }
+
+      this.$refs.tree.setCheckedKeys(pluck('id', this.notVisibleCheckedNodes))
     },
     uncheck: function(id) {
       this.$refs.tree.setChecked(id, false, true)
@@ -214,8 +309,8 @@ export default {
       this.numOptionsShown = 0;
     },
     setShowAll: function() {
-      const checkedNodes = this.$refs.tree.getCheckedNodes()
-      if ((!checkedNodes.length || checkedNodes.length === this.totalNumNodes) && !this.hideShowAllOption) {
+      const checkedNodes = this.visibleCheckedNodes
+      if ((!checkedNodes.length || checkedNodes.length === this.totalVisibleNodes) && !this.hideShowAllOption) {
         this.showAll = true
         this.$nextTick(() => { 
           this.uncheckAll() 
