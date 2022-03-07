@@ -177,14 +177,11 @@ export default {
     },
   },
   watch: {
-    optionsExpanded: function(expanded) {
-      if (!this.showExpandOptionsContainer) {
-        expanded = true;
-      }
-      this.$refs.tree.filter(expanded)
+    optionsExpanded: function() {
+      this.$refs.tree.filter()
     },
-    allVisibleDataIds(val) {
-      this.$refs.tree.filter(val)
+    allVisibleDataIds() {
+      this.$refs.tree.filter()
     },
     'visibleData': function() {
       this.setShowAll();
@@ -197,7 +194,7 @@ export default {
       })
     }
     if (this.showExpandOptionsContainer || this.visibleData !== undefined) {
-      this.$refs.tree.filter(this.optionsExpanded)
+      this.$refs.tree.filter()
     }
   },
   methods: {
@@ -219,9 +216,9 @@ export default {
       )
     },
     // eslint-disable-next-line no-unused-vars
-    filterNodes: function(expanded, data, node) {
+    filterNodes: function(data, node) {
       if (this.visibleData === undefined) {
-        if (expanded) return true;
+        if (this.optionsExpanded) return true;
         if (this.numOptionsShown < 5) {
           this.numOptionsShown += 1
           return true
@@ -230,11 +227,11 @@ export default {
       }
       else {
         if (this.showExpandOptionsContainer) {
-          if (expanded) {
-            return this.allVisibleDataIds.includes(data.label)
+          if (this.optionsExpanded) {
+            return this.allVisibleDataIds.includes(node.label)
           }
           else {
-            if (this.allVisibleDataIds.includes(data.label) && this.numOptionsShown < 5)
+            if (this.allVisibleDataIds.includes(node.label) && this.numOptionsShown < 5)
             {
               this.numOptionsShown += 1
               return true
@@ -242,7 +239,7 @@ export default {
             return false
           }
         }
-        return this.allVisibleDataIds.includes(data.label)
+        return this.allVisibleDataIds.includes(node.label)
       }
     },
     onChangeShowAll: function(value) {
