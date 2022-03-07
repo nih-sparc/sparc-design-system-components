@@ -180,11 +180,9 @@ export default {
     optionsExpanded: function() {
       this.$refs.tree.filter()
     },
-    allVisibleDataIds() {
-      this.$refs.tree.filter()
-    },
     'visibleData': function() {
       this.setShowAll();
+      this.$refs.tree.filter()
     }
   },
   mounted() {
