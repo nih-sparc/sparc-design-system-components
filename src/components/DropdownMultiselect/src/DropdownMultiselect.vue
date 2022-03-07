@@ -216,7 +216,7 @@ export default {
     // eslint-disable-next-line no-unused-vars
     filterNodes: function(data, node) {
       if (this.visibleData === undefined) {
-        if (this.optionsExpanded) return true;
+        if (this.optionsExpanded) { return true }
         if (this.numOptionsShown < 5) {
           this.numOptionsShown += 1
           return true
@@ -270,8 +270,8 @@ export default {
       this.$refs.tree.setChecked(id, false, true)
     },
     setOptionsExpanded(isExpanded) {
-      this.optionsExpanded = isExpanded
       this.numOptionsShown = 0;
+      this.optionsExpanded = isExpanded
     },
     setShowAll: function() {
       const checkedNodes = this.visibleCheckedNodes
