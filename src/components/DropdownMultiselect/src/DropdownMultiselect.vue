@@ -351,7 +351,7 @@ export default {
 }
 .expand-options-container {
   color: $purple;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   margin: 0.25rem 1.5rem;
   cursor: pointer;
