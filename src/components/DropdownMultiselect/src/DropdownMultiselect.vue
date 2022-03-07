@@ -177,12 +177,14 @@ export default {
     },
   },
   watch: {
+    allVisibleDataIds(val) {
+      this.$refs.tree.filter(val)
+    },
     optionsExpanded: function() {
       this.$refs.tree.filter()
     },
     'visibleData': function() {
       this.setShowAll();
-      this.$refs.tree.filter()
     }
   },
   mounted() {
