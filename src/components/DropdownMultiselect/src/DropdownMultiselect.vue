@@ -8,7 +8,7 @@
       :show-collapsible-arrow="!hasSingleNode"
     >
       <hr v-show="!hasSingleNode" />
-      <div v-show="!hideShowAllOption" class="show-all-node">
+      <div v-show="!hasSingleNode" class="show-all-node mx-24 my-8">
         <el-checkbox v-model="showAll" @change="onChangeShowAll">
           <span>Show all</span>
         </el-checkbox>
@@ -16,7 +16,7 @@
       </div>
       <div
         :class="[
-          'padding-bottom',
+          'pb-8',
           {
             'light-gray-background': !hasSingleNode,
             'white-background': hasSingleNode
@@ -97,10 +97,6 @@ export default {
       type: Array,
       default: () => []
     },
-    checkAllByDefault: {
-      type: Boolean,
-      default: true
-    }
   },
   data() {
     return {
@@ -139,21 +135,6 @@ export default {
       }
     },
     defaultCheckedKeys: function() {
-      // if we are not rendering the show all node then we manually select all of them by default unless the checkAllByDefault prop is set to false
-      if(this.hideShowAllOption && !this.defaultCheckedIds.length && this.checkAllByDefault) {
-        if (this.visibleData === undefined) {
-          return pluck('id', this.category.data)
-        }
-        else {
-          let visibleDefaultIds = []
-          this.category.data.forEach(item => {
-            if (this.allVisibleDataIds.includes(item.label)) {
-              visibleDefaultIds.push(item.id)
-            }
-          })
-          return visibleDefaultIds
-        }
-      }
       return this.defaultCheckedIds
     },
     totalVisibleNodes: function() {
@@ -191,9 +172,6 @@ export default {
     hasSingleNode: function() {
       return this.numFirstLevelNodes === 1
     },
-    hideShowAllOption: function() {
-      return this.numFirstLevelNodes < 5
-    },
     showExpandOptionsContainer: function() {
       return this.numFirstLevelNodes > 9
     },
@@ -227,7 +205,7 @@ export default {
     renderContent(h, { node, data, store }) {
       return (
         <el-tooltip
-          placement="top-end"
+          placement="right"
           transition="none"
           open-delay={tooltipDelay}
         >
@@ -263,14 +241,6 @@ export default {
             }
             return false
           }
-        }
-        if (this.hideShowAllOption && this.numOptionsShown < 5) {
-          if (this.allVisibleDataIds.includes(data.label))
-          {
-            this.numOptionsShown += 1
-            return true
-          }
-          return false
         }
         return this.allVisibleDataIds.includes(data.label)
       }
@@ -310,7 +280,7 @@ export default {
     },
     setShowAll: function() {
       const checkedNodes = this.visibleCheckedNodes
-      if ((!checkedNodes.length || checkedNodes.length === this.totalVisibleNodes) && !this.hideShowAllOption) {
+      if ((!checkedNodes.length || checkedNodes.length === this.totalVisibleNodes) && !this.hasSingleNode) {
         this.showAll = true
         this.$nextTick(() => { 
           this.uncheckAll() 
@@ -333,8 +303,8 @@ export default {
 
 ::v-deep .show-all-node {
   .el-checkbox__label {
-      font-weight: normal;
-    }
+    font-weight: normal;
+  }
 }
 ::v-deep .el-tree-node.is-checked {
   .custom-tree-node {
@@ -378,13 +348,9 @@ export default {
     margin-top: 0.5rem;
     margin-bottom: 0;
   }
-  margin: 0.5rem 1.5rem;
 }
 .white-background {
   background: white;
-}
-.padding-bottom {
-  padding-bottom: 0.5rem;
 }
 .expand-options-container {
   color: $purple;
