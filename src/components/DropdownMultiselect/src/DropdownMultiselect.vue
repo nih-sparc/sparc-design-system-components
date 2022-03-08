@@ -295,7 +295,6 @@ export default {
 .sparc-design-system-component-dropdown-multiselect {
   background-color: white;
   border: 1px solid $lineColor2;
-  border-top: none;
 }
 
 ::v-deep .show-all-node {

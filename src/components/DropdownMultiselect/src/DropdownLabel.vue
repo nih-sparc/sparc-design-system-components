@@ -1,6 +1,5 @@
 <template>
   <div :class="{ disabled: disabled }">
-    <hr />
     <div class="label-header">
       <span>
         <span class="label-title">{{ label }}</span>
