@@ -6,7 +6,7 @@
         <span class="label-title">{{ label }}</span>
         <el-tooltip placement="top-start" transition="none">
           <div slot="content" v-html="tooltip">{{tooltip}}</div>
-          <svgicon v-if="showHelpIcon" class="purple-fill" icon="help" width="26" height="26" />
+          <svgicon v-if="showHelpIcon" class="ml-4 help-icon" icon="help" width="20" height="20" />
         </el-tooltip>
       </span>
       <svgicon
@@ -108,8 +108,9 @@ export default {
   font-weight: 500;
 }
 
-.purple-fill {
+.help-icon {
   fill: $purple;
+  vertical-align: text-top;
 }
 
 hr {
