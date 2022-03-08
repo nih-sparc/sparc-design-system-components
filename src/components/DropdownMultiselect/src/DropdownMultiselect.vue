@@ -177,12 +177,6 @@ export default {
     },
   },
   watch: {
-    allVisibleDataIds(val) {
-      this.$refs.tree.filter(val)
-    },
-    optionsExpanded: function() {
-      this.$refs.tree.filter()
-    },
     'visibleData': function() {
       this.setShowAll();
     }
@@ -194,6 +188,7 @@ export default {
       })
     }
     if (this.showExpandOptionsContainer || this.visibleData !== undefined) {
+      this.numOptionsShown = 0;
       this.$refs.tree.filter()
     }
   },
@@ -274,6 +269,7 @@ export default {
     setOptionsExpanded(isExpanded) {
       this.numOptionsShown = 0;
       this.optionsExpanded = isExpanded
+      this.$refs.tree.filter()
     },
     setShowAll: function() {
       const checkedNodes = this.visibleCheckedNodes
