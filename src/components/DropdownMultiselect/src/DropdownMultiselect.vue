@@ -177,6 +177,10 @@ export default {
     },
   },
   watch: {
+    allVisibleDataIds(val) {
+      this.numOptionsShown = 0;
+      this.$refs.tree.filter(val)
+    },
     'visibleData': function() {
       this.setShowAll();
     }
