@@ -3,7 +3,7 @@
 .el-input {
   &.secondary {
     .el-input__inner {
-      border-color: #dcdfe6;
+      border-color: $lineColor1
     }
   }
   &__inner {
@@ -30,7 +30,7 @@
   }
   &.is-disabled {
     .el-input__inner {
-      border-color: #dcdfe6;
+      border-color: $lineColor1;
       color: $mediumGrey;
       &:hover {
         border-color: #dcdfe6 !important;
