@@ -58,22 +58,6 @@ export const OneOption = () => createDemo(
   }
 )
 
-export const TwoOptions = () => createDemo(
-  {
-    label: 'Two Options',
-    id: '0',
-    data: [
-    {
-      label: 'One',
-      id: '1',
-    },
-    {
-      label: 'Two',
-      id: '2',
-    }]
-  }
-)
-
 export const NineOptions = () => createDemo(
   {
     label: 'Nine Options',

@@ -54,39 +54,7 @@ data() {
 />
 ```
 
-### Less than 5 options Dropdown Multiselect
-
-<Story name="Two Options">{stories.TwoOptions()}</Story>
-
-#### Code
-
-```js
-data() {
-  return {
-    category: {
-      label: 'Two Options',
-      id: '0',
-      data: [
-      {
-        label: 'One',
-        id: '1',
-      },
-      {
-        label: 'Two',
-        id: '2',
-      }]
-    }
-  }
-}
-```
-
-```html
-<dropdown-multiselect
-  :category="category"  
-/>
-```
-
-### Between 5 and 9 options Dropdown Multiselect
+### Between 2 and 9 options Dropdown Multiselect
 
 <Story name="Nine Options">{stories.NineOptions()}</Story>
 
