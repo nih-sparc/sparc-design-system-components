@@ -294,7 +294,7 @@ export default {
 @import '../../../assets/_variables.scss';
 .sparc-design-system-component-dropdown-multiselect {
   background-color: white;
-  border: 1px solid #dbdfe6;
+  border: 1px solid $lineColor2;
   border-top: none;
 }
 
@@ -319,7 +319,7 @@ export default {
   }
 }
 .light-gray-background .el-tree {
-  background: rgb(250, 251, 252);
+  background: $background;
 }
 .el-tree-node__expand-icon.el-icon-caret-right {
   order: 1;
