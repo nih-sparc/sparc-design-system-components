@@ -23,8 +23,8 @@
           }
         ]"
       >
-        <el-form class="scroll">
-          <el-scrollbar wrap-style="max-height: 17.5rem;">
+        <el-form>
+          <el-scrollbar :wrap-class="optionsExpanded || !showExpandOptionsContainer ? 'expand' : 'minimize'">
             <el-tree
               ref="tree"
               :class="{ 'white-background': hasSingleNode }"
@@ -47,14 +47,14 @@
           v-on:click="setOptionsExpanded(true)" 
           class="expand-options-container"
         >
-          +Show more
+          + Expand
         </div>
         <div 
           v-if="showExpandOptionsContainer && optionsExpanded" 
           v-on:click="setOptionsExpanded(false)" 
           class="expand-options-container"
         >
-          -Show less
+          - Compress
         </div>
       </div>
     </dropdown-label>
@@ -64,8 +64,6 @@
 <script>
 import { pluck, propOr } from 'ramda'
 import DropdownLabel from './DropdownLabel.vue'
-
-const tooltipDelay = 800
 
 export default {
   name: 'DropdownMultiselect',
@@ -104,7 +102,7 @@ export default {
       treeProps: {
         label: 'label'
       },
-      optionsExpanded: false,
+      optionsExpanded: true,
       numOptionsShown: 0,
     }
   },
@@ -200,46 +198,14 @@ export default {
     // eslint-disable-next-line no-unused-vars
     renderContent(h, { node, data, store }) {
       return (
-        <el-tooltip
-          placement="right"
-          transition="none"
-          open-delay={tooltipDelay}
-        >
-          <div slot="content" class="capitalize">
-            {node.label}
-          </div>
-          <span class="custom-tree-node">
-            <span class="capitalize">{node.label}</span>
-          </span>
-        </el-tooltip>
+        <span class="custom-tree-node">
+          <span class="capitalize">{node.label}</span>
+        </span>
       )
     },
     // eslint-disable-next-line no-unused-vars
     filterNodes: function(data, node) {
-      if (this.visibleData === undefined) {
-        if (this.optionsExpanded) { return true }
-        if (this.numOptionsShown < 5) {
-          this.numOptionsShown += 1
-          return true
-        }
-        return false
-      }
-      else {
-        if (this.showExpandOptionsContainer) {
-          if (this.optionsExpanded) {
-            return this.allVisibleDataIds.includes(node.label)
-          }
-          else {
-            if (this.allVisibleDataIds.includes(node.label) && this.numOptionsShown < 5)
-            {
-              this.numOptionsShown += 1
-              return true
-            }
-            return false
-          }
-        }
-        return this.allVisibleDataIds.includes(node.label)
-      }
+      return this.visibleData === undefined ? true : this.allVisibleDataIds.includes(node.label)
     },
     onChangeShowAll: function(value) {
       if (value) {
@@ -355,8 +321,14 @@ export default {
   margin: 0.25rem 1.5rem;
   cursor: pointer;
 }
-.scroll {
-  overflow: hidden;
-  max-height: 17.5rem;
+::v-deep .expand {
+  max-height: none;
+  overflow-y: hidden;
+}
+::v-deep .minimize {
+  max-height: 9rem;
+}
+::v-deep .el-scrollbar__bar.is-vertical {
+  opacity: 1;
 }
 </style>
