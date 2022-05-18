@@ -76,6 +76,9 @@ export default {
         this.collapsed = !this.collapsed
       }
       return this.collapsed
+    },
+    setCollapsed(isCollapsed) {
+      this.collapsed = isCollapsed
     }
   }
 }

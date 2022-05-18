@@ -1,6 +1,7 @@
 <template>
   <div class="sparc-design-system-component-dropdown-multiselect">
     <dropdown-label
+      ref="label"
       :disabled="!enabled"
       :label="category.label"
       :tooltip="tooltip"
@@ -251,6 +252,9 @@ export default {
       } else {
         this.showAll = false
       }
+    },
+    setCollapsed: function(isCollapsed) {
+      this.$refs.label.setCollapsed(isCollapsed)
     }
   }
 }
