@@ -1,7 +1,7 @@
 <template>
   <el-tooltip
     :content="content"
-    :disabled="disabled"
+    :disabled="isDisabled"
     :placement="mappedPlacement"
   >
     <div v-if="!content" slot="content">
@@ -29,6 +29,12 @@ const PLACEMENTS = Object.freeze({
 export default {
   name: 'SparcTooltip',
 
+  data() {
+    return {
+      hidden: false
+    }
+  },
+
   props: {
     content: {
       type: String,
@@ -54,7 +60,16 @@ export default {
      */
     mappedPlacement: function() {
       return PLACEMENTS[this.placement.toLowerCase()]
-    }
+    },
+    isDisabled: function() {
+      return this.disabled || this.hidden
+    },
   },
+
+  methods: {
+    hide(isHidden) {
+      this.hidden = isHidden
+    }
+  }
 }
 </script>
