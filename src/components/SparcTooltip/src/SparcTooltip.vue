@@ -7,7 +7,9 @@
     <div v-if="!content" slot="content">
       <slot name="data"></slot>
     </div>
-    <slot name="item"></slot>
+    <div class="tooltip-item" @mouseenter="onEnterTooltip">
+      <slot name="item"></slot>
+    </div>
   </el-tooltip>
 </template>
 
@@ -50,6 +52,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    isRepeatingItemContent: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -69,7 +75,21 @@ export default {
   methods: {
     hide(isHidden) {
       this.hidden = isHidden
+    },
+    onEnterTooltip(e) {
+      // Hide the tooltip if it is simply repeating the items content and the items content is not cut off
+      if (!this.isRepeatingItemContent) { return }
+      const target = e.target
+      this.hidden = target.scrollWidth <= target.offsetWidth
     }
   }
 }
 </script>
+<style lang="scss" scoped>
+.tooltip-item {
+  display: flex;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+</style>
