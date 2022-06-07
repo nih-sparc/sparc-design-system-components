@@ -134,6 +134,10 @@
           <el-button slot="item">{{ dir }}</el-button>
         </sparc-tooltip>
       </div>
+      <sparc-tooltip placement="top-center" is-repeating-item-content>
+        <div slot="data">Only show this tooltip if content is cutoff</div>
+        <p slot="item">Only show tooltip when this has ellipsis</p>
+      </sparc-tooltip>
       <el-row type="flex" justify="center">
         <el-select
           v-model="selectVal"
