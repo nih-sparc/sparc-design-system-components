@@ -14,6 +14,9 @@
 </template>
 
 <script>
+
+import { pathOr, isEmpty } from 'ramda'
+
 const PLACEMENTS = Object.freeze({
   'top-left': 'bottom-start',
   'top-center': 'bottom',
@@ -79,15 +82,15 @@ export default {
     onEnterTooltip(e) {
       // Hide the tooltip if it is simply repeating the items content and the items content is not cut off
       if (!this.isRepeatingItemContent) { return }
-      const target = e.target
-      this.hidden = target.scrollWidth <= target.offsetWidth
+      const targetElement = pathOr(null, ['target', 'firstChild'], e)
+      if (isEmpty(targetElement)) { return }
+      this.hidden = targetElement.scrollWidth <= targetElement.offsetWidth
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 .tooltip-item {
-  display: flex;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

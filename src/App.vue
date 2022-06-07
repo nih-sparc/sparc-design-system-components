@@ -136,7 +136,7 @@
       </div>
       <sparc-tooltip placement="top-center" is-repeating-item-content>
         <div slot="data">Only show this tooltip if content is cutoff</div>
-        <p slot="item">Only show tooltip when this has ellipsis</p>
+        <div class="tooltip-item" slot="item">Only show tooltip when this has ellipsis</div>
       </sparc-tooltip>
       <el-row type="flex" justify="center">
         <el-select
@@ -960,5 +960,10 @@ export default {
 }
 .metadata-title {
   font-weight: 500;
+}
+.tooltip-item {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 </style>
