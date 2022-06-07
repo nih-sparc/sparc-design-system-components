@@ -346,10 +346,9 @@
 <script>
 import { successMessage, failMessage, informationNotification, iconInformationNotification } from "../utils/notificationMessages"
 import BreadcrumbTrail from './components/BreadcrumbTrail/src/BreadcrumbTrail.vue'
-import SparcTooltip from './components/SparcTooltip/src/SparcTooltip.vue'
 
 export default {
-  components: { BreadcrumbTrail, SparcTooltip },
+  components: { BreadcrumbTrail },
   name: 'App',
 
   data() {
