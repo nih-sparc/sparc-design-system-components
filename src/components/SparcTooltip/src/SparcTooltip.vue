@@ -7,9 +7,9 @@
     <div v-if="!content" slot="content">
       <slot name="data"></slot>
     </div>
-    <div class="tooltip-item" @mouseenter="onEnterTooltip">
+    <span @mouseenter="onEnterTooltip">
       <slot name="item"></slot>
-    </div>
+    </span>
   </el-tooltip>
 </template>
 
@@ -89,10 +89,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.tooltip-item {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-</style>
