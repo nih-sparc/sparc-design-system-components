@@ -288,7 +288,7 @@ export default {
   }
 }
 .light-gray-background .el-tree {
-  background: $background;
+  background: #FAFBFC;
 }
 .el-tree-node__expand-icon.el-icon-caret-right {
   order: 1;

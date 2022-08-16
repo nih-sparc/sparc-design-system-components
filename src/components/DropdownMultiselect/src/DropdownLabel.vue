@@ -87,7 +87,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
 .label-content-container {
-  background-color: $background
+  background-color: #FAFBFC
 }
 
 .label-header {
@@ -123,6 +123,6 @@ hr {
 
 .disabled {
   opacity: 0.5;
-  background-color: $background;
+  background-color: #FAFBFC;
 }
 </style>
