@@ -93,6 +93,8 @@ export default {
     flex-shrink: 0;
     color: #fff;
     max-width: 316px;
+    min-width: min-content;
+    width: 35%;
     overflow: hidden;
     position: relative;
     padding: 2rem;
@@ -113,7 +115,8 @@ export default {
 
   ::v-deep .el-dialog {
     border-radius: 0;
-    width: 868px;
+    width: fit-content;
+    max-width: 868px;
 
     .el-dialog__body {
       padding: 0;
