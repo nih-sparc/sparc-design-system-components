@@ -182,6 +182,9 @@ export default {
     },
     'visibleData': function() {
       this.setShowAll();
+    },
+    'defaultCheckedIds': function() {
+      this.setShowAll();
     }
   },
   mounted() {
