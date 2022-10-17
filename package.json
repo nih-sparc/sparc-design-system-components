@@ -1,6 +1,6 @@
 {
   "name": "@nih-sparc/sparc-design-system-components",
-  "version": "0.26.24",
+  "version": "0.26.25",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
