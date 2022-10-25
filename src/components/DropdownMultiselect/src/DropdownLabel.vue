@@ -1,6 +1,6 @@
 <template>
   <div :class="{ disabled: disabled }">
-    <div class="label-header">
+    <div @click="onArrowClicked" :class="showCollapsibleArrow ? 'label-header-clickable' : ''" class="label-header">
       <span>
         <span class="label-title">{{ label }}</span>
         <el-tooltip placement="top-start" transition="none">
@@ -15,7 +15,6 @@
         :dir="collapsibleArrowDir"
         height="15"
         width="15"
-        @click="onArrowClicked"
       />
     </div>
     <div v-show="showContent" class="label-content-container">
@@ -72,7 +71,7 @@ export default {
   },
   methods: {
     onArrowClicked() {
-      if (!this.disabled) {
+      if (this.showCollapsibleArrow && !this.disabled) {
         this.collapsed = !this.collapsed
       }
       return this.collapsed
@@ -102,6 +101,10 @@ export default {
   svg {
     cursor: pointer
   }
+}
+
+.label-header-clickable {
+  cursor: pointer;
 }
 
 .label-title {
