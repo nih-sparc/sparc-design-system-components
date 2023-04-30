@@ -162,7 +162,6 @@ export default {
           }
         }
       })
-      console.log("TOTAL VISIBLE LEAF NODES = ", num)
       return num
     },
     numFirstLevelNodes: function() {
