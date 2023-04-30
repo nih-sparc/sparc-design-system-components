@@ -162,6 +162,7 @@ export default {
           }
         }
       })
+      console.log("TOTAL VISIBLE LEAF NODES = ", num)
       return num
     },
     numFirstLevelNodes: function() {
@@ -265,8 +266,8 @@ export default {
       })
     },
     setShowAll: function() {
-      const checkedNodes = this.visibleCheckedNodes
-      if ((!checkedNodes.length || checkedNodes.length >= this.totalVisibleLeafNodes) && !this.hasSingleNode) {
+      const checkedLeafNodes = this.visibleCheckedNodes.filter(node => node.children == undefined || isEmpty(node.children))
+      if ((!checkedLeafNodes.length || checkedLeafNodes.length >= this.totalVisibleLeafNodes) && !this.hasSingleNode) {
         this.showAll = true
         this.$nextTick(() => { 
           this.uncheckAll()
