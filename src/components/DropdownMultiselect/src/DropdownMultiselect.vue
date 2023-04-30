@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import { pluck, propOr } from 'ramda'
+import { pathOr, pluck, propOr, isEmpty } from 'ramda'
 import DropdownLabel from './DropdownLabel.vue'
 
 export default {
@@ -109,7 +109,7 @@ export default {
   },
   computed: {
     allVisibleDataIds: function() {
-      return Object.keys(propOr({}, this.category.id, this.visibleData))
+      return Object.keys(propOr({}, pathOr('', ['facet', 'facetPropPath'], this.category), this.visibleData)).concat(Object.keys(propOr({}, pathOr('', ['facet', 'facetSubpropPath'], this.category), this.visibleData)))
     },
     visibleCheckedNodes: function() {
       const allCheckedNodes = this.$refs.tree.getCheckedNodes()
@@ -136,25 +136,29 @@ export default {
     defaultCheckedKeys: function() {
       return this.defaultCheckedIds
     },
-    totalVisibleNodes: function() {
+    totalVisibleLeafNodes: function() {
       let num = 0
       this.category.data.forEach(node => {
         if (this.visibleData === undefined) {
-          if (node.children !== undefined) {
+          if (node.children !== undefined && !isEmpty(node.children)) {
             node.children.forEach(() => {
               num += 1
             })
+          } else {
+            num += 1
           }
-          num += 1
         }
         else {
           if (this.allVisibleDataIds.includes(node.label)) {
-            if (node.children !== undefined) {
-              node.children.forEach(() => {
-                num += 1
+            if (node.children !== undefined && !isEmpty(node.children)) {
+              node.children.forEach(child => {
+                if (this.allVisibleDataIds.includes(child.label))
+                  num += 1
               })
             }
-            num += 1
+            else {
+              num += 1
+            }
           }
         }
       })
@@ -200,13 +204,13 @@ export default {
     renderContent(h, { node, data, store }) {
       return (
         <span class="custom-tree-node">
-          <span class="capitalize">{node.label}</span>
+          <span class="capitalize">{node.label.split('.').pop()}</span>
         </span>
       )
     },
     // eslint-disable-next-line no-unused-vars
     filterNodes: function(data, node) {
-      return this.visibleData === undefined ? true : this.allVisibleDataIds.includes(node.label)
+      return this.visibleData === undefined ? true : this.allVisibleDataIds.some(id => id.includes(node.label))
     },
     onChangeShowAll: function(value) {
       if (value) {
@@ -219,7 +223,7 @@ export default {
       this.setShowAll()
       this.$emit('selection-change', {
         id: this.category.id,
-        checkedNodes: this.$refs.tree.getCheckedNodes(true)
+        checkedNodes: this.$refs.tree.getCheckedNodes(false, false)
       })
     },
     getSelectedNodes: function() {
@@ -242,15 +246,35 @@ export default {
       this.optionsExpanded = isExpanded
       this.$refs.tree.filter()
     },
+    updateParentFacetsSelectedStatus() {
+      const halfCheckedNodes = this.$refs.tree.getHalfCheckedNodes()
+      // set the half checked nodes checked status based upon what facets are actually visible since navigating between tabs might 
+      // cause some to be hidden so the parent facet should now possibly be checked/unchecked instead of half checked
+      halfCheckedNodes.forEach(halfCheckedNode => {
+        if (this.visibleCheckedNodes.every(visibleNode => !halfCheckedNode.children.some(child => visibleNode.label == child.label))) {
+          this.$refs.tree.setChecked(halfCheckedNode.id, false)
+        }
+        else if (this.visibleCheckedNodes.every(visibleNode => halfCheckedNode.children.some(child => visibleNode.label == child.label))) {
+          this.$refs.tree.setChecked(halfCheckedNode.id, true)
+        }
+      })
+      // set any subfacets again so that their parent facets get updated to checked/half checked in case their parent selection was cleared
+      // by the previous tab navigation (i.e. show all was set automatically all the visible facets aviable in the new tab were selected)
+      this.visibleCheckedNodes.filter(node => node.label.includes('.')).forEach(subfacet => {
+        this.$refs.tree.setChecked(subfacet.id, true, true)
+      })
+    },
     setShowAll: function() {
-      const checkedNodes = this.visibleCheckedNodes
-      if ((!checkedNodes.length || checkedNodes.length === this.totalVisibleNodes) && !this.hasSingleNode) {
+      const checkedLeafNodes = this.visibleCheckedNodes.filter(node => node.children == undefined || isEmpty(node.children))
+      if ((!checkedLeafNodes.length || checkedLeafNodes.length >= this.totalVisibleLeafNodes) && !this.hasSingleNode) {
         this.showAll = true
         this.$nextTick(() => { 
-          this.uncheckAll() 
+          this.uncheckAll()
+          this.updateParentFacetsSelectedStatus()
         })
       } else {
         this.showAll = false
+        this.updateParentFacetsSelectedStatus()
       }
     },
     setCollapsed: function(isCollapsed) {
