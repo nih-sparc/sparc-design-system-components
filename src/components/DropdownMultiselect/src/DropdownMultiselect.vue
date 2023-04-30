@@ -140,7 +140,7 @@ export default {
       let num = 0
       this.category.data.forEach(node => {
         if (this.visibleData === undefined) {
-          if (node.children !== undefined && node.children != []) {
+          if (node.children !== undefined && !isEmpty(node.children)) {
             node.children.forEach(() => {
               num += 1
             })
