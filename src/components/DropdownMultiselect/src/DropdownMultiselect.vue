@@ -210,7 +210,7 @@ export default {
     },
     // eslint-disable-next-line no-unused-vars
     filterNodes: function(data, node) {
-      return this.visibleData === undefined ? true : this.allVisibleDataIds.some(id => id.includes(node.label))
+      return this.visibleData === undefined ? true : this.allVisibleDataIds.some(id => id == node.label)
     },
     onChangeShowAll: function(value) {
       if (value) {
@@ -222,12 +222,9 @@ export default {
     onCheckChange: function() {
       this.setShowAll()
       this.$emit('selection-change', {
-        id: this.category.id,
+        id: pathOr('', ['facet', 'id'], this.category),
         checkedNodes: this.$refs.tree.getCheckedNodes(false, false)
       })
-    },
-    getSelectedNodes: function() {
-      return this.$refs.tree.getCheckedNodes()
     },
     uncheckAll: function() {
       if (this.visibleData === undefined)
