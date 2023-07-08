@@ -28,6 +28,21 @@ export const failMessage = message => {
 }
 
 /**
+ * Information notification message object
+ * @param {String} message
+ * @return {Object}
+ */
+export const infoMessage = message => {
+  return {
+    message: message,
+    showClose: true,
+    iconClass: 'about-icon',
+    customClass: 'el-message--info',
+    duration: 5000
+  }
+}
+
+/**
 * Notification message object
 * @param {String} message
 * @return {Object}
