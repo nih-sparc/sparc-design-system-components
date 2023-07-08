@@ -3,10 +3,11 @@
     <el-pagination
       :page-size="pageSize"
       :page-count="pageCount"
-      :pager-count="5"
+      :pager-count="pagerCount"
       layout="prev, pager, next"
       :total="totalCount"
       :current-page="selected"
+      :background="background"
       @current-change="selectPage"
     />
   </div>
@@ -27,6 +28,14 @@ export default {
     totalCount: {
       type: Number,
       default: 0
+    },
+    background: {
+      type: Boolean,
+      default: false
+    },
+    pagerCount: {
+      type: Number,
+      default: 5
     }
   },
   computed: {
@@ -50,6 +59,39 @@ export default {
 .sparc-design-system-pagination {
   padding-top: 1em;
   text-align: center;
+
+  .is-background {
+    li.more,
+    li.number {
+      background: #f9f2fc;
+      border: 1.5px solid $app-primary-color;
+      color: $app-primary-color;
+      border-radius: 50%;
+    }
+    .el-pager .more::before {
+      line-height: 0;
+    }
+    li.number.active {
+      color: white;
+    }
+    .btn-next, .btn-prev {
+      background: $app-primary-color;
+      color: white;
+      border-radius: 50%;
+    }
+    .btn-next:disabled, .btn-prev:disabled {
+      background: $lightGrey;
+      opacity: 0.3;
+      color: white;
+    }
+    .btn-next .el-icon, .btn-prev .el-icon {
+      font-size: 1rem;
+    }
+    li.number:hover {
+      background: $app-primary-color;
+      color: white !important;
+    }
+  }
 
   button.btn-prev {
     background: transparent;

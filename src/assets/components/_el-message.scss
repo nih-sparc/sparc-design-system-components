@@ -1,14 +1,9 @@
 @import '../_variables.scss';
 
 .el-message {
-  padding: 15px 3px 15px 15px;
+  padding: 1rem;
   @media screen and (max-width: 767px) {
     min-width: 250px;
-  }
-  .el-message__closeBtn {
-    color: #9CA1A3;
-    transform: scale(0.8);
-    top: 35%;
   }
   &.el-message--success {
     background-color: #F7FFEE;
@@ -16,7 +11,7 @@
     .el-icon-circle-check {
       color: #5E9F69;
       -webkit-text-stroke-width: 0.016rem;
-      padding-right: 15px;
+      padding-right: 1rem;
     }
     .el-message__content {
       color: #303133;
@@ -28,10 +23,31 @@
     .el-icon-circle-close {
       color: #B51D09;
       -webkit-text-stroke-width: 0.016rem;
-      padding-right: 15px;
+      padding-right: 1rem;
     }
     .el-message__content {
       color: #303133;
+    }
+  }
+  &.el-message--info {
+    background-color: #f9f2fc;;
+    border: 1px solid $purple;
+    .el-message__content {
+      color: #303133;
+      margin: 0 .5rem;
+    }
+    .about-icon {
+      background-color: $purple;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: inline-block;
+      content: '';
+      -webkit-mask: url("data:image/svg+xml,%3Csvg id='icons' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctitle%3EDataPortal-Icons%3C/title%3E%3Cpath d='M12,5a7,7,0,1,1-7,7,7.008,7.008,0,0,1,7-7m0-2a9,9,0,1,0,9,9,9,9,0,0,0-9-9Z'/%3E%3Cpath d='M12,7.148a.9.9,0,1,0,.9.9.9.9,0,0,0-.9-.9Z'/%3E%3Cpath d='M12,17.148a1,1,0,0,1-1-1v-5.4a1,1,0,1,1,2,0v5.4A1,1,0,0,1,12,17.148Z'/%3E%3C/svg%3E");
+      mask: url("data:image/svg+xml,%3Csvg id='icons' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctitle%3EDataPortal-Icons%3C/title%3E%3Cpath d='M12,5a7,7,0,1,1-7,7,7.008,7.008,0,0,1,7-7m0-2a9,9,0,1,0,9,9,9,9,0,0,0-9-9Z'/%3E%3Cpath d='M12,7.148a.9.9,0,1,0,.9.9.9.9,0,0,0-.9-.9Z'/%3E%3Cpath d='M12,17.148a1,1,0,0,1-1-1v-5.4a1,1,0,1,1,2,0v5.4A1,1,0,0,1,12,17.148Z'/%3E%3C/svg%3E");
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
     }
   }
 }

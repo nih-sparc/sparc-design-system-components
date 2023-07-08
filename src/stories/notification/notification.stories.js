@@ -106,3 +106,29 @@ export const FailureNotification = () => ({
     </el-button>
   `
 })
+
+export const InfoNotification = () => ({
+  data() {
+    return {
+      notification : {
+        message: 'Portal Announcement Notification.',
+        showClose: true,
+        iconClass: 'about-icon',
+        customClass: 'el-message--info',
+        duration: 5000
+      }
+    }
+  },
+  methods: {
+    clickHandler() {
+      this.$message(this.notification)
+    }
+  },
+  template: `
+    <el-button
+      plain
+      @click="clickHandler">
+      Show Notification
+    </el-button>
+  `
+})
