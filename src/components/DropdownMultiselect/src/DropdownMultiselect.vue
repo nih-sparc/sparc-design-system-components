@@ -243,6 +243,21 @@ export default {
       this.$refs.tree.filter()
     },
     updateParentFacetsSelectedStatus() {
+      let visibleCheckedParents = this.visibleCheckedNodes.filter(visibleNode => {
+        return !visibleNode.label.includes('.')
+      })
+      let visibleCheckedChildren = this.visibleCheckedNodes.filter(visibleNode => {
+        return visibleNode.label.includes('.')
+      })
+
+      // First check for any subfacets that have a parent that is not set
+      visibleCheckedChildren.forEach(checkedChild => {
+        const parentLabel = checkedChild.label.split('.')[0]
+        if (!visibleCheckedParents.some(parent => parent.label == parentLabel)) {
+          this.$refs.tree.setChecked(checkedChild.id, true, true)
+        }
+      })
+
       const halfCheckedNodes = this.$refs.tree.getHalfCheckedNodes()
       // set the half checked nodes checked status based upon what facets are actually visible since navigating between tabs might 
       // cause some to be hidden so the parent facet should now possibly be checked/unchecked instead of half checked
@@ -265,19 +280,11 @@ export default {
         }
       })
 
-      const visibleCheckedParents = this.visibleCheckedNodes.filter(visibleNode => {
+      visibleCheckedParents = this.visibleCheckedNodes.filter(visibleNode => {
         return !visibleNode.label.includes('.')
       })
-      const visibleCheckedChildren = this.visibleCheckedNodes.filter(visibleNode => {
+      visibleCheckedChildren = this.visibleCheckedNodes.filter(visibleNode => {
         return visibleNode.label.includes('.')
-      })
-
-      // Check for any subfacets that have a parent that is not set
-      visibleCheckedChildren.forEach(checkedChild => {
-        const parentLabel = checkedChild.label.split('.')[0]
-        if (!visibleCheckedParents.some(parent => parent.label == parentLabel)) {
-          this.$refs.tree.setChecked(checkedChild.id, true, true)
-        }
       })
 
       visibleCheckedParents.forEach(checkedParent => {
@@ -299,6 +306,8 @@ export default {
           })
           if (alreadyCheckedChild != undefined) {
             this.$refs.tree.setChecked(alreadyCheckedChild.id, true, true)
+          } else {
+            this.$refs.tree.setChecked(checkedParent.id, false)
           }
         }
       })
