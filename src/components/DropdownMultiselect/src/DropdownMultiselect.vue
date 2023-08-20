@@ -34,6 +34,7 @@
               show-checkbox
               check-on-click-node
               :default-checked-keys="defaultCheckedKeys"
+              :auto-expand-parent="false"
               :expand-on-click-node="false"
               :filter-node-method="filterNodes"
               :props="treeProps"
@@ -180,9 +181,9 @@ export default {
     },
   },
   watch: {
-    allVisibleDataIds(val) {
+    allVisibleDataIds() {
       this.numOptionsShown = 0;
-      this.$refs.tree.filter(val)
+      this.$refs.tree.filter()
     },
     'visibleData': function() {
       this.setShowAll();
