@@ -33,8 +33,8 @@
               node-key="id"
               show-checkbox
               check-on-click-node
-              :default-expand-all="false"
               :default-checked-keys="defaultCheckedKeys"
+              :auto-expand-parent="false"
               :expand-on-click-node="false"
               :filter-node-method="filterNodes"
               :props="treeProps"
@@ -44,14 +44,14 @@
           </el-scrollbar>
         </el-form>
         <div 
-          v-if="showExpandOptionsContainer && !optionsExpanded" 
+          v-show="showExpandOptionsContainer && !optionsExpanded" 
           v-on:click="setOptionsExpanded(true)" 
           class="expand-options-container"
         >
           + Expand
         </div>
         <div 
-          v-if="showExpandOptionsContainer && optionsExpanded" 
+          v-show="showExpandOptionsContainer && optionsExpanded" 
           v-on:click="setOptionsExpanded(false)" 
           class="expand-options-container"
         >
@@ -101,6 +101,7 @@ export default {
     return {
       showAll: true,
       treeProps: {
+        children: 'children',
         label: 'label'
       },
       optionsExpanded: true,
@@ -180,9 +181,9 @@ export default {
     },
   },
   watch: {
-    allVisibleDataIds(val) {
+    allVisibleDataIds() {
       this.numOptionsShown = 0;
-      this.$refs.tree.filter(val)
+      this.$refs.tree.filter()
     },
     'visibleData': function() {
       this.setShowAll();
@@ -190,9 +191,7 @@ export default {
   },
   mounted() {
     if (this.defaultCheckedKeys.length) {
-      this.$nextTick(() => {
-        this.onCheckChange()
-      })
+      this.onCheckChange()
     }
     if (this.showExpandOptionsContainer || this.visibleData !== undefined) {
       this.numOptionsShown = 0;
@@ -244,21 +243,73 @@ export default {
       this.$refs.tree.filter()
     },
     updateParentFacetsSelectedStatus() {
+      let visibleCheckedParents = this.visibleCheckedNodes.filter(visibleNode => {
+        return !visibleNode.label.includes('.')
+      })
+      let visibleCheckedChildren = this.visibleCheckedNodes.filter(visibleNode => {
+        return visibleNode.label.includes('.')
+      })
+
+      // First check for any subfacets that have a parent that is not set
+      visibleCheckedChildren.forEach(checkedChild => {
+        const parentLabel = checkedChild.label.split('.')[0]
+        if (!visibleCheckedParents.some(parent => parent.label == parentLabel)) {
+          this.$refs.tree.setChecked(checkedChild.id, true, true)
+        }
+      })
+
       const halfCheckedNodes = this.$refs.tree.getHalfCheckedNodes()
       // set the half checked nodes checked status based upon what facets are actually visible since navigating between tabs might 
       // cause some to be hidden so the parent facet should now possibly be checked/unchecked instead of half checked
       halfCheckedNodes.forEach(halfCheckedNode => {
+        const visibleChildren = halfCheckedNode.children.filter((child) => {
+          return this.allVisibleDataIds.includes(child.label)
+        })
+        const visibleCheckedChildren = halfCheckedNode.children.filter((child) => {
+          return this.visibleCheckedNodes.some(visibleNode => visibleNode.label == child.label)
+        })
+        if (!this.allVisibleDataIds.includes(halfCheckedNode.label)) {
+          return
+        }
         if (this.visibleCheckedNodes.every(visibleNode => !halfCheckedNode.children.some(child => visibleNode.label == child.label))) {
           this.$refs.tree.setChecked(halfCheckedNode.id, false)
         }
-        else if (this.visibleCheckedNodes.every(visibleNode => halfCheckedNode.children.some(child => visibleNode.label == child.label))) {
+        // If number of visible checked nodes in halfCheckedNode is equal to number of children that are visible (number of children thast are visible is equal to allVisibleDataIds with halfCheckedNode label as a parent)
+        else if (visibleChildren.length == visibleCheckedChildren.length) {
           this.$refs.tree.setChecked(halfCheckedNode.id, true)
         }
       })
-      // set any subfacets again so that their parent facets get updated to checked/half checked in case their parent selection was cleared
-      // by the previous tab navigation (i.e. show all was set automatically all the visible facets aviable in the new tab were selected)
-      this.visibleCheckedNodes.filter(node => node.label.includes('.')).forEach(subfacet => {
-        this.$refs.tree.setChecked(subfacet.id, true, true)
+
+      visibleCheckedParents = this.visibleCheckedNodes.filter(visibleNode => {
+        return !visibleNode.label.includes('.')
+      })
+      visibleCheckedChildren = this.visibleCheckedNodes.filter(visibleNode => {
+        return visibleNode.label.includes('.')
+      })
+
+      visibleCheckedParents.forEach(checkedParent => {
+        // If any children are unselected then select one deep so that the parent is half-checked
+        const visibleChildren = checkedParent.children.filter(child => this.allVisibleDataIds.includes(child.label))
+        if (visibleChildren.some(visibleChild => {
+          let isChecked = false
+          visibleCheckedChildren.forEach(checkedChild => {
+            if (checkedChild.label == visibleChild.label) {
+              isChecked = true
+              return
+            }
+          })
+          return !isChecked
+        })) {
+          const alreadyCheckedChild = visibleCheckedChildren.find(child => {
+            const childsParentLabel = child.label.split('.')[0]
+            return childsParentLabel == checkedParent.label
+          })
+          if (alreadyCheckedChild != undefined) {
+            this.$refs.tree.setChecked(alreadyCheckedChild.id, true, true)
+          } else {
+            this.$refs.tree.setChecked(checkedParent.id, false)
+          }
+        }
       })
     },
     setShowAll: function() {
