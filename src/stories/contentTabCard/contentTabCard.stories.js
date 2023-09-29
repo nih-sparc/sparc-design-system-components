@@ -28,7 +28,6 @@ const createDemo = (contentTabCardItem) => {
         <div
           v-for="tab in tabs"
           :key="tab.id"
-          class="m-8"
         >
           <div
             v-show="activeTabId === tab.id" 

@@ -1,19 +1,18 @@
 <template>
   <div>
-    <el-row :class="[tabStyle, 'tabs-container']">
-      <el-col class="tabs-column">
+    <div :class="[tabStyle]">
         <span :class="[tabStyle, 'link-container']" v-for="tab in tabs" :key="tab.label">
           <!-- Expect this to be either nuxt-link or router-link -->
           <component v-if="linkComponent"
             :is="linkComponent"
             :to="{ query: queryParams(tab.id) }"
             @click.native="$emit('tab-changed', tab)"
-            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link px-8']"
+            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
           >
             {{ tab.label }}
           </component>
           <a v-else-if="tab.href"
-            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link px-8']"
+            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
             :href="tab.href"
             target="_blank"    
           >
@@ -21,15 +20,14 @@
           </a>
           <a
             v-else
-            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link px-8']"
+            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
             @click.prevent="$emit('tab-changed', tab)"
           >
             {{ tab.label }}
           </a>
         </span>
-      </el-col>
-    </el-row>
-    <div class="content pt-16">
+    </div>
+    <div class="content mt-8 p-16">
       <slot />
     </div>
   </div>
@@ -84,26 +82,20 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../assets/_variables.scss';
-
+.style1 {
+  line-height: normal;
+}
 .tab-link {
   text-decoration: none;
   flex-wrap: nowrap;
+  border: 1px solid $lineColor1;
   cursor: pointer;
-  &.style1, &.style3 {
-    border-bottom: .125em solid $lineColor1;
-  }
-  &.style1, &.style2 {
-    margin-right: 2rem;
-    padding-bottom: .12em;
-  }
-  &.style3 {
-    margin-right: .5rem;
-    padding-bottom: .2em;
-  }
   &:hover, &.active {
     &.style1, &.style3 {
+      border: 1px solid $purple;
       border-bottom: .125em solid $purple;
       color: $purple;
+      background-color: #f9f2fc;
       font-weight: 500;
     }
     &.style2 {
@@ -112,22 +104,8 @@ export default {
     }
   } 
 }
-.tabs-column {
-  .link-container:last-child > .tab-link {
-    margin-right: 0;
-  }
-}
-.tabs-container {
-  display: block;
-  &.style1, &.style3 {
-    border-bottom: .125em solid $lineColor1;
-  }
-  &.style2 {
-    background-color: $darkBlue;
-    padding: 1.5rem;
-  }
-}
 .content {
+  border: 1px solid $lineColor1;
   overflow: auto;
 }
 </style>
