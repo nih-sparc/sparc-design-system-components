@@ -1,32 +1,30 @@
 <template>
-  <div>
-    <div :class="[tabStyle]">
-        <span :class="[tabStyle, 'link-container']" v-for="tab in tabs" :key="tab.label">
-          <!-- Expect this to be either nuxt-link or router-link -->
-          <component v-if="linkComponent"
-            :is="linkComponent"
-            :to="{ query: queryParams(tab.id) }"
-            @click.native="$emit('tab-changed', tab)"
-            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
-          >
-            {{ tab.label }}
-          </component>
-          <a v-else-if="tab.href"
-            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
-            :href="tab.href"
-            target="_blank"    
-          >
-            {{ tab.label }}
-          </a>
-          <a
-            v-else
-            :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
-            @click.prevent="$emit('tab-changed', tab)"
-          >
-            {{ tab.label }}
-          </a>
-        </span>
-    </div>
+  <div class="card-container">
+    <span :class="[tabStyle, 'link-container']" v-for="tab in tabs" :key="tab.label">
+      <!-- Expect this to be either nuxt-link or router-link -->
+      <component v-if="linkComponent"
+        :is="linkComponent"
+        :to="{ query: queryParams(tab.id) }"
+        @click.native="$emit('tab-changed', tab)"
+        :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
+      >
+        {{ tab.label }}
+      </component>
+      <a v-else-if="tab.href"
+        :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
+        :href="tab.href"
+        target="_blank"    
+      >
+        {{ tab.label }}
+      </a>
+      <a
+        v-else
+        :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
+        @click.prevent="$emit('tab-changed', tab)"
+      >
+        {{ tab.label }}
+      </a>
+    </span>
     <div class="content mt-8 p-16">
       <slot />
     </div>
@@ -106,6 +104,13 @@ export default {
 }
 .content {
   border: 1px solid $lineColor1;
+  background-color: white;
   overflow: auto;
+}
+.tab-link {
+  background-color: white;
+}
+.card-container {
+  line-height: normal;
 }
 </style>
