@@ -6,12 +6,12 @@
         :is="linkComponent"
         :to="{ query: queryParams(tab.id) }"
         @click.native="$emit('tab-changed', tab)"
-        :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
+        :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-16']"
       >
         {{ tab.label }}
       </component>
       <a v-else-if="tab.href"
-        :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
+        :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-16']"
         :href="tab.href"
         target="_blank"    
       >
@@ -19,13 +19,13 @@
       </a>
       <a
         v-else
-        :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-8']"
+        :class="[{ active: tab.id === activeTabId }, tabStyle, tabClass, 'tab-link p-16']"
         @click.prevent="$emit('tab-changed', tab)"
       >
         {{ tab.label }}
       </a>
     </span>
-    <div class="content mt-8 p-16">
+    <div class="content mt-16 p-16">
       <slot />
     </div>
   </div>
