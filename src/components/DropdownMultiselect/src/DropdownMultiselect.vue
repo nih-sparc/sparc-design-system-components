@@ -226,8 +226,10 @@ export default {
       })
     },
     uncheckAll: function() {
-      if (this.visibleData === undefined)
-      {
+      this.$refs.tree.setCheckedKeys([])
+    },
+    uncheckAllVisible: function () {
+      if (this.visibleData === undefined) {
         this.$refs.tree.setCheckedKeys([])
         return
       }
@@ -317,7 +319,7 @@ export default {
       if ((!checkedLeafNodes.length || checkedLeafNodes.length >= this.totalVisibleLeafNodes) && !this.hasSingleNode) {
         this.showAll = true
         this.$nextTick(() => { 
-          this.uncheckAll()
+          this.uncheckAllVisible()
           this.updateParentFacetsSelectedStatus()
         })
       } else {
