@@ -39,6 +39,7 @@
               :filter-node-method="filterNodes"
               :props="treeProps"
               :render-content="renderContent"
+              :render-after-expand="false"
               @check-change="onCheckChange"
             />
           </el-scrollbar>
