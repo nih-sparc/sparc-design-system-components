@@ -6,7 +6,6 @@
       :label="category.label"
       :tooltip="tooltip"
       :collapse-by-default="collapseByDefault"
-      :show-collapsible-arrow="!hasSingleNode"
     >
       <hr v-show="!hasSingleNode" />
       <div v-show="!hasSingleNode" class="show-all-node mx-24 my-8">
